@@ -61,6 +61,30 @@
         var marker = L.marker([51.5, -0.09]).addTo(map)
             .bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
 
+        getData();
+
+        async function getData() {
+            const response = await fetch("data.csv");;
+            const data = await response.text();
+
+            const table = data.split('\n').slice(1);
+            table.forEach(row => {
+                const column = row.split(',');
+                const name = column[0];
+                const posX = column[1];
+                const posY = column[2];
+                const layer = column[3];
+                const color = column[4];
+                const icon = column[5];
+                const content = column[6];
+
+                console.log(name, color);
+
+
+            });
+
+        }
+
     </script>
 </body>
 </html>
