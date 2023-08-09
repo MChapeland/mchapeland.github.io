@@ -1,0 +1,5 @@
+name,posX,posY,layer,color,icon,content
+"Forest",10,10,macro,green,tree,"A beautiful lush forest."
+"Mountain",0,0,macro,brown,mountain,"A tall imposing mountain."
+"Berry Tree",50,50,meso,purple,fruit,"A small bush with 3 berries on it."
+"Bridge",25,25,micro,grey,structure,"A strong well-built bridge."

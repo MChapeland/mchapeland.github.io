@@ -1,0 +1,205 @@
+﻿
+/* ----- Constant Variables ----- */
+:root {
+    --CBase: #414042;
+    --CBaseHover: #353535;
+    --CBaseClick: #303030;
+    --CBaseLight4: #d1d3d4;
+    --CBaseLight3: #a7a9ac;
+    --CBaseLight2: rgba(147, 149, 152, 1);
+    --CBaseLight1: #6d6e71;
+    --CBaseDark: #2a2a2a;
+    --CBaseDarker: #8b5e3c;
+    --CBaseDarkest: rgba(96, 57, 19, 1);
+    --CWhite: #e6e7e83;
+    --CBlack: #808285;
+    --CRed: rgba(232, 80, 105, 1);
+    --COrange: rgba(248, 157, 116, 1);
+    --CYellow: #fac779;
+    --CGreen: #a2d17d;
+    --CTurquoise: rgba(122, 202, 181, 1);
+    --CBlue: #61bbd5;
+    --CMarine: rgba(133, 157, 209, 1);
+    --CPurple: rgba(173, 137, 191, 1);
+    --CPink: #f48d9c;
+    --CMapBG: #6b8bbc;
+    --CButton: rgba(161, 90, 48, 1);
+    --CBackground: rgba(31, 31, 31, 1);
+}
+
+
+
+/* ----- Page Parameters ----- */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    background: var(--CBaseDark);
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+.header {
+    z-index: 10;
+    width: 100%;
+    max-width: 100%;
+    height: 60px !important;
+    background-color: var(--CBase);
+    text-align: center;
+    margin: 0 auto;
+}
+    .header label {
+        color: var(--CBaseLight4);
+        font-size: 35px;
+        font-weight: 600;
+        padding: 10px;
+        vertical-align: middle;
+        line-height: 60px;
+    }
+
+.main {
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
+    margin-left: 0 !important;
+    transition: margin-left 250ms ease-in-out;
+}
+
+/* ----- Sidebar Menu Parameters ----- */
+
+#sidebarMenu {
+    z-index: 1;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width: 200px;
+    transform: translateX(-200px);
+    transition: transform 250ms ease-in-out;
+    background: var(--CBase);
+}
+
+.sidebarMenuInner {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+    .sidebarMenuInner li {
+        list-style: none;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 20px;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+        .sidebarMenuInner li span {
+            display: block;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.50);
+        }
+        .sidebarMenuInner li a {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input[type="checkbox"]:checked ~ .main {
+    margin-left: 200px !important;
+}
+
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+}
+
+
+
+/* ----- Menu Spinner Parameters ----- */
+
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+}
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+
+
+
+/* ----- Map Parameters ----- */
+#map {
+    z-index: 1000;
+    width: 100%;
+    max-width: 100%;
+    background: var(--CMapBG);
+    height: 100%;
+    position: fixed;
+}
+
+
