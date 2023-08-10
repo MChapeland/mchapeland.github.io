@@ -210,7 +210,8 @@
                     
                     jsData.table.rows.forEach((main) => {
                         console.log(main);
-                        const column = jsData.table.rows.split(',');
+                        /*
+                        const column = main.split(',');
                         const name = column[0];
                         const posY = column[1];
                         const posX = column[2];
@@ -219,9 +220,9 @@
                         const symbol = column[5];
                         const desc = column[6];
 
-
                         marker = L.marker([Number(posY), Number(posX)]).addTo(map)
                             .bindPopup(`<b>${name}</b><br />${desc}`);
+                        */
 
                         /*
                         switch (color) {
