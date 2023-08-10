@@ -207,7 +207,7 @@
                 .then(res => res.text())
                 .then(rep => {
                     console.log(rep);
-                    const js0 = rep.substr(47).slice(0, -2);
+                    const js0 = JSON.parse(rep.substr(47).slice(0, -2));
                     console.log(js0);
                 })
 
