@@ -209,7 +209,7 @@
                     const jsData = JSON.parse(rep.substr(47).slice(0, -2));
                     
                     jsData.table.rows.forEach((main) => {
-                        const column = row.split(',');
+                        const column = main.split(',');
                         const name = column[0];
                         const posY = column[1];
                         const posX = column[2];
