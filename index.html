@@ -70,15 +70,54 @@
 
         });
 
-        var greenM = new BaseIcon({ iconUrl: 'img/marker-icon-green.svg' });
         var redM = new BaseIcon({ iconUrl: 'img/marker-icon-red.svg' });
         var orangeM = new BaseIcon({ iconUrl: 'img/marker-icon-orange.svg' });
-        var blackM = new BaseIcon({ iconUrl: 'img/marker-icon-black.svg' });
-        var purpleM = new BaseIcon({ iconUrl: 'img/marker-icon-purple.svg' });
+        var yellowM = new BaseIcon({ iconUrl: 'img/marker-icon-yellow.svg' });
+        var greenM = new BaseIcon({ iconUrl: 'img/marker-icon-green.svg' });
+        var tealM = new BaseIcon({ iconUrl: 'img/marker-icon-teal.svg' });
+        var cyanM = new BaseIcon({ iconUrl: 'img/marker-icon-cyan.svg' });
         var blueM = new BaseIcon({ iconUrl: 'img/marker-icon-blue.svg' });
+        var purpleM = new BaseIcon({ iconUrl: 'img/marker-icon-purple.svg' });
+        var pinkM = new BaseIcon({ iconUrl: 'img/marker-icon-pink.svg' });
+        var whiteM = new BaseIcon({ iconUrl: 'img/marker-icon-white.svg' });
+        var greyM = new BaseIcon({ iconUrl: 'img/marker-icon-grey.svg' });
+        var blackM = new BaseIcon({ iconUrl: 'img/marker-icon-black.svg' });
 
-        var marker = L.marker([51.5, -0.09], { icon:redM }).addTo(map)
-            .bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
+        var marker = L.marker([60, -60], { icon: redM }).addTo(map)
+            .bindPopup('<b>Red Markers</b>');
+
+        var marker = L.marker([60, -55], { icon: orangeM }).addTo(map)
+            .bindPopup('<b>Orange Markers</b>');
+
+        var marker = L.marker([60, -50], { icon: yellowM }).addTo(map)
+            .bindPopup('<b>Yellow Markers</b>');
+
+        var marker = L.marker([60, -45], { icon: greenM }).addTo(map)
+            .bindPopup('<b>Green Markers</b>');
+
+        var marker = L.marker([60, -40], { icon: tealM }).addTo(map)
+            .bindPopup('<b>Teal Markers</b>');
+
+        var marker = L.marker([60, -35], { icon: cyanM }).addTo(map)
+            .bindPopup('<b>Cyan Markers</b>');
+
+        var marker = L.marker([60, -30], { icon: blueM }).addTo(map)
+            .bindPopup('<b>Blue Markers</b>');
+
+        var marker = L.marker([60, -25], { icon: purpleM }).addTo(map)
+            .bindPopup('<b>Purple Markers</b>');
+
+        var marker = L.marker([60, -20], { icon: pinkM }).addTo(map)
+            .bindPopup('<b>Pink Markers</b>');
+
+        var marker = L.marker([60, -15], { icon: whiteM }).addTo(map)
+            .bindPopup('<b>White Markers</b>');
+
+        var marker = L.marker([60, -10], { icon: greyM }).addTo(map)
+            .bindPopup('<b>Grey Markers</b>');
+
+        var marker = L.marker([60, -10], { icon: blackM }).addTo(map)
+            .bindPopup('<b>Black Markers</b>');
 
         getData();
 
