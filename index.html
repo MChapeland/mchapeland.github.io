@@ -98,9 +98,10 @@
                 const desc = column[6];
 
 
-                marker = L.marker([Number(posX), Number(posY)], { icon: greenM }).addTo(map)
+                marker = L.marker([Number(posX), Number(posY)]).addTo(map)
                     .bindPopup(desc);
 
+                /*
                 switch (color) {
 
                     case green:
@@ -139,11 +140,9 @@
                     break;
 
                     default:
-                        marker = L.marker([Number(posX), Number(posY)]).addTo(map)
-                            .bindPopup(desc);
                     break;
                 }
-
+                */
             });
 
         }
