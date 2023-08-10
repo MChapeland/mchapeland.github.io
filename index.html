@@ -95,10 +95,10 @@
                 const layer = column[3];
                 const color = column[4];
                 const symbol = column[5];
-                const description = column[6];
+                const desc = column[6];
 
                 marker = L.marker([posX, posY]).addTo(map)
-                    .bindPopup(description);
+                    .bindPopup(desc);
 
                 console.log(color)
 
