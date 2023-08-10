@@ -96,7 +96,7 @@
                 const type = column[4];
                 const desc = column[5];
 
-                marker = L.marker([posX, posY], { icon: redM }).addTo(map)
+                marker = L.marker([posX, posY]).addTo(map)
                     .bindPopup(desc);
 
                 console.log(color);
