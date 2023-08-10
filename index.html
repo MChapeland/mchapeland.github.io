@@ -214,7 +214,7 @@
                             colz.push(heading.label.toLowerCase().replace(/\s/g, ''));
                         }
                     });
-                    
+
                     jsData.table.rows.forEach((main) => {
                         const row = {};
                         colz.forEach((ele, ind) => {
@@ -228,80 +228,80 @@
                     maker(data);
 
                 });
+        }
 
+        function maker(json) {
 
-            function maker(json) {
+            let first = true;
 
-                let first = true;
+            json.forEach((el) => {
 
-                json.forEach((el) => {
+                console.log(ele);
 
-                    console.log(ele);
+                const keys = Object.keys(el);
 
-                    const keys = Object.keys(el);
-
-                    keys.forEach((key) => {
-                    })
-
-                    console.log(keys);
+                keys.forEach((key) => {
                 })
 
-                        /*
-                        const column = main.split(',');
-                        const name = column[0];
-                        const posY = column[1];
-                        const posX = column[2];
-                        const layer = column[3];
-                        const color = column[4];
-                        const symbol = column[5];
-                        const desc = column[6];
+                console.log(keys);
+            })
 
-                        marker = L.marker([Number(posY), Number(posX)]).addTo(map)
-                            .bindPopup(`<b>${name}</b><br />${desc}`);
-                        */
+            /*
+            const column = main.split(',');
+            const name = column[0];
+            const posY = column[1];
+            const posX = column[2];
+            const layer = column[3];
+            const color = column[4];
+            const symbol = column[5];
+            const desc = column[6];
 
-                        /*
-                        switch (color) {
-        
-                            case green:
-                                marker = L.marker([Number(posX), Number(posY)], { icon:greenM }).addTo(map)
-                                    .bindPopup(desc);
-                            break;
-        
-        
-                            case red:
-                                marker = L.marker([Number(posX), Number(posY)], { icon:redM }).addTo(map)
-                                    .bindPopup(desc);
-                            break;
-        
-        
-                            case orange:
-                                marker = L.marker([Number(posX), Number(posY)], { icon:orangeM }).addTo(map)
-                                    .bindPopup(desc);
-                            break;
-        
-        
-                            case black:
-                                marker = L.marker([Number(posX), Number(posY)], { icon:blackM }).addTo(map)
-                                    .bindPopup(desc);
-                            break;
-        
-        
-                            case purple:
-                                marker = L.marker([Number(posX), Number(posY)], { icon:purpleM }).addTo(map)
-                                    .bindPopup(desc);
-                            break;
-        
-        
-                            case blue:
-                                marker = L.marker([Number(posX), Number(posY)], { icon:blueM }).addTo(map)
-                                    .bindPopup(desc);
-                            break;
-        
-                            default:
-                            break;
-                        }
-                        */
+            marker = L.marker([Number(posY), Number(posX)]).addTo(map)
+                .bindPopup(`<b>${name}</b><br />${desc}`);
+            */
+
+            /*
+            switch (color) {
+ 
+                case green:
+                    marker = L.marker([Number(posX), Number(posY)], { icon:greenM }).addTo(map)
+                        .bindPopup(desc);
+                break;
+ 
+ 
+                case red:
+                    marker = L.marker([Number(posX), Number(posY)], { icon:redM }).addTo(map)
+                        .bindPopup(desc);
+                break;
+ 
+ 
+                case orange:
+                    marker = L.marker([Number(posX), Number(posY)], { icon:orangeM }).addTo(map)
+                        .bindPopup(desc);
+                break;
+ 
+ 
+                case black:
+                    marker = L.marker([Number(posX), Number(posY)], { icon:blackM }).addTo(map)
+                        .bindPopup(desc);
+                break;
+ 
+ 
+                case purple:
+                    marker = L.marker([Number(posX), Number(posY)], { icon:purpleM }).addTo(map)
+                        .bindPopup(desc);
+                break;
+ 
+ 
+                case blue:
+                    marker = L.marker([Number(posX), Number(posY)], { icon:blueM }).addTo(map)
+                        .bindPopup(desc);
+                break;
+ 
+                default:
+                break;
+            }
+            */
 
         }
 
