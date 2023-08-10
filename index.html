@@ -121,11 +121,9 @@
 
         getData();
 
-        async function getData() {
-            const response = await fetch('data.csv');;
-            const data = await response.text();
+        function getData() {
 
-            const table = data.split('\n').slice(1);
+            const table = fetch('data.csv').text().split('\n').slice(1);
             table.forEach(row => {
                 const column = row.split(',');
                 const name = column[0];
