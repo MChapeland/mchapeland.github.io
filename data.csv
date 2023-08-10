@@ -3,4 +3,4 @@ name,posX,posY,layer,color,icon,content
 "Mountain",0,0,macro,brown,mountain,"A tall imposing mountain."
 "Berry Tree",50,50,meso,purple,fruit,"A small bush with 3 berries on it."
 "Bridge",25,25,micro,grey,structure,"A strong well-built bridge."
-"Ines",15,15,micro,burgundy,structure,"A magnificent little comfycat."
+"Ines",25,-25,micro,burgundy,structure,"A magnificent little comfycat."
