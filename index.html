@@ -88,16 +88,16 @@
 
             const table = data.split('\n').slice(1);
             table.forEach(row => {
-                const column = row.split(', ');
+                const column = row.split(' | ');
                 const name = column[0];
-                const posX = Number(column[1]);
-                const posY = Number(column[2]);
+                const posX = column[1];
+                const posY = column[2];
                 const layer = column[3];
                 const color = column[4];
                 const symbol = column[5];
                 const desc = column[6];
 
-                name = L.marker([posX, posY]).addTo(map)
+                marker = L.marker([Number(posX), Number(posY)]).addTo(map)
                     .bindPopup(desc);
 
                 console.log(color)
