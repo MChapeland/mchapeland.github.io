@@ -97,7 +97,7 @@
                 const symbol = column[5];
                 const description = column[6];
 
-                marker = L.marker([posX, posY], { icon:color }).addTo(map)
+                marker = L.marker([posX, posY]).addTo(map)
                     .bindPopup(description);
 
                 console.log(color);
