@@ -122,7 +122,7 @@
         getData();
 
         async function getData() {
-            const response = await fetch('data.csv');;
+            const response = await fetch('database/data.csv');;
             const data = await response.text();
 
             const table = data.split('\n').slice(1);
