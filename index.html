@@ -247,6 +247,8 @@
                     const symbol = key[5];
                     const desc = key[6];
 
+                    console.log(`${name}, ${posY}, ${posX}, ${layer}, ${color}, ${symbol}, ${desc}`)
+
                     marker = L.marker([Number(posY), Number(posX)]).addTo(map)
                         .bindPopup(`<b>${name}</b><br />${desc}`);
                 })
