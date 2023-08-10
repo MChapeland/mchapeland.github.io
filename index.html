@@ -137,8 +137,8 @@
                 const desc = column[6];
 
 
-                marker = L.marker([Number(posY), Number(posX)]).addTo(map)
-                    .bindPopup('<b>'+name+'</b><br />'+desc);
+                marker = L.marker([Number(posY), Number(posX)], { icon:color }).addTo(map)
+                    .bindPopup(`<b>${name}</b><br />${desc}`);
 
                 /*
                 switch (color) {
@@ -183,6 +183,34 @@
                 }
                 */
             });
+        }
+
+
+
+
+        const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
+        const base = `https://docs.google.com/spreadsheets/d/
+                          ${sheetID}/gviz/tq?`;
+
+        const sheetName = 'users';
+
+        const query = encodeURIComponent('Select *');
+
+        const url = `${base}&sheet=${sheetName}&tq=${query}`;
+
+        const dataGS = [];
+
+        document.addEventListener('DOMContentLoaded', init);
+
+        function init() {
+            console.log('ready');
+            fetch(url)
+                .then(res => res.text())
+                .then(rep => {
+                    console.log(rep);
+                    const js0 = rep.substr(47).slice(0, -2);
+                    console.log(js0);
+                })
 
         }
 
