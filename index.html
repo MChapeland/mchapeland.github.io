@@ -55,7 +55,7 @@
             continuousWorld: false,
             noWrap: true,
             minZoom: 2,
-            maxZoom: 5,
+            maxZoom: 4,
         }).addTo(map);
 
         var BaseIcon = L.Icon.extend({
@@ -88,7 +88,7 @@
 
             const table = data.split('\n').slice(1);
             table.forEach(row => {
-                const column = row.split(' | ');
+                const column = row.split(',');
                 const name = column[0];
                 const posX = column[1];
                 const posY = column[2];
