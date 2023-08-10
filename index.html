@@ -12,7 +12,6 @@
 
     <!-- Index Scripts -->
     <link tag="indexCSS" rel="stylesheet" type="text/css" href="index.css" />
-    <script tag="data" src="data.csv"></script>
 
     <!-- Leaflet Scripts -->
     <link tag="leafletCSS" rel="stylesheet" href="scripts/leaflet.css" />
@@ -123,7 +122,7 @@
         getData();
 
         async function getData() {
-            const response = await fetch('database/data.csv');
+            const response = await fetch('data.csv');
             const data = await response.text();
 
             const table = data.split('\n').slice(1);
