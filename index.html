@@ -83,7 +83,7 @@
         getData();
 
         async function getData() {
-            const response = await fetch("data.csv");;
+            const response = await fetch('data.csv');;
             const data = await response.text();
 
             const table = data.split('\n').slice(1);
@@ -93,13 +93,14 @@
                 const posX = Number(column[1]);
                 const posY = Number(column[2]);
                 const layer = column[3];
-                const type = column[4];
-                const desc = column[5];
+                const color = column[4];
+                const symbol = column[5];
+                const description = column[6];
 
                 marker = L.marker([posX, posY]).addTo(map)
-                    .bindPopup(desc);
+                    .bindPopup(description);
 
-                console.log(color);
+                console.log(color)
 
             });
 
