@@ -1,6 +1,6 @@
-name,posX,posY,layer,color,icon,content
-"Forest",10,10,macro,greenM,tree,"A beautiful lush forest."
-"Mountain",0,0,macro,orangeM,mountain,"A tall imposing mountain."
-"Berry Tree",50,50,meso,purpleM,fruit,"A small bush with 3 berries on it."
-"Bridge",25,25,micro,redM,structure,"A strong well-built bridge."
-"Ines",-25,25,micro,blueM,structure,"A magnificent little comfycat."
+name,posX,posY,layer,type,desc
+"Forest",10,10,macro,icon:greenM,"A beautiful lush forest."
+"Mountain",0,0,macro,icon:orangeM,"A tall imposing mountain."
+"Berry Tree",50,50,meso,icon:purpleM,"A small bush with 3 berries on it."
+"Bridge",25,25,micro,icon:redM,"A strong well-built bridge."
+"Ines",-25,25,micro,icon:blueM,"A magnificent little comfycat."
