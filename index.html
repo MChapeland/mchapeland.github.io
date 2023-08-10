@@ -239,13 +239,14 @@
                 const keys = Object.keys(el);
 
                 keys.forEach((key) => {
-                    const name = key[0];
-                    const posY = key[1];
-                    const posX = key[2];
-                    const layer = key[3];
-                    const color = key[4];
-                    const symbol = key[5];
-                    const desc = key[6];
+                    const column = key.split(',');
+                    const name = column[0];
+                    const posY = column[1];
+                    const posX = column[2];
+                    const layer = column[3];
+                    const color = column[4];
+                    const symbol = column[5];
+                    const desc = column[6];
 
                     console.log(`${name}, ${posY}, ${posX}, ${layer}, ${color}, ${symbol}, ${desc}`)
 
