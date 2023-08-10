@@ -207,9 +207,28 @@
                 .then(res => res.text())
                 .then(rep => {
                     const jsData = JSON.parse(rep.substr(47).slice(0, -2));
+
+                    const colz = [];
+                    jsData.table.cols.forEach((heading) => {
+                        if (heading.label) {
+                            colz.push(heading.label.toLowerCase().replace(/\s/g, ''));
+                        }
+
+                    });
                     
                     jsData.table.rows.forEach((main) => {
                         console.log(main);
+                        const row = {};
+                        colz.forEach((ele, ind) => {
+                            row[ele] = main.c[ind];
+                        });
+                        jsData.push(row);
+
+                    });
+
+                    console.log(jsData);
+
+
                         /*
                         const column = main.split(',');
                         const name = column[0];
@@ -266,7 +285,6 @@
                             break;
                         }
                         */
-                    });
 
                 });
         }
