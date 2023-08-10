@@ -88,7 +88,7 @@
 
             const table = data.split('\n').slice(1);
             table.forEach(row => {
-                const column = row.split(',');
+                const column = row.split(', ');
                 const name = column[0];
                 const posX = Number(column[1]);
                 const posY = Number(column[2]);
@@ -97,7 +97,7 @@
                 const symbol = column[5];
                 const desc = column[6];
 
-                marker = L.marker([posX, posY]).addTo(map)
+                name = L.marker([posX, posY]).addTo(map)
                     .bindPopup(desc);
 
                 console.log(color)
