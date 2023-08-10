@@ -208,7 +208,7 @@
                 .then(rep => {
                     const jsData = JSON.parse(rep.substr(47).slice(0, -2));
                     
-                    jsData.table.forEach(row => {
+                    jsData.table.rows.forEach((main) => {
                         const column = row.split(',');
                         const name = column[0];
                         const posY = column[1];
