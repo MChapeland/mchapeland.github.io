@@ -217,7 +217,12 @@
 
                         const blocks = Object.values(group);
 
-                        console.log(group[3]);
+
+                        const iterator = group.values();
+
+                        for (const value of iterator) {
+                            console.log(value);
+                        }
 
                         const name = blocks[3];
                         const y = blocks[3];
