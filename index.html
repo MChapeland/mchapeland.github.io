@@ -139,7 +139,6 @@
 
                     refinedData.table.rows.forEach((main) => {
 
-
                         const name = main.c[0].v;
                         const y = main.c[1].v;
                         const x = main.c[2].v;
@@ -148,8 +147,8 @@
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
 
-                        marker = L.marker([Number(y), Number(x)]).addTo(map)
-                            .bindPopup(`<b>${name}</b><br />${desc}`);
+                        //marker = L.marker([Number(y), Number(x)]).addTo(map)
+                            //.bindPopup(`<b>${name}</b><br />${desc}`);
 
                     });
 
