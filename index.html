@@ -238,12 +238,11 @@
 
                 const keys = Object.values(el);
 
+                console.log(`${keys.name}, ${keys.Y}, ${keys.X}, ${keys.layer}, ${keys.color}, ${keys.symbol}, ${keys.description}`)
+
                 keys.forEach((key) => {
 
                     console.log(`${key.name}, ${key.Y}, ${key.X}, ${key.layer}, ${key.color}, ${key.symbol}, ${key.description}`)
-
-                    marker = L.marker([Number(posY), Number(posX)]).addTo(map)
-                        .bindPopup(`<b>${name}</b><br />${desc}`);
                 })
             })
 
