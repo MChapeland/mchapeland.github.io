@@ -230,60 +230,20 @@
                         const symbol = main[5];
                         const desc = main[6];
 
+                        console.log(name);
+                        console.log(posY);
+                        console.log(posX);
+                        console.log(layer);
+                        console.log(symbol);
+                        console.log(desc);
+
                         marker = L.marker([Number(posY), Number(posX)]).addTo(map)
                             .bindPopup(`<b>${name}</b><br />${desc}`);
 
                     });
 
-                    //clean(sheetData);
-
                 });
         }
-
-        function clean(json) {
-
-            json.forEach((el) => {
-                
-
-                console.log(Object(el));
-
-
-            });
-
-            /*
-
-                const name = Object.name(el);
-                const posY = Object.y(el);
-                const posX = Object.x(el);
-                const layer = Object.layer(el);
-                const color = Object.color(el);
-                const symbol = Object.symbol(el);
-                const desc = Object.desc(el);
-
-                console.log(name);
-                console.log(posY);
-                console.log(posX);
-                console.log(desc);
-
-                marker = L.marker([Number(posY), Number(posX)]).addTo(map)
-                    .bindPopup(`<b>${name}</b><br />${desc}`);
-
-                console.log(Object.keys(el));
-                console.log(Object.values(el));
-                console.log(Object.entries(el));
-                console.log(Object(el));
-            const column = main.split(',');
-            const name = column[0];
-            const posY = column[1];
-            const posX = column[2];
-            const layer = column[3];
-            const color = column[4];
-            const symbol = column[5];
-            const desc = column[6];
-
-            marker = L.marker([Number(posY), Number(posX)]).addTo(map)
-                .bindPopup(`<b>${name}</b><br />${desc}`);
-            */
 
             /*
             switch (color) {
@@ -327,8 +287,6 @@
                 break;
             }
             */
-
-        }
 
     </script>
 </body>
