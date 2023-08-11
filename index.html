@@ -22,34 +22,18 @@
 
 <body>
 
+    <div id="map"></div>
+
     <div class="header">
         <label>PROJECT MAP</label>
     </div>
 
-    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-
-    <label for="openSidebarMenu" class="sidebarIconToggle">
-        <div class="spinner diagonal part-1"></div>
-        <div class="spinner horizontal"></div>
-        <div class="spinner diagonal part-2"></div>
-    </label>
-
-    <div id="sidebarMenu">
-    </div>
-
-    <div class="main">
-
-        <div id="map"></div>
-         
-
-
-    </div>
 
 
     <script>
 
-        // Map Setup
-        var map = L.map('map').setView([-40, 0], 2);
+        //Map Setup
+        var map = L.map('map').setView([-15, 15], 2);
 
         var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
             continuousWorld: false,
@@ -67,7 +51,6 @@
                 shadowAnchor: [3, 63],
                 popupAnchor: [11, -50]
             }
-
         });
 
 
@@ -101,11 +84,11 @@
                         const desc = main.c[6].v;
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`);
-                        
+
                     });
                 });
         }
 
     </script>
 </body>
-</html>
+    </html>
