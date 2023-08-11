@@ -197,37 +197,39 @@
 
         const url = `${base}&sheet=${sheetName}&tq=${query}`;
 
-        const dataGS = [];
+        const sheetData = [];
 
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', sheets2JSON);
 
-        function init() {
+        function sheet2JS() {
             fetch(url)
                 .then(res => res.text())
                 .then(rep => {
 
-                    const jsData = JSON.parse(rep.substr(47).slice(0, -2));
+                    const refinedData = JSON.parse(rep.substr(47).slice(0, -2));
                     const colz = [];
 
-                    jsData.table.cols.forEach((heading) => {
+                    refinedData.table.cols.forEach((heading) => {
                         if (heading.label) {
                             colz.push(heading.label.toLowerCase().replace(/\s/g, ''));
-                        } else {
-                            colz.push(heading.text.replace(/\s/g, '""'));
                         }
                     });
                      
-                    jsData.table.rows.forEach((main) => {
+                    refinedData.table.rows.forEach((main) => {
                         const row = {};
                         colz.forEach((ele, ind) => {
+
+                            console.log(ele);
+                            console.log(ind);
+
                             row[ele] = main.c[ind];
                         });
 
-                        dataGS.push(row);
+                        sheetData.push(row);
 
                     });
 
-                    clean(dataGS);
+                    //clean(sheetData);
 
                 });
         }
