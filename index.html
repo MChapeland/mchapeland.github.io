@@ -232,12 +232,9 @@
 
         function maker(json) {
 
-            let first = true;
-
             json.forEach((el) => {
 
                 const keys = Object.values(el);
-
                 const name = keys[0];
                 const posY = keys[1];
                 const posX = keys[2];
@@ -245,6 +242,11 @@
                 const color = keys[4];
                 const symbol = keys[5];
                 const desc = keys[6];
+
+                console.log(name);
+                console.log(posY);
+                console.log(posX);
+                console.log(desc);
 
                 marker = L.marker([Number(posY), Number(posX)]).addTo(map)
                     .bindPopup(`<b>${name}</b><br />${desc}`);
