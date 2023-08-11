@@ -207,38 +207,27 @@
                 .then(rep => {
 
                     const refinedData = JSON.parse(rep.substr(47).slice(0, -2));
-                    const colz = [];
 
-                    refinedData.table.cols.forEach((heading) => {
-                        if (heading.label) {
-                            colz.push(heading.label.toLowerCase().replace(/\s/g, ''));
-                        }
-                    });
-                     
                     refinedData.table.rows.forEach((main) => {
-                        const row = {};
-                        colz.forEach((ele, ind, val) => {
-                            row[ele] = main.c[ind];
-                        });
 
                         console.log(main);
+                        const blocks = main.split(',');
+                        const name = blocks[3];
+                        const y = blocks[3];
+                        const x = blocks[3];
+                        const layer = blocks[3];
+                        const color = blocks[3];
+                        const symbol = blocks[3];
+                        const desc = blocks[3];
 
-                        const nameL = main.name;
-                        const yL = main.y;
-                        const xL = main[2];
-                        const layerL = main[3];
-                        const colorL = main[4];
-                        const symbolL = main[5];
-                        const descL = main[6];
+                        console.log(name);
+                        console.log(y);
+                        console.log(x);
+                        console.log(layer);
+                        console.log(symbol);
+                        console.log(desc);
 
-                        console.log(nameL);
-                        console.log(yL);
-                        console.log(xL);
-                        console.log(layerL);
-                        console.log(symbolL);
-                        console.log(descL);
-
-                        marker = L.marker([Number(posY), Number(posX)]).addTo(map)
+                        marker = L.marker([Number(y), Number(x)]).addTo(map)
                             .bindPopup(`<b>${name}</b><br />${desc}`);
 
                     });
