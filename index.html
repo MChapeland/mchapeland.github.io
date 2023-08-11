@@ -217,9 +217,10 @@
                      
                     refinedData.table.rows.forEach((main) => {
                         const row = {};
-                        colz.forEach((ele, ind) => {
+                        colz.forEach((ele, ind, val) => {
 
                             console.log(ele);
+                            console.log(val);
                             console.log(ind);
 
                             row[ele] = main.c[ind];
