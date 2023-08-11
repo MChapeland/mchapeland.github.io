@@ -239,16 +239,8 @@
                 const keys = Object.keys(el);
 
                 keys.forEach((key) => {
-                    const column = key.split(',');
-                    const name = column[0];
-                    const posY = column[1];
-                    const posX = column[2];
-                    const layer = column[3];
-                    const color = column[4];
-                    const symbol = column[5];
-                    const desc = column[6];
 
-                    console.log(`${name}, ${posY}, ${posX}, ${layer}, ${color}, ${symbol}, ${desc}`)
+                    console.log(`${key.name}, ${key.Y}, ${key.X}, ${key.layer}, ${key.color}, ${key.symbol}, ${key.description}`)
 
                     marker = L.marker([Number(posY), Number(posX)]).addTo(map)
                         .bindPopup(`<b>${name}</b><br />${desc}`);
