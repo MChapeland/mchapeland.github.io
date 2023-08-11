@@ -213,23 +213,13 @@
                         console.log(main);
                         const group = Object.values(main);
 
-                        console.log(group);
-
-                        const blocks = Object.values(group);
-
-
-                        const iterator = group.values();
-
-                        console.log(iterator);
-                        
-
-                        const name = blocks[3];
-                        const y = blocks[3];
-                        const x = blocks[3];
-                        const layer = blocks[3];
-                        const color = blocks[3];
-                        const symbol = blocks[3];
-                        const desc = blocks[3];
+                        const name = group.find((element) => element > 0);
+                        const y = group.find((element) => element > 1);
+                        const x = group.find((element) => element > 2);
+                        const layer = group.find((element) => element > 3);
+                        const color = group.find((element) => element > 4);
+                        const symbol = group.find((element) => element > 5);
+                        const desc = group.find((element) => element > 6);
 
                         console.log(name);
                         console.log(y);
