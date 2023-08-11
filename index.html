@@ -232,31 +232,25 @@
 
         function maker(json) {
 
-            json.forEach((el) => {
+            json.entries.forEach((el) => {
 
-                const entries = Object.entries(el);
+                const name = el.val[0];
+                const posY = el.val[1];
+                const posX = el.val[2];
+                const layer = el.val[3];
+                const color = el.val[4];
+                const symbol = el.val[5];
+                const desc = el.val[6];
 
-                entries.map(([key, val] = entry) => {
+                console.log(name);
+                console.log(posY);
+                console.log(posX);
+                console.log(desc);
 
-                    const name = val[0];
-                    const posY = val[1];
-                    const posX = val[2];
-                    const layer = val[3];
-                    const color = val[4];
-                    const symbol = val[5];
-                    const desc = val[6];
 
-                    console.log(key.text);
-                    console.log(val);
-                    console.log(name);
-                    console.log(posY);
-                    console.log(posX);
-                    console.log(desc);
+                marker = L.marker([Number(posY), Number(posX)]).addTo(map)
+                    .bindPopup(`<b>${name}</b><br />${desc}`);
 
-                    marker = L.marker([Number(posY), Number(posX)]).addTo(map)
-                        .bindPopup(`<b>${name}</b><br />${desc}`);
-
-                });
 
             });
 
