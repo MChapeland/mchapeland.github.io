@@ -211,7 +211,7 @@
 
                     jsData.table.cols.forEach((heading) => {
                         if (heading.label) {
-                            colz.push(heading.label.toLowerCase().replace(/\s/g, ''));
+                            colz.push(heading.label.toLowerCase().replace(/\s/g, '""'));
                         }
                     });
                      
@@ -225,20 +225,22 @@
 
                     });
 
-                    console.log(dataGS);
-
-                    console.log(dataGS.name);
-
-                    maker(dataGS);
-
+                    clean(dataGS);
 
                 });
         }
 
-        function maker(json) {
+        function clean(json) {
 
             json.forEach((el) => {
                 
+
+                console.log(Object(el));
+
+
+            });
+
+            /*
 
                 const name = Object.name(el);
                 const posY = Object.y(el);
@@ -250,16 +252,12 @@
 
                 console.log(name);
                 console.log(posY);
-                console.log(posX); 
+                console.log(posX);
                 console.log(desc);
 
                 marker = L.marker([Number(posY), Number(posX)]).addTo(map)
                     .bindPopup(`<b>${name}</b><br />${desc}`);
 
-
-            });
-
-            /*
                 console.log(Object.keys(el));
                 console.log(Object.values(el));
                 console.log(Object.entries(el));
