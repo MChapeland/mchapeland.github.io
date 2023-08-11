@@ -118,75 +118,6 @@
         var marker = L.marker([60, 0], { icon: blackM }).addTo(map)
             .bindPopup('<b>Black Markers</b>');
 
-                /*
-        getData();
-
-        async function getData() {
-            const response = await fetch('data.csv');
-            const data = await response.text();
-
-            const table = data.split('\n').slice(1);
-            table.forEach(row => {
-                const column = row.split(',');
-                const name = column[0];
-                const posY = column[1];
-                const posX = column[2];
-                const layer = column[3];
-                const color = column[4];
-                const symbol = column[5];
-                const desc = column[6];
-
-
-                marker = L.marker([Number(posY), Number(posX)], { icon:color }).addTo(map)
-                    .bindPopup(`<b>${name}</b><br />${desc}`);
-
-                /*
-                switch (color) {
-
-                    case green:
-                        marker = L.marker([Number(posX), Number(posY)], { icon:greenM }).addTo(map)
-                            .bindPopup(desc);
-                    break;
-
-
-                    case red:
-                        marker = L.marker([Number(posX), Number(posY)], { icon:redM }).addTo(map)
-                            .bindPopup(desc);
-                    break;
-
-
-                    case orange:
-                        marker = L.marker([Number(posX), Number(posY)], { icon:orangeM }).addTo(map)
-                            .bindPopup(desc);
-                    break;
-
-
-                    case black:
-                        marker = L.marker([Number(posX), Number(posY)], { icon:blackM }).addTo(map)
-                            .bindPopup(desc);
-                    break;
-
-
-                    case purple:
-                        marker = L.marker([Number(posX), Number(posY)], { icon:purpleM }).addTo(map)
-                            .bindPopup(desc);
-                    break;
-
-
-                    case blue:
-                        marker = L.marker([Number(posX), Number(posY)], { icon:blueM }).addTo(map)
-                            .bindPopup(desc);
-                    break;
-
-                    default:
-                    break;
-                }
-            });
-        }
-
-                */
-
-
 
         const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
         const base = 'https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?';
@@ -196,8 +127,6 @@
         const query = encodeURIComponent('Select *');
 
         const url = `${base}&sheet=${sheetName}&tq=${query}`;
-
-        const sheetData = [];
 
         document.addEventListener('DOMContentLoaded', sheet2JS);
 
@@ -218,13 +147,6 @@
                         const color = main.c[4].v;
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
-
-                        console.log(name);
-                        console.log(y);
-                        console.log(x);
-                        console.log(layer);
-                        console.log(symbol);
-                        console.log(desc);
 
                         marker = L.marker([Number(y), Number(x)]).addTo(map)
                             .bindPopup(`<b>${name}</b><br />${desc}`);
