@@ -227,6 +227,10 @@
 
                     maker(dataGS);
 
+                    console.log(dataGS);
+
+                    console.log(dataGS.name);
+
                 });
         }
 
@@ -234,10 +238,6 @@
 
             json.forEach((el) => {
                 
-                console.log(Object.keys(el));
-                console.log(Object.values(el));
-                console.log(Object.entries(el));
-                console.log(Object(el));
 
                 const name = Object.name(el);
                 const posY = Object.y(el);
@@ -259,6 +259,10 @@
             });
 
             /*
+                console.log(Object.keys(el));
+                console.log(Object.values(el));
+                console.log(Object.entries(el));
+                console.log(Object(el));
             const column = main.split(',');
             const name = column[0];
             const posY = column[1];
