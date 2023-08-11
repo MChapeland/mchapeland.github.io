@@ -48,6 +48,7 @@
 
     <script>
 
+        // Map Setup
         var map = L.map('map').setView([-40, 0], 2);
 
         var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
@@ -60,15 +61,17 @@
         var BaseIcon = L.Icon.extend({
             options: {
                 shadowUrl: 'img/marker-shadow.png',
-                iconSize: [30], // size of the icon
-                shadowSize: [50, 64], // size of the shadow
-                iconAnchor: [3, 48], // point of the icon which will correspond to marker's location
-                shadowAnchor: [3, 63],  // the same for the shadow
-                popupAnchor: [11, -50] // point from which the popup should open relative to the iconAnchor
+                iconSize: [30],
+                shadowSize: [50, 64],
+                iconAnchor: [3, 48],
+                shadowAnchor: [3, 63],
+                popupAnchor: [11, -50]
             }
 
         });
 
+
+        // Marker Colors
         var redM = new BaseIcon({ iconUrl: 'img/marker-icon-red.svg' });
         var orangeM = new BaseIcon({ iconUrl: 'img/marker-icon-orange.svg' });
         var yellowM = new BaseIcon({ iconUrl: 'img/marker-icon-yellow.svg' });
@@ -82,43 +85,8 @@
         var greyM = new BaseIcon({ iconUrl: 'img/marker-icon-grey.svg' });
         var blackM = new BaseIcon({ iconUrl: 'img/marker-icon-black.svg' });
 
-        var marker = L.marker([60, -110], { icon: redM }).addTo(map)
-            .bindPopup('<b>Red Markers</b>');
 
-        var marker = L.marker([60, -100], { icon: orangeM }).addTo(map)
-            .bindPopup('<b>Orange Markers</b>');
-
-        var marker = L.marker([60, -90], { icon: yellowM }).addTo(map)
-            .bindPopup('<b>Yellow Markers</b>');
-
-        var marker = L.marker([60, -80], { icon: greenM }).addTo(map)
-            .bindPopup('<b>Green Markers</b>');
-
-        var marker = L.marker([60, -70], { icon: tealM }).addTo(map)
-            .bindPopup('<b>Teal Markers</b>');
-
-        var marker = L.marker([60, -60], { icon: cyanM }).addTo(map)
-            .bindPopup('<b>Cyan Markers</b>');
-
-        var marker = L.marker([60, -50], { icon: blueM }).addTo(map)
-            .bindPopup('<b>Blue Markers</b>');
-
-        var marker = L.marker([60, -40], { icon: purpleM }).addTo(map)
-            .bindPopup('<b>Purple Markers</b>');
-
-        var marker = L.marker([60, -30], { icon: pinkM }).addTo(map)
-            .bindPopup('<b>Pink Markers</b>');
-
-        var marker = L.marker([60, -20], { icon: whiteM }).addTo(map)
-            .bindPopup('<b>White Markers</b>');
-
-        var marker = L.marker([60, -10], { icon: greyM }).addTo(map)
-            .bindPopup('<b>Grey Markers</b>');
-
-        var marker = L.marker([60, 0], { icon: blackM }).addTo(map)
-            .bindPopup('<b>Black Markers</b>');
-
-
+        // Data fetched from Google Sheets
         const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
         const base = 'https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?';
 
@@ -147,56 +115,37 @@
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
 
-                        marker = L.marker([Number(y), Number(x)], { icon: color+M }).addTo(map)
-                            .bindPopup(`<b>${name}</b><br />${desc}`);
+                        switch (color) {
 
+                            case red: marker = L.marker([Number(y), Number(x)], { icon: redM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case orange: marker = L.marker([Number(y), Number(x)], { icon: orangeM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case yellow: marker = L.marker([Number(y), Number(x)], { icon: yellowM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case green: marker = L.marker([Number(y), Number(x)], { icon: greenM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case teal: marker = L.marker([Number(y), Number(x)], { icon: tealM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case cyan: marker = L.marker([Number(y), Number(x)], { icon: cyanM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case blue: marker = L.marker([Number(y), Number(x)], { icon: blueM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case purple: marker = L.marker([Number(y), Number(x)], { icon: purpleM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case pink: marker = L.marker([Number(y), Number(x)], { icon: pinkM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case white: marker = L.marker([Number(y), Number(x)], { icon: whiteM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case grey: marker = L.marker([Number(y), Number(x)], { icon: greyM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            case black: marker = L.marker([Number(y), Number(x)], { icon: blackM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
+                            default: marker = L.marker([Number(y), Number(x)], { icon: blueM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                        }
                     });
-
                 });
         }
-
-            /*
-            switch (color) {
- 
-                case green:
-                    marker = L.marker([Number(posX), Number(posY)], { icon:greenM }).addTo(map)
-                        .bindPopup(desc);
-                break;
- 
- 
-                case red:
-                    marker = L.marker([Number(posX), Number(posY)], { icon:redM }).addTo(map)
-                        .bindPopup(desc);
-                break;
- 
- 
-                case orange:
-                    marker = L.marker([Number(posX), Number(posY)], { icon:orangeM }).addTo(map)
-                        .bindPopup(desc);
-                break;
- 
- 
-                case black:
-                    marker = L.marker([Number(posX), Number(posY)], { icon:blackM }).addTo(map)
-                        .bindPopup(desc);
-                break;
- 
- 
-                case purple:
-                    marker = L.marker([Number(posX), Number(posY)], { icon:purpleM }).addTo(map)
-                        .bindPopup(desc);
-                break;
- 
- 
-                case blue:
-                    marker = L.marker([Number(posX), Number(posY)], { icon:blueM }).addTo(map)
-                        .bindPopup(desc);
-                break;
- 
-                default:
-                break;
-            }
-            */
 
     </script>
 </body>
