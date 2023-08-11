@@ -215,7 +215,10 @@
 
                         console.log(group);
 
-                        const blocks = group.split(',');
+                        const blocks = Object.values(group);
+
+                        console.log(group);
+
                         const name = blocks[3];
                         const y = blocks[3];
                         const x = blocks[3];
