@@ -235,18 +235,16 @@
             json.forEach((el) => {
 
 
-                console.log(Object.val(el)[0]);
+                console.log(Object.name(el));
 
-                const name = Object.val[0](el);
-                const posY = Object.val[1](el);
-                const posX = Object.val[2](el);
-                const layer = Object.val[3](el);
-                const color = Object.val[4](el);
-                const symbol = Object.val[5](el);
-                const desc = Object.val[6](el);
+                const name = Object.name(el);
+                const posY = Object.y(el);
+                const posX = Object.x(el);
+                const layer = Object.layer(el);
+                const color = Object.color(el);
+                const symbol = Object.symbol(el);
+                const desc = Object.desc(el);
 
-                console.log(entries.val);
-                console.log(entries.map.val);
                 console.log(name);
                 console.log(posY);
                 console.log(posX); 
