@@ -72,7 +72,7 @@
 
 
         // Marker Colors
-        var redM = new BaseIcon({ iconUrl: 'img/marker-icon-red.svg' });
+        var red = new BaseIcon({ iconUrl: 'img/marker-icon-red.svg' });
         var orangeM = new BaseIcon({ iconUrl: 'img/marker-icon-orange.svg' });
         var yellowM = new BaseIcon({ iconUrl: 'img/marker-icon-yellow.svg' });
         var greenM = new BaseIcon({ iconUrl: 'img/marker-icon-green.svg' });
@@ -118,7 +118,7 @@
                         switch (color) {
 
                             case 'red':
-                            case 'Red': marker = L.marker([Number(y), Number(x)], { icon: redM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'Red': marker = L.marker([Number(y), Number(x)], { icon: color }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
                             case 'orange':
                             case 'Orange': marker = L.marker([Number(y), Number(x)], { icon: orangeM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
