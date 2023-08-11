@@ -96,9 +96,9 @@
 
         const url = `${base}&sheet=${sheetName}&tq=${query}`;
 
-        document.addEventListener('DOMContentLoaded', sheet2JS);
+        document.addEventListener('DOMContentLoaded', sheetExtract);
 
-        function sheet2JS() {
+        function sheetExtract() {
             fetch(url)
                 .then(res => res.text())
                 .then(rep => {
@@ -117,31 +117,44 @@
 
                         switch (color) {
 
-                            case 'red': marker = L.marker([Number(y), Number(x)], { icon: redM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'red':
+                            case 'Red': marker = L.marker([Number(y), Number(x)], { icon: redM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'orange': marker = L.marker([Number(y), Number(x)], { icon: orangeM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'orange':
+                            case 'Orange': marker = L.marker([Number(y), Number(x)], { icon: orangeM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'yellow': marker = L.marker([Number(y), Number(x)], { icon: yellowM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'yellow':
+                            case 'Yellow': marker = L.marker([Number(y), Number(x)], { icon: yellowM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'green': marker = L.marker([Number(y), Number(x)], { icon: greenM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'green':
+                            case 'Green': marker = L.marker([Number(y), Number(x)], { icon: greenM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'teal': marker = L.marker([Number(y), Number(x)], { icon: tealM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'teal':
+                            case 'Teal': marker = L.marker([Number(y), Number(x)], { icon: tealM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'cyan': marker = L.marker([Number(y), Number(x)], { icon: cyanM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'cyan':
+                            case 'Cyan': marker = L.marker([Number(y), Number(x)], { icon: cyanM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'blue': marker = L.marker([Number(y), Number(x)], { icon: blueM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'blue':
+                            case 'Blue': marker = L.marker([Number(y), Number(x)], { icon: blueM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'purple': marker = L.marker([Number(y), Number(x)], { icon: purpleM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'purple':
+                            case 'Purple': marker = L.marker([Number(y), Number(x)], { icon: purpleM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'pink': marker = L.marker([Number(y), Number(x)], { icon: pinkM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'pink':
+                            case 'Pink': marker = L.marker([Number(y), Number(x)], { icon: pinkM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'white': marker = L.marker([Number(y), Number(x)], { icon: whiteM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'white':
+                            case 'White': marker = L.marker([Number(y), Number(x)], { icon: whiteM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'grey': marker = L.marker([Number(y), Number(x)], { icon: greyM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'grey':
+                            case 'Grey': marker = L.marker([Number(y), Number(x)], { icon: greyM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            case 'black': marker = L.marker([Number(y), Number(x)], { icon: blackM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'black':
+                            case 'Black': marker = L.marker([Number(y), Number(x)], { icon: blackM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
-                            default: marker = L.marker([Number(y), Number(x)], { icon: blueM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            default: marker = L.marker([Number(y), Number(x)], { icon: greyM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+
                         }
                     });
                 });
