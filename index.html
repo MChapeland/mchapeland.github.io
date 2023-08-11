@@ -211,7 +211,7 @@
                     refinedData.table.rows.forEach((main) => {
 
                         console.log(main);
-                        const blocks = main.split(',');
+                        const blocks = Object.values(main).split(',');
                         const name = blocks[3];
                         const y = blocks[3];
                         const x = blocks[3];
