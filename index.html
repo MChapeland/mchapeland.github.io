@@ -236,13 +236,14 @@
 
                 const entries = Object.entries(el);
 
-                const name = entries.val[0];
-                const posY = entries.val[1];
-                const posX = entries.val[2];
-                const layer = entries.val[3];
-                const color = entries.val[4];
-                const symbol = entries.val[5];
-                const desc = entries.val[6];
+                const name = entries.map.val[0];
+                
+                const posY = entries.map.val[1];
+                const posX = entries.map.val[2];
+                const layer = entries.map.val[3];
+                const color = entries.map.val[4];
+                const symbol = entries.map.val[5];
+                const desc = entries.map.val[6];
 
                 console.log(name);
                 console.log(posY);
