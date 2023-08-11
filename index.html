@@ -221,9 +221,17 @@
                             row[ele] = main.c[ind];
                         });
 
-                        console.log(main);
 
-                        sheetData.push(row);
+                        const name = main[0];
+                        const posY = main[1];
+                        const posX = main[2];
+                        const layer = main[3];
+                        const color = main[4];
+                        const symbol = main[5];
+                        const desc = main[6];
+
+                        marker = L.marker([Number(posY), Number(posX)]).addTo(map)
+                            .bindPopup(`<b>${name}</b><br />${desc}`);
 
                     });
 
