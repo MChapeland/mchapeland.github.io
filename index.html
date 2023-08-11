@@ -217,14 +217,12 @@
                      
                     refinedData.table.rows.forEach((main) => {
                         const row = {};
-                        colz.forEach((ele, ind, val) => {
-
-                            console.log(ele);
-                            console.log(val);
-                            console.log(ind);
-
+                        row.forEach((ele, ind, val) => {
                             row[ele] = main.c[ind];
                         });
+
+
+                        console.log(main);
 
                         sheetData.push(row);
 
