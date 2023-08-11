@@ -118,7 +118,7 @@
                         switch (color) {
 
                             case 'red':
-                            case 'Red': marker = L.marker([Number(y), Number(x)], { iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
+                            case 'Red': marker = L.marker([Number(y), Number(x)], BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` })).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
 
                             case 'orange':
                             case 'Orange': marker = L.marker([Number(y), Number(x)], { icon: orangeM }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`); break;
