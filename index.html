@@ -211,7 +211,9 @@
 
                     jsData.table.cols.forEach((heading) => {
                         if (heading.label) {
-                            colz.push(heading.label.toLowerCase().replace(/\s/g, '""'));
+                            colz.push(heading.label.toLowerCase().replace(/\s/g, ''));
+                        } else {
+                            colz.push(heading.text.replace(/\s/g, '""'));
                         }
                     });
                      
@@ -220,8 +222,6 @@
                         colz.forEach((ele, ind) => {
                             row[ele] = main.c[ind];
                         });
-
-                        colz.push(main.replace(/\s/g, '""'));
 
                         dataGS.push(row);
 
