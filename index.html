@@ -234,33 +234,17 @@
 
             json.forEach((el) => {
 
-                const entries = Object.entries(el);
-
-                console.log(entries.val);
-                console.log(entries.map.val);
-
-                const name = entries.map.val[0];
-                const posY = entries.map.val[1];
-                const posX = entries.map.val[2];
-                const layer = entries.map.val[3];
-                const color = entries.map.val[4];
-                const symbol = entries.map.val[5];
-                const desc = entries.map.val[6];
-
-                console.log(entries.val);
-                console.log(entries.map.val);
-                console.log(name);
-                console.log(posY);
-                console.log(posX); 
-                console.log(desc);
-
-                marker = L.marker([Number(posY), Number(posX)]).addTo(map)
-                    .bindPopup(`<b>${name}</b><br />${desc}`);
+                console.log(el.val);
 
 
             });
 
             /*
+                console.log(name);
+                console.log(posY);
+                console.log(posX);
+                console.log(desc);
+
             const column = main.split(',');
             const name = column[0];
             const posY = column[1];
