@@ -2,7 +2,9 @@
 /* ----- Constant Variables ----- */
 :root {
     --CBase: #414042;
-    --CBaseHover: #353535;
+    --CBox: #4d4d4d;
+    --CBoxHover: #555555;
+    --CBoxClick: #383838;
     --CBaseClick: #303030;
     --CBaseLight4: #d1d3d4;
     --CBaseLight3: #a7a9ac;
@@ -26,7 +28,10 @@
     --CButton: rgba(161, 90, 48, 1);
     --CBackground: rgba(31, 31, 31, 1);
 }
-
+@font-face {
+    font-family: 'Share Tech';
+    src: url('https://fonts.google.com/specimen/Share+Tech?query=tech&category=Serif,Sans+Serif,Display,Monospace') format('woff2');
+}
 
 
 /* ----- Page Parameters ----- */
@@ -34,7 +39,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Share_Tech';
     background: var(--CBaseDark);
 }
 
@@ -49,152 +54,94 @@ html, body {
     position: absolute;
 }
 
-.header {
+.sidebar {
     z-index: 10;
-    width: 400px;
-    height: 80px;
     background-color: var(--CBase);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    text-align: center;
-    position: relative;
-    border-radius: 0px 0px 80px 0px;
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50px;
+    grid-template-rows: 0px 75px repeat(14, 50px);
+    grid-gap: 10px;
 }
-    .header label {
-        color: whitesmoke;
-        font-size: 35px;
-        font-weight: 500;
-        line-height: 75px;
-        margin-left: -25px;
+    .sidebar:hover ~ sidebarDrop {
+        transform: translateX(0px);
     }
-.header-drop {
-    background-color: rgba(23, 22, 22, 0.75);
-    z-index: 5;
-    width: 400px;
-    height: 120px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    text-align: center;
-    border-radius: 0px 0px 80px 0px;
-    position: relative;
-    margin: -80px 0px;
+    .sidebar .sidebar-button {
+        z-index: 11;
+        transform: translateX(10px);
+        border-radius: 5px;
+        background-color: var(--CBox);
+        border: none;
+    }
+        .sidebar .sidebar-button:hover {
+            background-color: var(--CBoxHover);
+        }
+        .sidebar .sidebar-button:active {
+            background-color: var(--CBoxClick);
+        }
+
+        .sidebar .sidebar-button img {
+        }
+
+.sidebar-logo {
+    z-index: 11;
+    transform: translateX(10px);
 }
 
-
-
-
-/* ----- Sidebar Menu Parameters ----- */
-
-#sidebarMenu {
+.sidebarDrop {
     z-index: 1;
-    height: 100%;
-    position: fixed;
-    left: 0;
+    background-color: rgba(40, 40, 40, 0.9);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    position: absolute;
     width: 200px;
-    transform: translateX(-200px);
-    transition: transform 250ms ease-in-out;
-    background: var(--CBase);
-}
-
-.sidebarMenuInner {
-    margin: 0;
-    padding: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
-}
-    .sidebarMenuInner li {
-        list-style: none;
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: bold;
-        padding: 20px;
-        cursor: pointer;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-    }
-        .sidebarMenuInner li span {
-            display: block;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.50);
-        }
-        .sidebarMenuInner li a {
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-
-input[type=checkbox] {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    display: none;
-}
-
-input[type="checkbox"]:checked ~ #sidebarMenu {
-    transform: translateX(0);
-}
-
-
-.sidebarIconToggle {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    cursor: pointer;
-    position: absolute;
-    z-index: 99;
     height: 100%;
-    width: 100%;
-    top: 22px;
-    left: 15px;
-    height: 22px;
-    width: 22px;
+    margin-left: 70px;
+    transform: translateX(-200px);
+    animation: appearEffect 250ms ease-in-out;
+    -webkit-animation: appearEffect 250ms ease-in-out;
+}
+
+@keyframes appearEffect {
+    from {
+        transform: translateX(-200px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
 }
 
 
+@keyframes dissapearEffect {
+    from {
+        transform: translateX(0px);
+    }
 
-/* ----- Menu Spinner Parameters ----- */
-
-.spinner {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: #fff;
-}
-.horizontal {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    position: relative;
-    float: left;
-    margin-top: 3px;
-}
-.diagonal.part-1 {
-    position: relative;
-    transition: all 0.3s;
-    box-sizing: border-box;
-    float: left;
-}
-.diagonal.part-2 {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    position: relative;
-    float: left;
-    margin-top: 3px;
-}
-input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    opacity: 0;
-}
-input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    transform: rotate(135deg);
-    margin-top: 8px;
-}
-input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
-    transition: all 0.3s;
-    box-sizing: border-box;
-    transform: rotate(-135deg);
-    margin-top: -9px;
+    to {
+        transform: translateX(-200px);
+    }
 }
 
 
+@-webkit-keyframes appearEffect {
+    from {
+        transform: translateX(-200px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+
+@-webkit-keyframes dissapearEffect {
+    from {
+        transform: translateX(0px);
+    }
+
+    to {
+        transform: translateX(-200px);
+    }
+}

@@ -22,19 +22,97 @@
 
 <body>
 
+    <!-- Map -->
     <div id="map"></div>
 
-    <div class="header">
-        <label>PROJECT MAP</label>
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div></div>
+
+        <div class="sidebar-logo">
+            <img src="img/tabs/logo.png" />
+            <img src="img/tabs/divider.png" />
+        </div>
+
+        <button class="sidebar-button" onclick="openDrop(event, 'Search')">
+            <img src="img/tabs/search.png" />
+        </button>
+
+        <button class="sidebar-button" onclick="openDrop(event, 'Layers')">
+            <img src="img/tabs/layers.png" />
+        </button>
+
+        <button class="sidebar-button" onclick="openDrop(event, 'Markers')">
+            <img src="img/tabs/markers.png" />
+        </button>
+
+        <button class="sidebar-button" onclick="openDrop(event, 'Paths')">
+            <img src="img/tabs/paths.png" />
+        </button>
+
+        <button class="sidebar-button" onclick="openDrop(event, 'Stats')">
+            <img src="img/tabs/stats.png" />
+        </button>
+
+        <button class="sidebar-button" onclick="openDrop(event, 'Options')">
+            <img src="img/tabs/options.png" />
+        </button>
+
     </div>
 
-    <div class="header-drop">
-    </div>
+    <!-- SIDEBAR DROPS -->
+    <!-- Search
+    <div class="sidebarDrop" id="sidebarDropSearch">
+
+    </div>-->
+    <!-- Layers
+    <div class="sidebarDrop" id="sidebarDropLayers">
+
+    </div>-->
+    <!-- Markers
+    <div class="sidebarDrop" id="sidebarDropMarkers">
+
+    </div>-->
+    <!-- Paths
+    <div class="sidebarDrop" id="sidebarDropPaths">
+
+    </div>-->
+    <!-- Stats
+    <div class="sidebarDrop" id="sidebarDropStats">
+
+    </div>-->
+    <!-- Options
+    <div class="sidebarDrop" id="sidebarDropOptions">
+
+    </div>-->
 
 
 
 
     <script>
+        //Sidebar Setup
+        function openDrop(evt, tab) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("sidebarDrop");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("sidebar-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tab).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
 
         //Map Setup
         var map = L.map('map', { 'attributionControl': false }).setView([-15, 15], 2);
