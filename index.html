@@ -35,83 +35,119 @@
             <img src="img/tabs/divider.png" />
         </div>
 
-        <button class="sidebar-button" onclick="openDrop(event, 'Search')">
+        <button class="sidebar-button" onclick="toggleDrop('Search')">
             <img src="img/tabs/search.png" />
         </button>
 
-        <button class="sidebar-button" onclick="openDrop(event, 'Layers')">
+        <button class="sidebar-button" onclick="toggleDrop('Layers')">
             <img src="img/tabs/layers.png" />
         </button>
 
-        <button class="sidebar-button" onclick="openDrop(event, 'Markers')">
+        <button class="sidebar-button" onclick="toggleDrop('Markers')">
             <img src="img/tabs/markers.png" />
         </button>
 
-        <button class="sidebar-button" onclick="openDrop(event, 'Paths')">
+        <button class="sidebar-button" onclick="toggleDrop('Paths')">
             <img src="img/tabs/paths.png" />
         </button>
 
-        <button class="sidebar-button" onclick="openDrop(event, 'Stats')">
+        <button class="sidebar-button" onclick="toggleDrop('Stats')">
             <img src="img/tabs/stats.png" />
         </button>
 
-        <button class="sidebar-button" onclick="openDrop(event, 'Options')">
+        <button class="sidebar-button" onclick="toggleDrop('Options')">
             <img src="img/tabs/options.png" />
         </button>
 
     </div>
 
     <!-- SIDEBAR DROPS -->
-    <!-- Search
-    <div class="sidebarDrop" id="sidebarDropSearch">
+    <!-- Search-->
+    <div class="sidebarDrop" id="Search">
 
-    </div>-->
-    <!-- Layers
-    <div class="sidebarDrop" id="sidebarDropLayers">
+    </div>
 
-    </div>-->
-    <!-- Markers
-    <div class="sidebarDrop" id="sidebarDropMarkers">
+    <!-- Layers-->
+    <div class="sidebarDrop" id="Layers">
 
-    </div>-->
-    <!-- Paths
-    <div class="sidebarDrop" id="sidebarDropPaths">
+    </div>
 
-    </div>-->
-    <!-- Stats
-    <div class="sidebarDrop" id="sidebarDropStats">
+    <!-- Markers-->
+    <div class="sidebarDrop" id="Markers">
 
-    </div>-->
-    <!-- Options
-    <div class="sidebarDrop" id="sidebarDropOptions">
+    </div>
 
-    </div>-->
+    <!-- Paths-->
+    <div class="sidebarDrop" id="Paths">
+
+    </div>
+
+    <!-- Stats-->
+    <div class="sidebarDrop" id="Stats">
+
+    </div>
+
+    <!-- Options-->
+    <div class="sidebarDrop" id="Options">
+
+    </div>
 
 
 
 
     <script>
+
         //Sidebar Setup
-        function openDrop(evt, tab) {
-            // Declare all variables
-            var i, tabcontent, tablinks;
+        var tabOpened = false;
+        var currentTab = "None";
+        var closingTab = "None";
 
-            // Get all elements with class="tabcontent" and hide them
-            tabcontent = document.getElementsByClassName("sidebarDrop");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+        function toggleDrop(tab) {
+
+            console.log(currentTab);
+
+            switch (tabOpened) {
+
+                case true:
+                    if (currentTab != tab) {
+                        closingTab = currentTab;
+                        closeTab();
+                        currentTab = tab;
+                        setTimeout(openTab, 250);
+                    }
+                    else {
+                        closeTab();
+                        tabOpened = false;
+                    }
+                    break;
+
+                case false:
+                    currentTab = tab;
+                    openTab()
+                    tabOpened = true;
+                    break;
+
             }
-
-            // Get all elements with class="tablinks" and remove the class "active"
-            tablinks = document.getElementsByClassName("sidebar-button");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            // Show the current tab, and add an "active" class to the button that opened the tab
-            document.getElementById(tab).style.display = "block";
-            evt.currentTarget.className += " active";
         }
+
+        function closeTab() {
+            document.getElementById(currentTab).style.transform = "translateX(-200px)";
+            setTimeout(hideTab, 250);
+        }
+
+        function hideTab() {
+            document.getElementById(closingTab).style.display = "none";
+        }
+
+        function openTab() {
+            document.getElementById(currentTab).style.display = "inline";
+            setTimeout(showTab, 15);
+        }
+
+        function showTab() {
+            document.getElementById(currentTab).style.transform = "translateX(0px)";
+        }
+
 
 
         //Map Setup
@@ -173,4 +209,4 @@
 
     </script>
 </body>
-    </html>
+        </html>

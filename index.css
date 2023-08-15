@@ -99,49 +99,6 @@ html, body {
     height: 100%;
     margin-left: 70px;
     transform: translateX(-200px);
-    animation: appearEffect 250ms ease-in-out;
-    -webkit-animation: appearEffect 250ms ease-in-out;
-}
-
-@keyframes appearEffect {
-    from {
-        transform: translateX(-200px);
-    }
-
-    to {
-        transform: translateX(0px);
-    }
-}
-
-
-@keyframes dissapearEffect {
-    from {
-        transform: translateX(0px);
-    }
-
-    to {
-        transform: translateX(-200px);
-    }
-}
-
-
-@-webkit-keyframes appearEffect {
-    from {
-        transform: translateX(-200px);
-    }
-
-    to {
-        transform: translateX(0px);
-    }
-}
-
-
-@-webkit-keyframes dissapearEffect {
-    from {
-        transform: translateX(0px);
-    }
-
-    to {
-        transform: translateX(-200px);
-    }
+    transition: 0.25s ease-in-out;
+    display: none;
 }
