@@ -26,7 +26,7 @@
     <div id="map"></div>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" id="Main">
 
         <div></div>
 
@@ -35,27 +35,27 @@
             <img src="img/tabs/divider.png" />
         </div>
 
-        <button class="sidebar-button" onclick="toggleDrop('Search')">
+        <button class="sidebar-button" id="SearchButton" onclick="toggleDrop(event, 'Search')">
             <img src="img/tabs/search.png" />
         </button>
 
-        <button class="sidebar-button" onclick="toggleDrop('Layers')">
+        <button class="sidebar-button" id="LayersButton" onclick="toggleDrop(event, 'Layers')">
             <img src="img/tabs/layers.png" />
         </button>
 
-        <button class="sidebar-button" onclick="toggleDrop('Markers')">
+        <button class="sidebar-button" id="MarkersButton" onclick="toggleDrop(event, 'Markers')">
             <img src="img/tabs/markers.png" />
         </button>
 
-        <button class="sidebar-button" onclick="toggleDrop('Paths')">
+        <button class="sidebar-button" id="PathsButton" onclick="toggleDrop(event, 'Paths')">
             <img src="img/tabs/paths.png" />
         </button>
 
-        <button class="sidebar-button" onclick="toggleDrop('Stats')">
+        <button class="sidebar-button" id="StatsButton" onclick="toggleDrop(event, 'Stats')">
             <img src="img/tabs/stats.png" />
         </button>
 
-        <button class="sidebar-button" onclick="toggleDrop('Options')">
+        <button class="sidebar-button" id="OptionsButton" onclick="toggleDrop(event, 'Options')">
             <img src="img/tabs/options.png" />
         </button>
 
@@ -64,31 +64,42 @@
     <!-- SIDEBAR DROPS -->
     <!-- Search-->
     <div class="sidebarDrop" id="Search">
-
+        <div></div>
+        <label>Search</label>
     </div>
 
     <!-- Layers-->
     <div class="sidebarDrop" id="Layers">
+        <div></div>
+        <label>Layers</label>
 
     </div>
 
     <!-- Markers-->
     <div class="sidebarDrop" id="Markers">
+        <div></div>
+        <label>Markers</label>
 
     </div>
 
     <!-- Paths-->
     <div class="sidebarDrop" id="Paths">
+        <div></div>
+        <label>Paths</label>
 
     </div>
 
     <!-- Stats-->
     <div class="sidebarDrop" id="Stats">
+        <div></div>
+        <label>Stats</label>
 
     </div>
 
     <!-- Options-->
     <div class="sidebarDrop" id="Options">
+        <div></div>
+        <label>Options</label>
 
     </div>
 
@@ -102,9 +113,10 @@
         var currentTab = "None";
         var closingTab = "None";
 
-        function toggleDrop(tab) {
+        function toggleDrop(evt, tab) {
 
             console.log(currentTab);
+            console.log(closingTab);
 
             switch (tabOpened) {
 
@@ -114,17 +126,20 @@
                         closeTab();
                         currentTab = tab;
                         setTimeout(openTab, 250);
+                        evt.currentTarget.className += " active";
                     }
                     else {
-                        closeTab();
                         tabOpened = false;
+                        closeTab();
                     }
                     break;
 
                 case false:
+                    closingTab = currentTab;
                     currentTab = tab;
-                    openTab()
+                    openTab();
                     tabOpened = true;
+                    evt.currentTarget.className += " active";
                     break;
 
             }
@@ -136,16 +151,32 @@
         }
 
         function hideTab() {
-            document.getElementById(closingTab).style.display = "none";
+
+            switch (tabOpened) {
+
+                case true:
+                    document.getElementById(closingTab).style.display = "none";
+                    document.getElementById(closingTab).style.boxshadow = "none";
+                    break;
+
+                case false:
+                    document.getElementById(currentTab).style.display = "none";
+                    document.getElementById(currentTab).style.boxshadow = "none";
+                    document.getElementById("Main").style.boxShadow = "rgba(18, 18, 18, 0.8) 0px 0px 10px 0px";
+                    break;
+
+            }
         }
 
         function openTab() {
-            document.getElementById(currentTab).style.display = "inline";
+            document.getElementById(currentTab).style.display = "grid";
             setTimeout(showTab, 15);
+            document.getElementById("Main").style.boxShadow = "none";
         }
 
         function showTab() {
             document.getElementById(currentTab).style.transform = "translateX(0px)";
+            document.getElementById(currentTab).style.boxShadow = "rgba(18, 18, 18, 0.8) 0px 0px 10px 0px";
         }
 
 

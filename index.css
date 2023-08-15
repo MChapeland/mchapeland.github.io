@@ -3,8 +3,8 @@
 :root {
     --CBase: #414042;
     --CBox: #4d4d4d;
-    --CBoxHover: #555555;
-    --CBoxClick: #383838;
+    --CBoxHover: #606060;
+    --CBoxClick: #353535;
     --CBaseClick: #303030;
     --CBaseLight4: #d1d3d4;
     --CBaseLight3: #a7a9ac;
@@ -64,6 +64,7 @@ html, body {
     grid-template-columns: 50px;
     grid-template-rows: 0px 75px repeat(14, 50px);
     grid-gap: 10px;
+    box-shadow: rgba(18, 18, 18, 0.8) 0px 0px 10px 0px;
 }
     .sidebar:hover ~ sidebarDrop {
         transform: translateX(0px);
@@ -78,11 +79,8 @@ html, body {
         .sidebar .sidebar-button:hover {
             background-color: var(--CBoxHover);
         }
-        .sidebar .sidebar-button:active {
+        .sidebar .sidebar-button.active {
             background-color: var(--CBoxClick);
-        }
-
-        .sidebar .sidebar-button img {
         }
 
 .sidebar-logo {
@@ -93,7 +91,6 @@ html, body {
 .sidebarDrop {
     z-index: 1;
     background-color: rgba(40, 40, 40, 0.9);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     position: absolute;
     width: 200px;
     height: 100%;
@@ -101,4 +98,13 @@ html, body {
     transform: translateX(-200px);
     transition: 0.25s ease-in-out;
     display: none;
+    grid-template-columns: 160px;
+    grid-template-rows: 10px repeat(14, 50px);
+    grid-gap: 10px;
 }
+    .sidebarDrop label {
+        text-align: center;
+        color: var(--CBaseLight2);
+        font-size: 25px;
+        transform: translateX(20px);
+    }
