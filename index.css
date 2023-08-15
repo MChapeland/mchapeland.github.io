@@ -28,10 +28,6 @@
     --CButton: rgba(161, 90, 48, 1);
     --CBackground: rgba(31, 31, 31, 1);
 }
-@font-face {
-    font-family: 'Share Tech';
-    src: url('https://fonts.google.com/specimen/Share+Tech?query=tech&category=Serif,Sans+Serif,Display,Monospace') format('woff2');
-}
 
 
 /* ----- Page Parameters ----- */
@@ -39,7 +35,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Share_Tech';
+    font-family: 'Share Tech', serif;
     background: var(--CBaseDark);
 }
 
@@ -104,7 +100,8 @@ html, body {
 }
     .sidebarDrop label {
         text-align: center;
-        color: var(--CBaseLight2);
-        font-size: 25px;
+        color: var(--CBaseLight4);
+        font-size: 30px;
         transform: translateX(20px);
+        font-weight: 500;
     }

@@ -9,6 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=2.0" />
     <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech">
 
     <!-- Index Scripts -->
     <link tag="indexCSS" rel="stylesheet" type="text/css" href="index.css" />
@@ -112,11 +113,9 @@
         var tabOpened = false;
         var currentTab = "None";
         var closingTab = "None";
+        var currentButton = "None";
 
         function toggleDrop(evt, tab) {
-
-            console.log(currentTab);
-            console.log(closingTab);
 
             switch (tabOpened) {
 
@@ -131,12 +130,13 @@
                     else {
                         tabOpened = false;
                         closeTab();
+                        evt.currentTarget.className = "sidebar-button";
                     }
                     break;
 
                 case false:
-                    closingTab = currentTab;
                     currentTab = tab;
+                    closingTab = currentTab;
                     openTab();
                     tabOpened = true;
                     evt.currentTarget.className += " active";
@@ -146,6 +146,7 @@
         }
 
         function closeTab() {
+            document.getElementById(`${closingTab}Button`).className = "sidebar-button";
             document.getElementById(currentTab).style.transform = "translateX(-200px)";
             setTimeout(hideTab, 250);
         }
