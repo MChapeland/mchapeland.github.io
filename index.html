@@ -240,17 +240,17 @@
 
                         if (currentLayers.includes(layer)) {
                             console.log("Yup");
-                            const group = layerControl.getLayer(layer);
+                            const group = layerControl.getLayer(layer);marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
                         } 
                         else {
                             console.log("Nope");
                             const group = new L.layerGroup();
                             group.id = layer;
                             layerControl.addOverlay(group, `${layer}`);
-                            currentLayers.push(layer);
+                            currentLayers.push(layer);marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
                         }
 
-                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
+                        
                         
                     });
                 });
