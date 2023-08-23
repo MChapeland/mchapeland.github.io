@@ -203,8 +203,13 @@
             }
         });
 
-        var cities = L.layerGroup().addTo(map);
+        var cities = L.layerGroup();
+        
+        var overlays = {
+		    'Cities': cities
+	    };
 
+        var layerControl = L.control.layers(overlays).addTo(map);
 
         // Data fetched from Google Sheets
         const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
