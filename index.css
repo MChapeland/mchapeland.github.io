@@ -1,4 +1,5 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css?family=Share+Tech&display=swap');
+
 /* ----- Constant Variables ----- */
 :root {
     --CBase: #414042;
@@ -35,7 +36,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Share Tech', serif;
+    font-family: 'Share Tech', sans-serif;
     background: var(--CBaseDark);
 }
 
@@ -50,6 +51,7 @@ html, body {
     position: absolute;
 }
 
+
 .sidebar {
     z-index: 10;
     background-color: var(--CBase);
@@ -61,30 +63,30 @@ html, body {
     grid-template-rows: 0px 75px repeat(14, 50px);
     grid-gap: 10px;
     box-shadow: rgba(18, 18, 18, 0.8) 0px 0px 10px 0px;
-}
-    .sidebar:hover ~ sidebarDrop {
-        transform: translateX(0px);
-    }
-    .sidebar .sidebar-button {
+    
+    .tabButton {
         z-index: 11;
         transform: translateX(10px);
-        border-radius: 5px;
         background-color: var(--CBox);
         border: none;
-    }
-        .sidebar .sidebar-button:hover {
+        border-radius: 5px;
+
+        &:hover {
             background-color: var(--CBoxHover);
         }
-        .sidebar .sidebar-button.active {
-            background-color: var(--CBoxClick);
-        }
+    }
 
-.sidebar-logo {
-    z-index: 11;
-    transform: translateX(10px);
+    .tabButton.active{
+        background-color: var(--CBoxClick);
+    }
+
+    .logo{
+        z-index: 11;
+        transform: translateX(10px);
+    }
 }
 
-.sidebarDrop {
+.tab {
     z-index: 1;
     background-color: rgba(40, 40, 40, 0.9);
     position: absolute;
@@ -94,14 +96,17 @@ html, body {
     transform: translateX(-200px);
     transition: 0.25s ease-in-out;
     display: none;
-    grid-template-columns: 160px;
-    grid-template-rows: 10px repeat(14, 50px);
+    grid-template-columns: repeat(16, 10px);
+    grid-template-rows: repeat(auto-fill, 10px);
     grid-gap: 10px;
-}
-    .sidebarDrop label {
+
+    & label {
         text-align: center;
         color: var(--CBaseLight4);
         font-size: 30px;
         transform: translateX(20px);
         font-weight: 500;
     }
+
+}
+
