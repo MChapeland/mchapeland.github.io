@@ -244,9 +244,8 @@
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
 
-                        overlays += {
-		                    layer: layer
-	                    };
+                        
+                        newLayer = Object.assign({}, overlays, {"`${layer}`" : layer});
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(cities).bindPopup(`<b>${name}</b><br />${desc}`);
 
