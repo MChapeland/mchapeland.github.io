@@ -233,7 +233,9 @@
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
 
-                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`);
+                        layer = L.layerGroup().addTo(map);
+
+                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(layer).bindPopup(`<b>${name}</b><br />${desc}`);
 
                     });
                 });
