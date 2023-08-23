@@ -245,7 +245,7 @@
                         
                         layerControl.addOverlay(group, `${layer}`);
 
-                        console.log(layerControl.layers);
+                        console.log(L.control.layers);
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
                         
