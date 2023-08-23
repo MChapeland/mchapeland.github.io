@@ -203,12 +203,9 @@
             }
         });
 
-        var baseLayers = {
-            'Main Map': tiles,
-	    };
-        
-        var overlays = {
-	    };
+        var baseLayers = { 'Main Map': tiles, };
+        var overlays = {};
+        var currentLayers = [];
 
         var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
@@ -241,11 +238,16 @@
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
 
-                        const group = new L.layerGroup();
-                        
-                        layerControl.addOverlay(group, `${layer}`);
+                        if (currentLayers.includes(layer)) {
+                            group = layerControl.getLayer(layer);
+                        } 
+                        else {
+                            const group = new L.layerGroup();
+                            group.id = layer;
+                            layerControl.addOverlay(group, `${layer}`);
+                            currentLayers.push(layer);
+                        }
 
-                        console.log(layerControl._layers);
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
                         
