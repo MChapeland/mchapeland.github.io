@@ -239,7 +239,7 @@
                         const desc = main.c[6].v;
 
                         if (currentLayers.includes(layer)) {
-                            group = layerControl.getLayer(layer);
+                            const group = layerControl.getLayer(layer);
                         } 
                         else {
                             const group = new L.layerGroup();
