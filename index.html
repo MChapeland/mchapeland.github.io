@@ -246,13 +246,13 @@
 
                         
                         
-
+                        const group = L.layerGroup();
                         
                         layerControl.addOverlay(layer, `${layer}`);
 
                         console.log(overlays);
 
-                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-color.toLowerCase()}.svg` }) }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`);
+                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
                         
                     });
                 });
