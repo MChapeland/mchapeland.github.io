@@ -203,14 +203,11 @@
             }
         });
 
-        var cities = L.layerGroup();
-
         var baseLayers = {
             'Main Map': tiles,
 	    };
         
         var overlays = {
-		    'Cities': cities
 	    };
 
         var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
@@ -248,7 +245,7 @@
                         
                         layerControl.addOverlay(group, `${layer}`);
 
-                        console.log(overlays);
+                        console.log(layerControl.overlays);
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
                         
