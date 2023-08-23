@@ -213,6 +213,8 @@
 		    'Cities': cities
 	    };
 
+        var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+
         // Data fetched from Google Sheets
         const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
         const base = 'https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?';
@@ -247,7 +249,7 @@
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(cities).bindPopup(`<b>${name}</b><br />${desc}`);
                         
-                        var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+                        layerControl = L.control.layers(baseLayers, overlays).addTo(map);
                     });
                 });
         }
