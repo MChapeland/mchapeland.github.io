@@ -9,6 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=2.0" />
     <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech">
 
     <!-- Index Scripts -->
     <link tag="indexCSS" rel="stylesheet" type="text/css" href="index.css" />
@@ -30,32 +31,32 @@
 
         <div></div>
 
-        <div class="logo">
+        <div class="sidebar-logo">
             <img src="img/tabs/logo.png" />
             <img src="img/tabs/divider.png" />
         </div>
 
-        <button class="tabButton" id="SearchButton" onclick="toggleDrop(event, 'Search')">
+        <button class="sidebar-button" id="SearchButton" onclick="toggleDrop(event, 'Search')">
             <img src="img/tabs/search.png" />
         </button>
 
-        <button class="tabButton" id="LayersButton" onclick="toggleDrop(event, 'Layers')">
+        <button class="sidebar-button" id="LayersButton" onclick="toggleDrop(event, 'Layers')">
             <img src="img/tabs/layers.png" />
         </button>
 
-        <button class="tabButton" id="MarkersButton" onclick="toggleDrop(event, 'Markers')">
+        <button class="sidebar-button" id="MarkersButton" onclick="toggleDrop(event, 'Markers')">
             <img src="img/tabs/markers.png" />
         </button>
 
-        <button class="tabButton" id="PathsButton" onclick="toggleDrop(event, 'Paths')">
+        <button class="sidebar-button" id="PathsButton" onclick="toggleDrop(event, 'Paths')">
             <img src="img/tabs/paths.png" />
         </button>
 
-        <button class="tabButton" id="StatsButton" onclick="toggleDrop(event, 'Stats')">
+        <button class="sidebar-button" id="StatsButton" onclick="toggleDrop(event, 'Stats')">
             <img src="img/tabs/stats.png" />
         </button>
 
-        <button class="tabButton" id="OptionsButton" onclick="toggleDrop(event, 'Options')">
+        <button class="sidebar-button" id="OptionsButton" onclick="toggleDrop(event, 'Options')">
             <img src="img/tabs/options.png" />
         </button>
 
@@ -63,41 +64,41 @@
 
     <!-- SIDEBAR DROPS -->
     <!-- Search-->
-    <div class="tab" id="Search">
+    <div class="sidebarDrop" id="Search">
         <div></div>
         <label>Search</label>
     </div>
 
     <!-- Layers-->
-    <div class="tab" id="Layers">
+    <div class="sidebarDrop" id="Layers">
         <div></div>
         <label>Layers</label>
 
     </div>
 
     <!-- Markers-->
-    <div class="tab" id="Markers">
+    <div class="sidebarDrop" id="Markers">
         <div></div>
         <label>Markers</label>
 
     </div>
 
     <!-- Paths-->
-    <div class="tab" id="Paths">
+    <div class="sidebarDrop" id="Paths">
         <div></div>
         <label>Paths</label>
 
     </div>
 
     <!-- Stats-->
-    <div class="tab" id="Stats">
+    <div class="sidebarDrop" id="Stats">
         <div></div>
         <label>Stats</label>
 
     </div>
 
     <!-- Options-->
-    <div class="tab" id="Options">
+    <div class="sidebarDrop" id="Options">
         <div></div>
         <label>Options</label>
 
@@ -129,7 +130,7 @@
                     else {
                         tabOpened = false;
                         closeTab();
-                        evt.currentTarget.className = "tabButton";
+                        evt.currentTarget.className = "sidebar-button";
                     }
                     break;
 
@@ -145,7 +146,7 @@
         }
 
         function closeTab() {
-            document.getElementById(`${closingTab}Button`).className = "tabButton";
+            document.getElementById(`${closingTab}Button`).className = "sidebar-button";
             document.getElementById(currentTab).style.transform = "translateX(-200px)";
             setTimeout(hideTab, 250);
         }
@@ -227,14 +228,12 @@
                         const name = main.c[0].v;
                         const y = main.c[1].v;
                         const x = main.c[2].v;
-                        const group = main.c[3].v;
+                        const layer = main.c[3].v;
                         const color = main.c[4].v;
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
 
-                        layer = L.layerGroup().addLayer(group).addTo(map);
-
-                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
+                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`);
 
                     });
                 });
