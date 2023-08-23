@@ -245,11 +245,11 @@
                         const desc = main.c[6].v;
 
                         
-                        overlays[`${layer}`] = layer;
+                        overlays[layer] = `${layer}`;
 
                         console.log(overlays);
 
-                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(layer).bindPopup(`<b>${name}</b><br />${desc}`);
+                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(map).bindPopup(`<b>${name}</b><br />${desc}`);
                         
                     });
                 });
