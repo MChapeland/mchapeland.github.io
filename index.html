@@ -239,10 +239,14 @@
                         const name = main.c[0].v;
                         const y = main.c[1].v;
                         const x = main.c[2].v;
-                        const layer = main.c[3].v;
+                        const layer = L.layerGroup(main.c[3].v);
                         const color = main.c[4].v;
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
+
+                        overlays += {
+		                    layer: layer
+	                    };
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(cities).bindPopup(`<b>${name}</b><br />${desc}`);
 
