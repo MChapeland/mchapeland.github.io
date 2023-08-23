@@ -241,11 +241,11 @@
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
 
-                        const group = L.layerGroup();
+                        const group = new L.layerGroup();
                         
                         layerControl.addOverlay(group, `${layer}`);
 
-                        console.log(L.control.layers);
+                        console.log(map.layers);
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
                         
