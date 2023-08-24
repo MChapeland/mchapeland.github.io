@@ -199,13 +199,15 @@
                 shadowSize: [50, 64],
                 iconAnchor: [3, 48],
                 shadowAnchor: [3, 63],
-                popupAnchor: [11, -50]
+                popupAnchor: [12.5, -42.5]
             }
         });
 
         var baseLayers = { 'Main Map': tiles, };
         var overlays = {};
         var currentLayers = [];
+
+        marker = L.marker([0, 0], { icon: new BaseIcon({ iconUrl: `img/marker-icon-red.svg` }) }).addTo(map).bindPopup(`<label><b>Grey Mountains</b></label><br /><p>Hello World, this is a popup. Wowie let's add a ton of words just to see what this looks like. Damn I could go for some tom yum right now. Also look a giant T-rex!</p>`, {closeButton: false}).bindTooltip(Hello);
 
         var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 

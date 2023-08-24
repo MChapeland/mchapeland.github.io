@@ -9909,7 +9909,7 @@
 
   		// @option closeButton: Boolean = true
   		// Controls the presence of a close button in the popup.
-  		closeButton: true,
+  		closeButton: false,
 
   		// @option autoClose: Boolean = true
   		// Set it to `false` if you want to override the default behavior of
@@ -10019,15 +10019,6 @@
   		this._tipContainer = create$1('div', prefix + '-tip-container', container);
   		this._tip = create$1('div', prefix + '-tip', this._tipContainer);
 
-  		if (this.options.closeButton) {
-  			var closeButton = this._closeButton = create$1('a', prefix + '-close-button', container);
-  			closeButton.setAttribute('role', 'button'); // overrides the implicit role=link of <a> elements #7399
-  			closeButton.setAttribute('aria-label', 'Close popup');
-  			closeButton.href = '#close';
-  			closeButton.innerHTML = '<span aria-hidden="true">&#215;</span>';
-
-  			on(closeButton, 'click', this.close, this);
-  		}
   	},
 
   	_updateLayout: function () {
