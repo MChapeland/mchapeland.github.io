@@ -251,7 +251,7 @@
                             group.id = layer;
                             layerControl.addOverlay(group, `${layer}`);
                             currentLayers.push(layer);
-                            marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg`}) }).addTo(group).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p>`).bindTooltip(name);
+                            marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg`}) }).addTo(group).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p>`, {closeButton: false}).bindTooltip(name);
                         }
                     });
                 });
