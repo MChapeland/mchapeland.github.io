@@ -596,7 +596,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	pointer-events: none;
 	border: none;
 	background: transparent;
-	content: "";
+	content: ""; 
 	}
 
 /* Printing */
