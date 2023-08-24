@@ -240,7 +240,7 @@
 
                         if (currentLayers.includes(layer)) {
                             console.log("Yup");
-                            const group = map._layers[layer];
+                            const group = L.layerGroup(layer);
                             marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`);
                         } 
                         else {
