@@ -97,11 +97,12 @@ html, body {
     grid-template-columns: 160px;
     grid-template-rows: 10px repeat(14, 50px);
     grid-gap: 10px;
-}
-    .tabs label {
+
+    & label{
         text-align: center;
         color: var(--CBaseLight4);
         font-size: 30px;
         transform: translateX(20px);
         font-weight: 500;
     }
+}
