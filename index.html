@@ -206,9 +206,7 @@
         var baseLayers = { 'Main Map': tiles, };
         var overlays = {};
         var currentLayers = [];
-
-        marker = L.marker([0, 0], { icon: new BaseIcon({ iconUrl: `img/marker-icon-red.svg` }) }).addTo(map).bindPopup(`<label><b>Grey Mountains</b></label><br /><p>Hello World, this is a popup. Wowie let's add a ton of words just to see what this looks like. Damn I could go for some tom yum right now. Also look a giant T-rex!</p>`, {closeButton: false}).bindTooltip(Hello);
-
+        
         var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
         // Data fetched from Google Sheets
@@ -250,7 +248,7 @@
                             group.id = layer;
                             layerControl.addOverlay(group, `${layer}`);
                             currentLayers.push(layer);
-                            marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg`}) }).addTo(group).bindPopup(`<b>${name}</b><br />${desc}`).bindTooltip(name);
+                            marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg`}) }).addTo(group).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p>`).bindTooltip(name);
                         }
                     });
                 });
