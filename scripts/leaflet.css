@@ -261,7 +261,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	color: #0078A8;
 	}
 .leaflet-zoom-box {
-	border: 2px dotted #38f;
+	border: none;
 	background: rgba(255,255,255,0.5);
 	}
 
@@ -347,8 +347,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* layers control */
 
 .leaflet-control-layers {
-	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-	background: #fff;
+    background: rgba(70, 70, 70, 0.98);
 	border-radius: 5px;
 	}
 .leaflet-control-layers-toggle {
@@ -357,7 +356,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	height: 36px;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url(images/layers-2x.png);
+	background-image: url(images/layers.png);
 	background-size: 26px 26px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
@@ -374,8 +373,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
-	color: #333;
-	background: #fff;
+	color: #d1d3d4;
+    background: rgba(70, 70, 70, 0.98);
 	}
 .leaflet-control-layers-scrollbar {
 	overflow-y: scroll;
@@ -434,7 +433,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-bottom: 5px;
 	}
 .leaflet-control-scale-line {
-	border: 2px solid #777;
+	border: none;
 	border-top: none;
 	line-height: 1.1;
 	padding: 2px 5px 1px;
@@ -462,7 +461,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
-	border: 2px solid rgba(0,0,0,0.2);
+	border: none;
 	background-clip: padding-box;
 	}
 
@@ -557,7 +556,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-oldie .leaflet-control-layers,
 .leaflet-oldie .leaflet-popup-content-wrapper,
 .leaflet-oldie .leaflet-popup-tip {
-	border: 1px solid #999;
+	border: none;
 	}
 
 
@@ -565,7 +564,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-div-icon {
 	background: #fff;
-	border: 1px solid #666;
+	border: none;
 	}
 
 
@@ -596,7 +595,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-tooltip-right:before {
 	position: absolute;
 	pointer-events: none;
-	border: 6px solid transparent;
+	border: none;
 	background: transparent;
 	content: "";
 	}
