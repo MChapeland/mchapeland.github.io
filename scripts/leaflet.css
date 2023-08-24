@@ -576,6 +576,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     background-color: rgba(40, 40, 40, 0.98);
 	border-radius: 5px;
 	color: #d1d3d4;
+	text-align: center;
 	white-space: nowrap;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -588,16 +589,32 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	cursor: pointer;
 	pointer-events: auto;
 	}
-.leaflet-tooltip-top:before,
-.leaflet-tooltip-bottom:before,
-.leaflet-tooltip-left:before,
-.leaflet-tooltip-right:before {
+.leaflet-tooltip-bottom:before {
 	position: absolute;
 	pointer-events: none;
 	border: none;
 	background: transparent;
 	content: ""; 
 	}
+
+
+/* Directions */
+
+.leaflet-tooltip-bottom {
+	margin-top: 6px;
+}
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-top:before {
+	left: 50%;
+	margin-left: -6px;
+	}
+.leaflet-tooltip-bottom:before {
+	top: 0;
+	margin-top: -12px;
+	margin-left: -6px;
+	border-bottom-color: #fff;
+	}
+
 
 /* Printing */
 	
