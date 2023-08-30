@@ -1,0 +1,348 @@
+@import url("https://fonts.googleapis.com/css?family=Share+Tech&display=swap");
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar {
+  z-index: 10;
+  background-color: #414042;
+  position: absolute;
+  width: 70px;
+  height: 100%;
+  box-shadow: rgba(18, 18, 18, 0.8) 0px 0px 10px 0px;
+  overflow-y: scroll;
+  user-select: none;
+
+  &:hover ~ tabs {
+    transform: translateX(0px);
+  }
+
+  .sidebar-grid {
+    display: grid;
+    grid-template-columns: 50px;
+    grid-template-rows: 50px auto repeat(3, 50px) 0px;
+    grid-gap: 10px;
+    overflow-y: scroll;
+    position: inherit;
+    width: 70px;
+    height: 100%;
+
+    .sidebar-button {
+      z-index: 11;
+      transform: translateX(10px);
+      border-radius: 5px;
+      background-color: #4d4d4d;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #606060;
+      }
+  
+      & img {
+        width: 25px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+
+      &.active {
+        background-color: #353535;
+      }
+    }
+    
+
+    .sidebar-logo {
+      margin-top: 10px;
+      z-index: 11;
+      transform: translateX(10px);
+  
+      & img {
+        width: 50px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+    }
+
+  }
+}
+
+
+.tabs {
+  z-index: 1;
+  background-color: rgba(35, 35, 35, 0.95);
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  margin-left: 70px;
+  transform: translateX(-200px);
+  transition: 0.25s ease-in-out;
+  display: none;
+  font-family: "Share Tech", sans-serif;
+  user-select: none;
+  overflow-y: scroll;
+}
+
+.label-container {
+  position: relative;
+  margin: 10px;
+  width: 180px;
+  height: 60px;
+  display: flex;
+
+  & label {
+    margin: 10px auto;
+    color: #d1d3d4;
+    font-size: 30px;
+    font-weight: 600;
+  }
+}
+
+.custom-layer-group {
+  position: relative;
+  margin: 10px;
+  width: 180px;
+  max-height: 40px;
+  border-radius: 5px;
+  background-color: #333333;
+  transition: max-height 0.25s ease-out;
+  overflow-y: hidden;
+  display: block;
+
+  &:has(.arrow-container input[type="checkbox"]:checked){
+    max-height: 2000px;
+    transition: max-height 0.5s ease-in;
+  }
+
+  .group-container {
+    width: 180px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+
+    & label {
+      margin-top: 10px;
+      color: #d1d3d4;
+      font-size: 18px;
+    }
+    
+    .visibility-box {
+      width: 20px;
+      height: 20px;
+      background-color: #252525;
+      overflow: hidden;
+      border-radius: 10px;
+      margin: 10px; 
+      float: right;
+
+      & input[type="checkbox"]{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: 30px;
+        width: 30px;
+        background-color: #252525;
+        margin-top: -5px;
+        margin-left: -5px;
+        cursor: pointer;
+
+        &:checked{
+          background-color: #b4b4b4;
+        }
+      }
+    }
+
+    .arrow-container {
+      width: 30px;
+      height: 30px;
+      margin: 5px 0px 10px 0px; 
+      float: left;
+      transition: rotate ease-in-out 0.15s, margin ease-in-out 0.15s;
+      overflow: hidden;
+      
+      &:has(input[type="checkbox"]:checked){
+        rotate: 90deg;
+        margin: 4px 0px 10px 0px; 
+      }
+
+      & input[type="checkbox"]{
+        z-index: 10;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 30px;
+        height: 40px;
+        margin: -5px; 
+        cursor: pointer;
+      }
+
+      .arrow {
+        z-index: 9;
+        border: solid #d1d3d4;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        position: absolute;
+        rotate: -45deg;
+        pointer-events: none;
+        margin: 10px 10px;
+        cursor: pointer;
+      }
+    } 
+  }
+
+  .layer-container {
+    position: relative;
+    margin: 5px auto 10px;
+    width: 160px;
+    height: 30px;
+    border-radius: 2.5px;
+    background-color: #414042;
+
+    & label {
+      max-width: 132px;
+      margin: 7.5px;
+      color: #d1d3d4;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow-x: scroll;
+      text-overflow: ellipsis;
+    }
+
+    
+    .visibility-box {
+      width: 15px;
+      height: 30px;
+      background-color: #252525;
+      overflow: hidden;
+      border-radius: 0px 2.5px 2.5px 0px;
+      transform: translateX(145px); 
+      position: absolute;
+
+      & input[type="checkbox"]{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: 40px;
+        width: 30px;
+        background-color: #252525;
+        margin-top: -5px;
+        margin-left: -5px;
+        cursor: pointer;
+
+        &:checked{
+          background-color: #b4b4b4;
+        }
+      }
+    }
+  }
+
+}
+
+.search-box {
+  position: relative;
+  margin: 10px;
+  margin-bottom: 20px;
+  width: 180px;
+  max-height: 40px;
+  border-radius: 20px;
+  background-color: #333333;
+  transition: max-height 0.25s ease-out;
+  overflow-y: visible;
+  display: block;
+        
+  & input {
+    text-align: left;
+    height: 40px;
+    color: #999999;
+    font-size: 18px;
+    margin-left: 10px;
+    border:none;
+    background: none;
+    outline:none;
+    font-family: "Share Tech", sans-serif;
+    max-width: 140px;
+  }
+  
+  .search-button {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border:none;
+    background: none;
+    outline:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: -40px;
+
+    &:active {
+      filter: brightness(75%);
+    }
+  }
+  
+  & img {
+    width: 20px;
+    filter: brightness(90%);
+    margin-top: -5px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}  
+
+.search-result {
+  position: relative;
+  margin: 5px auto 10px;
+  width: 180px;
+  height: 30px;
+  border-radius: 2.5px;
+  background-color: #414042;
+
+  & label {
+    max-width: 132px;
+    margin: 7.5px;
+    color: #d1d3d4;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    text-overflow: ellipsis;
+  }
+
+  
+  .visibility-box {
+    width: 15px;
+    height: 30px;
+    background-color: #252525;
+    overflow: hidden;
+    border-radius: 0px 2.5px 2.5px 0px;
+    transform: translateX(145px); 
+    position: absolute;
+
+    & input[type="checkbox"]{
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 40px;
+      width: 30px;
+      background-color: #252525;
+      margin-top: -5px;
+      margin-left: -5px;
+
+      &:checked{
+        background-color: #b4b4b4;
+      }
+    }
+  }
+} 

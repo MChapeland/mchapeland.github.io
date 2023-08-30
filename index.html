@@ -1,234 +1,229 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
 
-    <!-- Title of the page -->
-    <title>Project World Map</title>
+	<!-- Title of the page -->
+	<title>Project World Map</title>
 
-    <!-- Page Setup -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech">
+	<!-- Page Setup -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=2.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie-edge" />
 
-    <!-- Index Scripts -->
-    <link tag="indexCSS" rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="stylesheet" href="index.css" />
+	<link rel="stylesheet" href="src/sidebar.css" />
+	<script src="src/sidebar.js" defer></script>
 
-    <!-- Leaflet Scripts -->
-    <link tag="leafletCSS" rel="stylesheet" href="scripts/leaflet.css" />
-    <script tag="leafletJS" src="scripts/leaflet.js"></script>
-    
-    <link rel="stylesheet" href="scripts/leaflet-panel-layers.css" />
-    <script src="scripts/leaflet-panel-layers.js"></script>
+	<!-- Leaflet Scripts -->
+	<link rel="stylesheet" href="src/leaflet.css" />
+	<script src="src/leaflet.js"></script>
 
 </head>
 
 
 <body>
 
-    <!-- Map -->
-    <div id="map"></div>
+	<!-- Map -->
+	<div id="map"></div>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="Main">
+	<!-- Sidebar -->
+	<div class="sidebar" id="Main">
 
-        <div></div>
+		<div class="sidebar-grid">
+		
+			<div class="sidebar-logo">
+				<img src="src/images/logo.svg" />
+			</div>
 
-        <div class="sidebar-logo">
-            <img src="img/tabs/logo.png" />
-            <img src="img/tabs/divider.png" />
-        </div>
+			<div></div>
 
-        <button class="sidebar-button" id="SearchButton" onclick="toggleDrop(event, 'Search')">
-            <img src="img/tabs/search.png" />
-        </button>
+			<button class="sidebar-button" id="SearchButton" onclick="toggleDrop(event, 'Search')">
+				<img src="src/images/icons/search.svg" />
+			</button>
 
-        <button class="sidebar-button" id="LayersButton" onclick="toggleDrop(event, 'Layers')">
-            <img src="img/tabs/layers.png" />
-        </button>
+			<button class="sidebar-button" id="LayersButton" onclick="toggleDrop(event, 'Layers')">
+				<img src="src/images/icons/layers.svg" />
+			</button>
 
-        <button class="sidebar-button" id="MarkersButton" onclick="toggleDrop(event, 'Markers')">
-            <img src="img/tabs/markers.png" />
-        </button>
+			<button class="sidebar-button" id="OptionsButton" onclick="toggleDrop(event, 'Options')">
+				<img src="src/images/icons/options.svg" />
+			</button>
 
-        <button class="sidebar-button" id="PathsButton" onclick="toggleDrop(event, 'Paths')">
-            <img src="img/tabs/paths.png" />
-        </button>
+		</div>
 
-        <button class="sidebar-button" id="StatsButton" onclick="toggleDrop(event, 'Stats')">
-            <img src="img/tabs/stats.png" />
-        </button>
+	</div>
 
-        <button class="sidebar-button" id="OptionsButton" onclick="toggleDrop(event, 'Options')">
-            <img src="img/tabs/options.png" />
-        </button>
+	<!-- SIDEBAR DROPS -->
+	<!-- Search -->
+	<div class="tabs" id="Search">
 
-    </div>
+		<div class="label-container">
+			<label>Search</label>
+		</div>
 
-    <!-- SIDEBAR DROPS -->
-    <!-- Search-->
-    <div class="tabs" id="Search">
-        <div></div>
-        <label>Search</label>
-    </div>
+		<div class="search-box">
 
-    <!-- Layers-->
-    <div class="tabs" id="Layers">
-        <div></div>
-        <label>Layers</label>
+			<input class="searchInput" type="text" placeholder="Search Markers" />
 
-    </div>
+			<button class="search-button" href="#">
+				<img src="src/images/icons/search.svg" />
+            </button>
 
-    <!-- Markers-->
-    <div class="tabs" id="Markers">
-        <div></div>
-        <label>Markers</label>
+		</div>
+		<!-- 
+		<div class="search-result">
+			<label>John</label>
+		</div>
+		-->
 
-    </div>
+	</div>
 
-    <!-- Paths-->
-    <div class="tabs" id="Paths">
-        <div></div>
-        <label>Paths</label>
+	<!-- Layers -->
+	<div class="tabs" id="Layers">
 
-    </div>
+		<div class="label-container">
+			<label>Layers</label>
+		</div>
 
-    <!-- Stats-->
-    <div class="tabs" id="Stats">
-        <div></div>
-        <label>Stats</label>
+		<!--
 
-    </div>
+		<div id="x" class="custom-layer-group">
 
-    <!-- Options-->
-    <div class="tabs" id="Options">
-        <div></div>
-        <label>Options</label>
+			<div class="group-container">
 
-    </div>
+				<div class="arrow-container">
+					<div class="arrow"></div>
+					<input type="checkbox" >
+				</div>
+				
+				<label>NPCs</label>
 
+				<div class="visibility-box">
+					<input type="checkbox" checked>
+				</div>
 
+            </div>
+			
+			<div class="layer-container">
+				<label>John</label>
+				<div class="visibility-box">
+					<input type="checkbox" checked>
+				</div>
+			</div>
 
+		</div>
 
-    <script>
+		-->
 
-        //Sidebar Setup
-        var tabOpened = false;
-        var currentTab = "None";
-        var closingTab = "None";
-        var currentButton = "None";
+	</div>
 
-        function toggleDrop(evt, tab) {
+	<!-- Options -->
+	<div class="tabs" id="Options">
 
-            switch (tabOpened) {
+		<div class="label-container">
+			<label>Options</label>
+		</div>
 
-                case true:
-                    if (currentTab != tab) {
-                        closingTab = currentTab;
-                        closeTab();
-                        currentTab = tab;
-                        setTimeout(openTab, 250);
-                        evt.currentTarget.className += " active";
-                    }
-                    else {
-                        tabOpened = false;
-                        closeTab();
-                        evt.currentTarget.className = "sidebar-button";
-                    }
-                    break;
+	</div>
 
-                case false:
-                    currentTab = tab;
-                    closingTab = currentTab;
-                    openTab();
-                    tabOpened = true;
-                    evt.currentTarget.className += " active";
-                    break;
+	<script>
 
-            }
-        }
+		//Map Setup
+		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
 
-        function closeTab() {
-            document.getElementById(`${closingTab}Button`).className = "sidebar-button";
-            document.getElementById(currentTab).style.transform = "translateX(-200px)";
-            setTimeout(hideTab, 250);
-        }
-
-        function hideTab() {
-
-            switch (tabOpened) {
-
-                case true:
-                    document.getElementById(closingTab).style.display = "none";
-                    document.getElementById(closingTab).style.boxshadow = "none";
-                    break;
-
-                case false:
-                    document.getElementById(currentTab).style.display = "none";
-                    document.getElementById(currentTab).style.boxshadow = "none";
-                    document.getElementById("Main").style.boxShadow = "rgba(18, 18, 18, 0.8) 0px 0px 10px 0px";
-                    break;
-
-            }
-        }
-
-        function openTab() {
-            document.getElementById(currentTab).style.display = "grid";
-            setTimeout(showTab, 15);
-            document.getElementById("Main").style.boxShadow = "none";
-        }
-
-        function showTab() {
-            document.getElementById(currentTab).style.transform = "translateX(0px)";
-            document.getElementById(currentTab).style.boxShadow = "rgba(18, 18, 18, 0.8) 0px 0px 10px 0px";
-        }
+		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
+			continuousWorld: false,
+			noWrap: true,
+			minZoom: 2,
+			maxZoom: 4
+		}).addTo(map);
 
 
+		
+		const layerGroups = ['NPC', 'Trees', 'NPC'];
 
-        //Map Setup
-        var map = L.map('map', { 'attributionControl': false }).setView([-15, 15], 2);
+		layerGroups.forEach((element) => {
 
-        var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
-            continuousWorld: false,
-            noWrap: true,
-            minZoom: 2,
-            maxZoom: 4,
-        }).addTo(map);
+			//Create a new layer group
+			let newLayerGroup = document.createElement("div");
+			newLayerGroup.classList.add('custom-layer-group');
+			newLayerGroup.id = `${element}`;
 
-        var BaseIcon = L.Icon.extend({
-            options: {
-                shadowUrl: 'img/marker-shadow.png',
-                iconSize: [30],
-                shadowSize: [50, 64],
-                iconAnchor: [3, 48],
-                shadowAnchor: [3, 63],
-                popupAnchor: [12.5, -50],
-                tooltipAnchor: [15, 5]
-            }
-        });
+				//In the layer group create a group container
+				let newGroupContainer = document.createElement("div");
+				newGroupContainer.classList.add('group-container');
+				newLayerGroup.appendChild(newGroupContainer);
+				
+					//In the group container create an arrow container
+					let newArrowContainer = document.createElement("div");
+					newArrowContainer.classList.add('arrow-container');
+					newGroupContainer.appendChild(newArrowContainer);
+					
+						//In the arrow container create an arrow
+						let newArrow = document.createElement("div");
+						newArrow.classList.add('arrow');
+						newArrowContainer.appendChild(newArrow);
 
-        var baseLayers = { 'Main Map': tiles, };
-        var overlays = [
-            {
-                "active": true,
-                "name": "Open Cycle Map",
-                "layer": {
-                    "type": "tileLayer",
-                    "args": [
-                        "https://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
-                    ]
-                }
-            },
+						//In the arrow container create a checkbox
+						let newACCheckbox = document.createElement("input");
+						newACCheckbox.type = "checkbox";
+						newACCheckbox.checked = false;
+						newArrowContainer.appendChild(newACCheckbox);
 
-        ];
-        var currentLayers = [];
+					//In the group container create a label
+					let newLabel = document.createElement("label");
+					newLabel.innerText = `${element}`;
+					newGroupContainer.appendChild(newLabel);
 
-        marker = L.marker([0, 0], { icon: new BaseIcon({ iconUrl: `img/marker-icon-red.svg` }) }).addTo(map)
-            .bindPopup(`<label><b>Grey Mountains</b></label><br /><p>Hello World, this is a popup. Wowie let's add a ton of words just to see what this looks like. Damn I could go for some tom yum right now. Also look a giant T-rex!</p>`, {closeButton: false})
-            .bindTooltip('Hellodfhdfhdfhdfhdf', {direction: 'bottom'});
+					//In the group container create a visibility box
+					let newVisibilityBox = document.createElement("div");
+					newVisibilityBox.classList.add('visibility-box');
+					newGroupContainer.appendChild(newVisibilityBox);
 
-        var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+						//In the visibility box create a checkbox
+						let newVBCheckbox = document.createElement("input");
+						newVBCheckbox.type = "checkbox";
+						newVBCheckbox.checked = true;
+						newVisibilityBox.appendChild(newVBCheckbox);
 
+			//Append the whole thing to the Layers tab
+			document.getElementById("Layers").appendChild(newLayerGroup);
+			
+		});
+
+
+		const markerGroups = ['John', 'Henry', 'Mark'];
+
+		markerGroups.forEach((element) => {
+
+			//Create a new marker group
+			let newMarkerGroup = document.createElement("div");
+			newMarkerGroup.classList.add('layer-container');
+				
+				//In the marker group create a label
+				let newLabel = document.createElement("label");
+				newLabel.innerText = `${element}`;
+				newMarkerGroup.appendChild(newLabel);
+				
+				//In the marker group create a visibility box
+				let newBox = document.createElement("div");
+				newBox.classList.add('visibility-box');
+				newMarkerGroup.appendChild(newBox);
+
+					//In the visibility box create a checkbox
+					let newCheckbox = document.createElement("input");
+					newCheckbox.type = "checkbox";
+					newCheckbox.checked = true;
+					newBox.appendChild(newCheckbox);
+		
+			//Append the whole thing to the proper layer group
+			document.getElementById("NPC").appendChild(newMarkerGroup);
+			
+		});
+
+
+		
         // Data fetched from Google Sheets
         const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
         const base = 'https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?';
@@ -253,20 +248,21 @@
                         const name = main.c[0].v;
                         const y = main.c[1].v;
                         const x = main.c[2].v;
-                        const layer = main.c[3].v;
-                        const color = main.c[4].v;
-                        const symbol = main.c[5].v;
-                        const desc = main.c[6].v;
+                        const group = main.c[3].v;
+                        const layer = main.c[4].v;
+                        const color = main.c[5].v;
+                        const symbol = main.c[6].v;
+                        const desc = main.c[7].v;
+                        const id = main.c[8].v;
 
-                        const group = new L.layerGroup();
-                        group.id = layer;
-                        layerControl.addOverlay(group, `${layer}`);
-                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg`}) }).addTo(group).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p>`, {closeButton: false}).bindTooltip(name);
+                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `src/images/markers/marker-${color.toLowerCase()}.svg`}) }).addTo(map).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false}).bindTooltip(name);
                         
                     });
                 });
         }
 
-    </script>
-</body>
-        </html>
+
+	</script>
+
+
+</html>
