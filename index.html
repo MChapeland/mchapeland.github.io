@@ -144,10 +144,10 @@
 				shadowUrl: 'src/images/marker-shadow.png',
 				iconSize: [30],
 				shadowSize: [50, 64],
-				iconAnchor: [3, 48],
-				shadowAnchor: [3, 63],
-				popupAnchor: [12.5, -50],
-				tooltipAnchor: [15, 5]
+				iconAnchor: [0, 48],
+				shadowAnchor: [0, 63],
+				popupAnchor: [9.5, -50],
+				tooltipAnchor: [12, 5]
 			}
 		});
 
@@ -315,7 +315,6 @@
 
 						}
 
-
 						if (document.getElementById(`MG${layer}LG${group}`) == null){
 							
 							//Create a new marker group
@@ -344,7 +343,11 @@
 
 						}
 
-                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `src/images/markers/marker-${color.toLowerCase()}.svg`}) }).addTo(map).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false}).bindTooltip(name);
+                        marker = L
+							.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/marker-${color.toLowerCase()}.svg`}) })
+							.addTo(map)
+							.bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false})
+							.bindTooltip(name);
                         
                     });
                 });
