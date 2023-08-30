@@ -144,98 +144,14 @@
 				shadowUrl: 'src/images/marker-shadow.png',
 				iconSize: [25],
 				shadowSize: [40, 50],
-				iconAnchor: [-16, 40],
-				shadowAnchor: [-16, 55],
-				popupAnchor: [-2, -58],
-				tooltipAnchor: [0.5, -3]
+				iconAnchor: [16, 40],
+				shadowAnchor: [16, 55],
+				popupAnchor: [22, -58],
+				tooltipAnchor: [30.5, -3]
 			}
 		});
 
-/*
-		
-		const layerGroups = ['NPC', 'Trees', 'NPC'];
 
-		layerGroups.forEach((element) => {
-
-			//Create a new layer group
-			let newLayerGroup = document.createElement("div");
-			newLayerGroup.classList.add('custom-layer-group');
-			newLayerGroup.id = `${element}`;
-
-				//In the layer group create a group container
-				let newGroupContainer = document.createElement("div");
-				newGroupContainer.classList.add('group-container');
-				newLayerGroup.appendChild(newGroupContainer);
-				
-					//In the group container create an arrow container
-					let newArrowContainer = document.createElement("div");
-					newArrowContainer.classList.add('arrow-container');
-					newGroupContainer.appendChild(newArrowContainer);
-					
-						//In the arrow container create an arrow
-						let newArrow = document.createElement("div");
-						newArrow.classList.add('arrow');
-						newArrowContainer.appendChild(newArrow);
-
-						//In the arrow container create a checkbox
-						let newACCheckbox = document.createElement("input");
-						newACCheckbox.type = "checkbox";
-						newACCheckbox.checked = false;
-						newArrowContainer.appendChild(newACCheckbox);
-
-					//In the group container create a label
-					let newLabel = document.createElement("label");
-					newLabel.innerText = `${element}`;
-					newGroupContainer.appendChild(newLabel);
-
-					//In the group container create a visibility box
-					let newVisibilityBox = document.createElement("div");
-					newVisibilityBox.classList.add('visibility-box');
-					newGroupContainer.appendChild(newVisibilityBox);
-
-						//In the visibility box create a checkbox
-						let newVBCheckbox = document.createElement("input");
-						newVBCheckbox.type = "checkbox";
-						newVBCheckbox.checked = true;
-						newVisibilityBox.appendChild(newVBCheckbox);
-
-			//Append the whole thing to the Layers tab
-			document.getElementById("Layers").appendChild(newLayerGroup);
-			
-		});
-
-
-		const markerGroups = ['John', 'Henry', 'Mark'];
-
-		markerGroups.forEach((element) => {
-
-			//Create a new marker group
-			let newMarkerGroup = document.createElement("div");
-			newMarkerGroup.classList.add('layer-container');
-				
-				//In the marker group create a label
-				let newLabel = document.createElement("label");
-				newLabel.innerText = `${element}`;
-				newMarkerGroup.appendChild(newLabel);
-				
-				//In the marker group create a visibility box
-				let newBox = document.createElement("div");
-				newBox.classList.add('visibility-box');
-				newMarkerGroup.appendChild(newBox);
-
-					//In the visibility box create a checkbox
-					let newCheckbox = document.createElement("input");
-					newCheckbox.type = "checkbox";
-					newCheckbox.checked = true;
-					newBox.appendChild(newCheckbox);
-		
-			//Append the whole thing to the proper layer group
-			document.getElementById("NPC").appendChild(newMarkerGroup);
-			
-		});
-
-*/
-		
         // Data fetched from Google Sheets
         const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
         const base = 'https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?';
