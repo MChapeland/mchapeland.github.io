@@ -17,6 +17,9 @@
     <!-- Leaflet Scripts -->
     <link tag="leafletCSS" rel="stylesheet" href="scripts/leaflet.css" />
     <script tag="leafletJS" src="scripts/leaflet.js"></script>
+    
+    <link rel="stylesheet" href="scripts/leaflet-panel-layers.css" />
+    <script src="scripts/leaflet-panel-layers.js"></script>
 
 </head>
 
@@ -205,7 +208,19 @@
         });
 
         var baseLayers = { 'Main Map': tiles, };
-        var overlays = {};
+        var overlays = [
+            {
+                "active": true,
+                "name": "Open Cycle Map",
+                "layer": {
+                    "type": "tileLayer",
+                    "args": [
+                        "https://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
+                    ]
+                }
+            },
+
+        ];
         var currentLayers = [];
 
         marker = L.marker([0, 0], { icon: new BaseIcon({ iconUrl: `img/marker-icon-red.svg` }) }).addTo(map)
@@ -243,18 +258,11 @@
                         const symbol = main.c[5].v;
                         const desc = main.c[6].v;
 
-                        if (currentLayers.includes(layer)) {
-                            console.log("Yup");
-                            marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg` }) }).addTo(layerGroups[layer]).bindPopup(`<b>${name}</b><br />${desc}`);
-                        } 
-                        else {
-                            console.log("Nope");
-                            const group = new L.layerGroup();
-                            group.id = layer;
-                            layerControl.addOverlay(group, `${layer}`);
-                            currentLayers.push(layer);
-                            marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg`}) }).addTo(group).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p>`, {closeButton: false}).bindTooltip(name);
-                        }
+                        const group = new L.layerGroup();
+                        group.id = layer;
+                        layerControl.addOverlay(group, `${layer}`);
+                        marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `img/marker-icon-${color.toLowerCase()}.svg`}) }).addTo(group).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p>`, {closeButton: false}).bindTooltip(name);
+                        
                     });
                 });
         }
