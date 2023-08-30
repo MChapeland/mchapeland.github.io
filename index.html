@@ -151,7 +151,7 @@
 			}
 		});
 
-
+/*
 		
 		const layerGroups = ['NPC', 'Trees', 'NPC'];
 
@@ -234,7 +234,7 @@
 			
 		});
 
-
+*/
 		
         // Data fetched from Google Sheets
         const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
@@ -266,6 +266,83 @@
                         const symbol = main.c[6].v;
                         const desc = main.c[7].v;
                         const id = main.c[8].v;
+
+						if (document.getElementById(`LG${group}`) == null){
+							//Create a new layer group
+							let newLayerGroup = document.createElement("div");
+							newLayerGroup.classList.add('custom-layer-group');
+							newLayerGroup.id = `LG${group}`;
+
+								//In the layer group create a group container
+								let newGroupContainer = document.createElement("div");
+								newGroupContainer.classList.add('group-container');
+								newLayerGroup.appendChild(newGroupContainer);
+								
+									//In the group container create an arrow container
+									let newArrowContainer = document.createElement("div");
+									newArrowContainer.classList.add('arrow-container');
+									newGroupContainer.appendChild(newArrowContainer);
+									
+										//In the arrow container create an arrow
+										let newArrow = document.createElement("div");
+										newArrow.classList.add('arrow');
+										newArrowContainer.appendChild(newArrow);
+
+										//In the arrow container create a checkbox
+										let newACCheckbox = document.createElement("input");
+										newACCheckbox.type = "checkbox";
+										newACCheckbox.checked = false;
+										newArrowContainer.appendChild(newACCheckbox);
+
+									//In the group container create a label
+									let newLabel = document.createElement("label");
+									newLabel.innerText = `${group}`;
+									newGroupContainer.appendChild(newLabel);
+
+									//In the group container create a visibility box
+									let newVisibilityBox = document.createElement("div");
+									newVisibilityBox.classList.add('visibility-box');
+									newGroupContainer.appendChild(newVisibilityBox);
+
+										//In the visibility box create a checkbox
+										let newVBCheckbox = document.createElement("input");
+										newVBCheckbox.type = "checkbox";
+										newVBCheckbox.checked = true;
+										newVisibilityBox.appendChild(newVBCheckbox);
+
+							//Append the whole thing to the Layers tab
+							document.getElementById("Layers").appendChild(newLayerGroup);
+
+						}
+
+
+						if (localStorage.getItem(`MG${layer}-LG${group}`) == null){
+							
+							//Create a new marker group
+							let newMarkerGroup = document.createElement("div");
+							newMarkerGroup.classList.add('layer-container');
+							newLayerGroup.id = `MG${layer}-LG${group}`;
+								
+								//In the marker group create a label
+								let newLabel = document.createElement("label");
+								newLabel.innerText = `${layer}`;
+								newMarkerGroup.appendChild(newLabel);
+								
+								//In the marker group create a visibility box
+								let newBox = document.createElement("div");
+								newBox.classList.add('visibility-box');
+								newMarkerGroup.appendChild(newBox);
+
+									//In the visibility box create a checkbox
+									let newCheckbox = document.createElement("input");
+									newCheckbox.type = "checkbox";
+									newCheckbox.checked = true;
+									newBox.appendChild(newCheckbox);
+						
+							//Append the whole thing to the proper layer group
+							document.getElementById(`LG${group}`).appendChild(newMarkerGroup);
+
+						}
 
                         marker = L.marker([Number(y), Number(x)], { icon: new BaseIcon({ iconUrl: `src/images/markers/marker-${color.toLowerCase()}.svg`}) }).addTo(map).bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false}).bindTooltip(name);
                         
