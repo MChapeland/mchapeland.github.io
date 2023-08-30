@@ -580,7 +580,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	padding: 6px;
 	background-color: #fff;
 	border: 1px solid #fff;
-	border-radius: 10px;
+	border-radius: 100px;
 	color: #222;
 	white-space: nowrap;
 	-webkit-user-select: none;
@@ -592,7 +592,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-tooltip.leaflet-interactive {
 	cursor: pointer;
-	pointer-events: auto;
+	pointer-events: auto; 
 	}
 .leaflet-tooltip-top:before,
 .leaflet-tooltip-bottom:before,
