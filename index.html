@@ -316,12 +316,12 @@
 						}
 
 
-						if (localStorage.getItem(`MG${layer}-LG${group}`) == null){
+						if (localStorage.getItem(`MG${layer}LG${group}`) == null){
 							
 							//Create a new marker group
 							let newMarkerGroup = document.createElement("div");
 							newMarkerGroup.classList.add('layer-container');
-							newMarkerGroup.id = `MG${layer}-LG${group}`;
+							newMarkerGroup.id = `MG${layer}LG${group}`;
 								
 								//In the marker group create a label
 								let newLabel = document.createElement("label");
