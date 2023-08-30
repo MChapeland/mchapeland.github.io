@@ -183,7 +183,7 @@
                         const desc = main.c[7].v;
                         const id = main.c[8].v;
 
-						if (document.getElementById(`LG${group}`) == null){
+						if (document.getElementById(`LG_${group}`) == null){
 							//Create a new layer group
 							let newLayerGroup = document.createElement("div");
 							newLayerGroup.classList.add('custom-layer-group');
@@ -231,7 +231,7 @@
 
 						}
 
-						if (document.getElementById(`MG${layer}LG${group}`) == null){
+						if (document.getElementById(`MG_${layer}-LG_${group}`) == null){
 							
 							//Create a new marker group
 							let newMarkerGroup = document.createElement("div");
