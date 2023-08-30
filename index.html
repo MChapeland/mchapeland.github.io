@@ -139,6 +139,18 @@
 			maxZoom: 4
 		}).addTo(map);
 
+		var BaseIcon = L.Icon.extend({
+			options: {
+				shadowUrl: 'src/images/marker-shadow.png',
+				iconSize: [30],
+				shadowSize: [50, 64],
+				iconAnchor: [3, 48],
+				shadowAnchor: [3, 63],
+				popupAnchor: [12.5, -50],
+				tooltipAnchor: [15, 5]
+			}
+		});
+
 
 		
 		const layerGroups = ['NPC', 'Trees', 'NPC'];
