@@ -187,7 +187,7 @@
 							//Create a new layer group
 							let newLayerGroup = document.createElement("div");
 							newLayerGroup.classList.add('custom-layer-group');
-							newLayerGroup.id = `LG${group}`;
+							newLayerGroup.id = `LG_${group}`;
 
 								//In the layer group create a group container
 								let newGroupContainer = document.createElement("div");
@@ -236,7 +236,7 @@
 							//Create a new marker group
 							let newMarkerGroup = document.createElement("div");
 							newMarkerGroup.classList.add('layer-container');
-							newMarkerGroup.id = `MG${layer}LG${group}`;
+							newMarkerGroup.id = `MG_${layer}-LG_${group}`;
 								
 								//In the marker group create a label
 								let newLabel = document.createElement("label");
@@ -255,7 +255,7 @@
 									newBox.appendChild(newCheckbox);
 						
 							//Append the whole thing to the proper layer group
-							document.getElementById(`LG${group}`).appendChild(newMarkerGroup);
+							document.getElementById(`LG_${group}`).appendChild(newMarkerGroup);
 
 						}
 
