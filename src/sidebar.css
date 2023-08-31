@@ -9,7 +9,7 @@
   z-index: 10;
   background-color: #414042;
   position: absolute;
-  width: 70px;
+  width: 50px;
   height: 100%;
   box-shadow: rgba(18, 18, 18, 0.8) 0px 0px 10px 0px;
   overflow-y: scroll;
@@ -23,17 +23,14 @@
     display: grid;
     grid-template-columns: 50px;
     grid-template-rows: 50px auto repeat(3, 50px) 0px;
-    grid-gap: 10px;
     overflow-y: scroll;
     position: inherit;
-    width: 70px;
+    width: 50px;
     height: 100%;
 
     .sidebar-button {
       z-index: 11;
-      transform: translateX(10px);
-      border-radius: 5px;
-      background-color: #4d4d4d;
+      background-color: #414042;
       border: none;
       cursor: pointer;
 
@@ -42,7 +39,8 @@
       }
   
       & img {
-        width: 25px;
+        margin-top: 2.5px;
+        width: 20px;
         user-select: none;
         -moz-user-select: none;
         -webkit-user-drag: none;
@@ -57,9 +55,7 @@
     
 
     .sidebar-logo {
-      margin-top: 10px;
       z-index: 11;
-      transform: translateX(10px);
   
       & img {
         width: 50px;
@@ -79,36 +75,22 @@
   z-index: 1;
   background-color: rgba(35, 35, 35, 0.95);
   position: absolute;
-  width: 200px;
+  width: 250px;
   height: 100%;
-  margin-left: 70px;
-  transform: translateX(-200px);
+  margin-left: 50px;
+  transform: translateX(-250px);
   transition: 0.25s ease-in-out;
   display: none;
   font-family: "Share Tech", sans-serif;
   user-select: none;
   overflow-y: scroll;
-}
-
-.label-container {
-  position: relative;
-  margin: 10px;
-  width: 180px;
-  height: 60px;
-  display: flex;
-
-  & label {
-    margin: 10px auto;
-    color: #d1d3d4;
-    font-size: 30px;
-    font-weight: 600;
-  }
+  scroll-snap-type: y mandatory;
 }
 
 .custom-layer-group {
   position: relative;
   margin: 10px;
-  width: 180px;
+  width: 230px;
   max-height: 40px;
   border-radius: 5px;
   background-color: #333333;
@@ -182,7 +164,7 @@
         height: 40px;
         margin: -5px; 
         cursor: pointer;
-        outline:none;
+        outline: none;
       }
 
       .arrow {
@@ -251,33 +233,32 @@
 
 .search-box {
   position: relative;
-  margin: 10px;
-  margin-bottom: 20px;
-  width: 180px;
-  max-height: 40px;
-  border-radius: 20px;
+  width: 250px;
+  max-height: 50px;
   background-color: #333333;
   transition: max-height 0.25s ease-out;
   overflow-y: visible;
   display: block;
+  margin-bottom: -15px;
         
   & input {
     text-align: left;
-    height: 40px;
-    color: #999999;
+    height: 50px;
+    color: #d1d3d4;
     font-size: 18px;
     margin-left: 10px;
     border:none;
     background: none;
     outline:none;
     font-family: "Share Tech", sans-serif;
-    max-width: 140px;
+    width: 190px;
   }
   
   .search-button {
     float: right;
-    width: 40px;
-    height: 40px;
+    margin-right: 10px;
+    width: 30px;
+    height: 50px;
     border-radius: 50%;
     border:none;
     background: none;
@@ -286,7 +267,6 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-top: -40px;
 
     &:active {
       filter: brightness(75%);
@@ -294,9 +274,8 @@
   }
   
   & img {
-    width: 20px;
+    width: 25px;
     filter: brightness(90%);
-    margin-top: -5px;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -307,46 +286,45 @@
 
 .search-result {
   position: relative;
-  margin: 5px auto 10px;
-  width: 180px;
-  height: 30px;
-  border-radius: 2.5px;
-  background-color: #414042;
+  width: 250px;
+  min-height: 25px;
+  margin-top: 30px;
+  scroll-snap-align: none;
+
+  &:hover {
+    filter: brightness(125%);
+    cursor: pointer;
+  }
+
+  &:active {
+    filter: brightness(100%);
+  }
+
+  & img {
+    margin: 0px 10px 0px 15px;
+    float: left;
+    width: 20px;
+    filter: brightness(90%);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
 
   & label {
-    max-width: 132px;
-    margin: 7.5px;
+    max-width: 190px;
     color: #d1d3d4;
-    font-size: 14px;
+    font-size: 20px;
     white-space: nowrap;
-    overflow-x: scroll;
     text-overflow: ellipsis;
   }
 
-  
-  .visibility-box {
-    width: 15px;
-    height: 30px;
-    background-color: #252525;
-    overflow: hidden;
-    border-radius: 0px 2.5px 2.5px 0px;
-    transform: translateX(145px); 
-    position: absolute;
-
-    & input[type="checkbox"]{
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      height: 40px;
-      width: 30px;
-      background-color: #252525;
-      margin-top: -5px;
-      margin-left: -5px;
-      outline:none;
-
-      &:checked{
-        background-color: #b4b4b4;
-      }
-    }
+  & p {
+    margin-left: 15px;
+    max-width: 220px;
+    color: #b6b6b6;
+    font-size: 15px;
+    text-overflow: wrap;
   }
 } 

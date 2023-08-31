@@ -36,7 +36,7 @@ function toggleDrop(evt, tab) {
 
 function closeTab() {
     document.getElementById(`${closingTab}Button`).className = "sidebar-button";
-    document.getElementById(currentTab).style.transform = "translateX(-200px)";
+    document.getElementById(currentTab).style.transform = "translateX(-250px)";
     setTimeout(hideTab, 250);
 }
 

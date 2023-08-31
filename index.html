@@ -58,37 +58,122 @@
 	<!-- Search -->
 	<div class="tabs" id="Search">
 
-		<div class="label-container">
-			<label>Search</label>
-		</div>
-
 		<div class="search-box">
 
-			<input class="searchInput" type="text" placeholder="Search Markers" />
+			<input class="searchInput" type="text" placeholder="Search Markers..." />
 
 			<button class="search-button" href="#">
 				<img src="src/images/icons/search.svg" />
             </button>
 
 		</div>
-		<!-- 
+		
 		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
 			<label>John</label>
+			<br />
+			<p>Lore,lamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		</div>
-		-->
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Loralp ex ea commodo consequat. </p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem.</p>
+		</div>
+
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, consna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, coniam, quis nosmco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, consectetim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsummmodo consequat.</p>
+		</div>
+
+		<div class="search-result">
+			<img src="src/images/icons/stats.svg" />
+			<label>John</label>
+			<br />
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
 
 	</div>
 
 	<!-- Layers -->
 	<div class="tabs" id="Layers">
 
-		<div class="label-container">
-			<label>Layers</label>
-		</div>
+		
 
-		<!--
-
-		<div id="x" class="custom-layer-group">
+		<div class="custom-layer-group">
 
 			<div class="group-container">
 
@@ -114,16 +199,12 @@
 
 		</div>
 
-		-->
+	
 
 	</div>
 
 	<!-- Options -->
 	<div class="tabs" id="Options">
-
-		<div class="label-container">
-			<label>Options</label>
-		</div>
 
 	</div>
 
@@ -186,7 +267,7 @@
                         const group = main.c[3].v;
                         const layer = main.c[4].v;
                         const color = main.c[5].v;
-                        const symbol = main.c[6].v;
+                        const icon = main.c[6].v;
                         const desc = main.c[7].v;
                         const id = main.c[8].v;
 
@@ -267,7 +348,7 @@
 						}
 
                         marker = L
-							.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/marker-${color.toLowerCase()}.svg`}) })
+							.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/marker-${icon.toLowerCase()}.svg`}) })
 							.addTo(map)
 							.bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false})
 							.bindTooltip(name);
