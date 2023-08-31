@@ -345,7 +345,7 @@
 						}
 
                         marker = L
-							.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${icon.toLowerCase()}.svg`}) })
+							.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${color.toLowerCase()}/${icon.toLowerCase()}.svg`}) })
 							.addTo(map)
 							.bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false})
 							.bindTooltip(name);
