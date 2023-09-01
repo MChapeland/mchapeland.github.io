@@ -9,7 +9,7 @@
   z-index: 10;
   background-color: #414042;
   position: absolute;
-  width: 50px;
+  width: 3em;
   height: 100%;
   box-shadow: rgba(18, 18, 18, 0.8) 0px 0px 10px 0px;
   overflow-y: scroll;
@@ -21,11 +21,11 @@
 
   .sidebar-grid {
     display: grid;
-    grid-template-columns: 50px;
-    grid-template-rows: 50px auto repeat(3, 50px) 0px;
+    grid-template-columns: 3em;
+    grid-template-rows: 3em auto repeat(3, 3em) 0em;
     overflow-y: scroll;
     position: inherit;
-    width: 50px;
+    width: 3em;
     height: 100%;
 
     .sidebar-button {
@@ -39,8 +39,8 @@
       }
   
       & img {
-        margin-top: 2.5px;
-        width: 20px;
+        margin-top: 0,2em;
+        width: 1.5em;
         user-select: none;
         -moz-user-select: none;
         -webkit-user-drag: none;
@@ -58,7 +58,7 @@
       z-index: 11;
   
       & img {
-        width: 50px;
+        width: 3em;
         user-select: none;
         -moz-user-select: none;
         -webkit-user-drag: none;
