@@ -30,6 +30,7 @@
       background-color: #414042;
       border: none;
       cursor: pointer;
+      outline: none;
       width: 100%;
       height: 0;
       padding-top: 50%;
@@ -73,9 +74,9 @@
   z-index: 1;
   background-color: rgba(35, 35, 35, 0.95);
   position: absolute;
-  width: 12.5%;
-  min-width: 150px;
-  max-width: 12.5%;
+  width: 15%;
+  min-width: 180px;
+  max-width: 15%;
   height: 100%;
   margin-left: max(2.5%, 30px);
   transform: translateX(-100%);
@@ -93,13 +94,13 @@
 
 .custom-layer-group {
   position: relative;
-  margin: 10px;
-  width: 230px;
-  max-height: 40px;
+  margin: 5%;
+  width: 90%;
+  max-height: 30px;
   border-radius: 5px;
   background-color: #333333;
   transition: max-height 0.25s ease-out;
-  overflow-y: hidden;
+  overflow: hidden;
   display: block;
 
   &:has(.arrow-container input[type="checkbox"]:checked){
@@ -108,55 +109,59 @@
   }
 
   .group-container {
-    width: 180px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
-
-    & label {
-      margin-top: 10px;
-      color: #d1d3d4;
-      font-size: 18px;
-    }
+    display: grid;
+    grid-template-columns: 30px auto;
     
     .visibility-box {
-      width: 20px;
-      height: 20px;
-      background-color: #252525;
+      width: 100%;
+      height: 100%;
+      background: none;
       overflow: hidden;
       border-radius: 10px;
-      margin: 10px; 
       float: right;
+      filter: brightness(50%);
+      
+      &:has(input[type="checkbox"]:checked){
+        filter: brightness(100%);
+      }
 
       & input[type="checkbox"]{
+        cursor: pointer;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        height: 30px;
-        width: 30px;
-        background-color: #252525;
-        margin-top: -5px;
-        margin-left: -5px;
-        cursor: pointer;
-        outline:none;
+        outline: none;
+        border: none;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        margin-left: 0;
+      }
 
-        &:checked{
-          background-color: #b4b4b4;
-        }
+      & label {
+        position: absolute;
+        color: #d1d3d4;
+        font-size: 20px;
+        cursor: pointer;
+        margin-top: 4px;
       }
     }
 
     .arrow-container {
       width: 30px;
       height: 30px;
-      margin: 5px 0px 10px 0px; 
+      margin: 0px 0px 10px 0px; 
       float: left;
       transition: rotate ease-in-out 0.15s, margin ease-in-out 0.15s;
       overflow: hidden;
       
       &:has(input[type="checkbox"]:checked){
         rotate: 90deg;
-        margin: 4px 0px 10px 0px; 
+        margin: -1px 0px 10px 0px; 
       }
 
       & input[type="checkbox"]{
@@ -186,49 +191,74 @@
     } 
   }
 
-  .layer-container {
-    position: relative;
-    margin: 5px auto 10px;
-    width: 160px;
-    height: 30px;
-    border-radius: 2.5px;
-    background-color: #414042;
+  .layer-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin-top: -10px;
 
-    & label {
-      max-width: 132px;
-      margin: 7.5px;
-      color: #d1d3d4;
-      font-size: 14px;
-      white-space: nowrap;
-      overflow-x: scroll;
-      text-overflow: ellipsis;
-    }
 
-    
-    .visibility-box {
-      width: 15px;
-      height: 30px;
-      background-color: #252525;
-      overflow: hidden;
-      border-radius: 0px 2.5px 2.5px 0px;
-      transform: translateX(145px); 
-      position: absolute;
-
+    .layer-container {
+      position: relative;
+      width: 45%;
+      height: 20px;
+      border-radius: 2.5px;
+      filter: brightness(50%);
+      margin: 2.5px;
+  
+      &:has(input[type="checkbox"]:checked){
+        filter: brightness(100%);
+      }
+  
       & input[type="checkbox"]{
+        cursor: pointer;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        outline:none;
-        height: 40px;
-        width: 30px;
-        background-color: #252525;
-        margin-top: -5px;
-        margin-left: -5px;
+        outline: none;
+        border: none;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
+  
+      & img {
+        float: left;
+        height: 20px;
+        margin-top: 0.5px;
+        filter: brightness(90%);
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        position: absolute;
+      }
+    
+      & label {
+        color: #d1d3d4;
+        position: absolute;
+        font-size: 15px;
         cursor: pointer;
-
-        &:checked{
-          background-color: #b4b4b4;
-        }
+        overflow: hidden;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-left: 25px;
+        margin-top: 2.5px;
+      }
+  
+      & p {
+        color: #d1d3d4;
+        font-size: 15px;
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        float: right;
+        margin-top: 2.5px;
+        text-align: center;
       }
     }
   }
