@@ -36,7 +36,7 @@ function toggleDrop(evt, tab) {
 
 function closeTab() {
     document.getElementById(`${closingTab}Button`).className = "sidebar-button";
-    document.getElementById(currentTab).style.transform = "translateX(-250px)";
+    document.getElementById(currentTab).style.transform = "translateX(-100%)";
     setTimeout(hideTab, 250);
 }
 
@@ -65,7 +65,7 @@ function openTab() {
 }
 
 function showTab() {
-    document.getElementById(currentTab).style.transform = "translateX(0px)";
+    document.getElementById(currentTab).style.transform = "translateX(0%)";
     document.getElementById(currentTab).style.boxShadow = "rgba(18, 18, 18, 0.8) 0px 0px 10px 0px";
 }
  
