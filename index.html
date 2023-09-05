@@ -493,7 +493,7 @@
 							
 								//In the marker group create a label
 								let newIcon = document.createElement("img");
-								newIcon.src = `src/images/markers/${color}/${icon}.svg`;
+								newIcon.src = `src/images/markers/${color.toLowerCase()}/${icon.toLowerCase()}.svg`;
 								newMarkerGroup.appendChild(newIcon);
 								
 								//In the marker group create a visibility box
