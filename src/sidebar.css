@@ -247,7 +247,7 @@
         white-space: nowrap;
         margin-left: 25px;
         margin-top: 2.5px;
-        max-width: 70%;
+        max-width: 65;
       }
   
       & p {
@@ -259,7 +259,6 @@
         white-space: nowrap;
         float: right;
         margin-top: 2.5px;
-        margin-right: -2.5px;
         text-align: center;
       }
     }
