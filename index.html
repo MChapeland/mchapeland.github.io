@@ -475,8 +475,8 @@
 								//In the layer group create a group container
 								let newGridContainer = document.createElement("div");
 								newGridContainer.classList.add('layer-grid');
+								newGridContainer.id = `LG_${group}`;
 								newLayerGroup.appendChild(newGridContainer);
-								newLayerGroup.id = `LG_${group}`;
 								
 
 							//Append the whole thing to the Layers tab
