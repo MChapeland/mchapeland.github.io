@@ -201,11 +201,11 @@
 
     .layer-container {
       position: relative;
-      width: 45%;
+      width: 40%;
       height: 20px;
       border-radius: 2.5px;
       filter: brightness(50%);
-      margin: 2.5px;
+      margin: 5px;
   
       &:has(input[type="checkbox"]:checked){
         filter: brightness(100%);
