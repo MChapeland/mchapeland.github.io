@@ -127,7 +127,13 @@
       
       &:has(input[type="checkbox"]:checked){
         filter: brightness(100%);
+
+        &:has(input[type="checkbox"]:hover){
+          filter: brightness(150%);
+        }
+        
       }
+
 
       & input[type="checkbox"]{
         cursor: pointer;
@@ -209,6 +215,10 @@
   
       &:has(input[type="checkbox"]:checked){
         filter: brightness(100%);
+
+        &:has(input[type="checkbox"]:hover){
+          filter: brightness(150%);
+        }
       }
   
       & input[type="checkbox"]{
