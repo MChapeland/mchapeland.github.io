@@ -156,7 +156,7 @@
 	<!-- Layers -->
 	<div class="tabs" id="Layers">
 
-		
+		<!--
 		<div class="custom-layer-group">
 
 			<div class="group-container">
@@ -184,7 +184,7 @@
 				</div>
 
 			</div>
-			
+			-->
 
 		</div>
 		
@@ -297,7 +297,7 @@
 										let newVBCheckbox = document.createElement("input");
 										newVBCheckbox.type = "checkbox";
 										newVBCheckbox.checked = true;
-										newVBCheckbox.onchange = "layerGroupVisibility(event)"; 
+										newVBCheckbox.onchange = layerGroupVisibility(event); 
 										newVBCheckbox.id = `CB_${group}`;
 										newVisibilityBox.appendChild(newVBCheckbox);
 
@@ -343,7 +343,7 @@
 								let newCheckbox = document.createElement("input");
 								newCheckbox.type = "checkbox";
 								newCheckbox.checked = true;
-								newCheckbox.onchange = "markerGroupVisibility(event)"; 
+								newCheckbox.onchange = markerGroupVisibility(event); 
 								newCheckbox.id = `CB_${group}Layer`;
 								newMarkerGroup.appendChild(newCheckbox);
 						
