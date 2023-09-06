@@ -179,7 +179,7 @@
 					<img src="src/images/markers/blue/ring.svg" />
 					<label>NPCs</label>
 					<input type="number" value="1" readonly>
-					<input type="checkbox" checked>
+					<input type="checkbox" checked onchange="markerGroupVisibility(event, 'groupCheckbox')">
 
 				</div>
 
@@ -386,9 +386,12 @@
 		}
 
 		
-		function markerGroupVisibility(event, group) {
+		function markerGroupVisibility(event, groupID) {
 
-			
+			if (event.target.checked != document.getElementById(`${groupID}`).checked & event.target.checked == true) {
+				document.getElementById(`${groupID}`).checked = event.target.checked;
+			}
+
 		}
 
 	</script>
