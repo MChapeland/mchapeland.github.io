@@ -228,17 +228,6 @@
 			}
 		});
 
-		//layer control
-		var baseMaps = {
-			"BaseMap": baseMap
-		};
-
-		//create the layer config object first
-		var overlayMaps = {
-
-		};
-		
-		var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 		
 		
@@ -440,14 +429,11 @@
 		function markerGroupVisibility(event, groupID) {
 			if (event.target.checked == true) {
 
-				this.map.addLayer(myLayer);
-
 				if (event.target.checked != document.getElementById(`${groupID}`).checked) {
 					document.getElementById(`${groupID}`).checked = event.target.checked;
 				}
 			}
 			else {
-				this.map.removeLayer(myLayer);
 			}
 
 
