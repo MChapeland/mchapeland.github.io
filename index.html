@@ -156,6 +156,7 @@
 	<!-- Layers -->
 	<div class="tabs" id="Layers">
 		
+		<!--
 		<div class="custom-layer-group">
 
 			<div class="group-container">
@@ -186,6 +187,7 @@
 			
 
 		</div>
+		-->
 
 	</div>
 
@@ -317,34 +319,29 @@
 							newMarkerGroup.classList.add('layer-container');
 							newMarkerGroup.id = `MG_${layer}-LG_${group}`;
 							
-								//In the marker group create a label
+								//In the marker group create an icon
 								let newIcon = document.createElement("img");
 								newIcon.src = `src/images/markers/${color.toLowerCase()}/${icon.toLowerCase()}.svg`;
 								newMarkerGroup.appendChild(newIcon);
-								
-								//In the marker group create a visibility box
-								let newBox = document.createElement("div");
-								newBox.classList.add('visibility-box');
-								newMarkerGroup.appendChild(newBox);
-								
-									//In the visibility box create a label
-									let newLabel = document.createElement("label");
-									newLabel.innerText = `${layer}`;
-									newBox.appendChild(newLabel);
-
-									//In the visibility box create a checkbox
-									let newCheckbox = document.createElement("input");
-									newCheckbox.type = "checkbox";
-									newCheckbox.checked = true;
-									newBox.appendChild(newCheckbox);
+							
+								//In the marker group create a label
+								let newLabel = document.createElement("label");
+								newLabel.innerText = `${layer}`;
+								newMarkerGroup.appendChild(newLabel);
 								
 								//In the marker group create a number input
 								let newNumber = document.createElement("input");
 								newNumber.type = Number;
-								newNumber.contentEditable = false;
+								newNumber.readOnly = true;
 								newNumber.value = 1;
 								newNumber.id = `NB_${layer}-${group}`;
 								newMarkerGroup.appendChild(newNumber);
+
+								//In the visibility box create a checkbox
+								let newCheckbox = document.createElement("input");
+								newCheckbox.type = "checkbox";
+								newCheckbox.checked = true;
+								newMarkerGroup.appendChild(newCheckbox);
 						
 							//Append the whole thing to the proper layer group
 							document.getElementById(`LG_${group}`).appendChild(newMarkerGroup);
