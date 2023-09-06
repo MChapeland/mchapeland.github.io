@@ -212,7 +212,7 @@
 		//Map Setup
 		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
 
-		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
+		var baseMap = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
 			noWrap: true,
 			minZoom: 2,
@@ -228,20 +228,17 @@
 			}
 		});
 
-		var layerName = feature.properties.condition[0];
-
 		//layer control
 		var baseMaps = {
-			"OpenStreetMap": OSM,
-			"Aerial Imagery": MapQuestOpen_Aerial
+			"BaseMap": baseMap
 		};
 
 		//create the layer config object first
 		var overlayMaps = {
-			//layerName: layer1,
+
 		};
 		
-		L.control.layers(baseMaps, overlayMaps).addTo(map); 
+		var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 		
 		
@@ -397,7 +394,7 @@
 						}
 
 						if (map.hasLayer(layer) == false){
-							overlayMaps[layerName] = layer;
+							overlayMaps[layer] = layer;
 						}
 
                         marker = L
