@@ -393,7 +393,7 @@
 							document.getElementById(`NB_${layer}-${group}`).value++;
 						}
 
-						if (overlayMaps.hasLayer("k") == null){
+						if (map.hasLayer(myLayer) == false){
 							overlayMaps[layer.toLowerCase()] = layer.toLowerCase();
 						}
 
