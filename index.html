@@ -393,8 +393,8 @@
 							document.getElementById(`NB_${layer}-${group}`).value++;
 						}
 
-						if (map.hasLayer(layer) == false){
-							overlayMaps[layer] = layer;
+						if (map.hasLayer(layer.toLowerCase()) == false){
+							overlayMaps[layer.toLowerCase()] = layer.toLowerCase();
 						}
 
                         marker = L
