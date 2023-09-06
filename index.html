@@ -156,7 +156,7 @@
 	<!-- Layers -->
 	<div class="tabs" id="Layers">
 
-		<!--
+		<!-- 
 		<div class="custom-layer-group" id="groupCheckboxParent">
 
 			<div class="group-container">
@@ -368,10 +368,20 @@
 
 		function layerGroupVisibility(event) {;
 			if (event.target.checked == true) {
-				document.getElementById(`${event.target.id}Parent`).querySelector(".layer-grid").querySelectorAll("input[type=checkbox]").checked = true;
+				var elems = document.getElementById(`${event.target.id}Parent`).querySelectorAll(".layer-grid input[type=checkbox]");
+				
+				var index = 0, length = elems.length;
+				for ( ; index < length; index++) {
+					elems[index].checked = true;
+    			}
 			}
 			else {
-				document.getElementById(`${event.target.id}Parent`).querySelector(".layer-grid").querySelectorAll("input[type=checkbox]").checked = false;
+				var elems = document.getElementById(`${event.target.id}Parent`).querySelectorAll(".layer-grid input[type=checkbox]");
+				
+				var index = 0, length = elems.length;
+				for ( ; index < length; index++) {
+					elems[index].checked = false;
+    			}
 			}
 		}
 
