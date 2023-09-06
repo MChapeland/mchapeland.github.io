@@ -258,7 +258,7 @@
         white-space: nowrap;
         margin-left: 25px;
         margin-top: 2.5px;
-        max-width: 65;
+        max-width: 65%;
       }
   
       & p {
