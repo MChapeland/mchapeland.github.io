@@ -157,7 +157,7 @@
 	<div class="tabs" id="Layers">
 
 		<!--
-		<div class="custom-layer-group">
+		<div class="custom-layer-group" id="groupCheckboxParent">
 
 			<div class="group-container">
 
@@ -179,15 +179,15 @@
 					<img src="src/images/markers/blue/ring.svg" />
 					<label>NPCs</label>
 					<input type="number" value="1" readonly>
-					<input type="checkbox" id="groupCheckboxLayer" checked>
+					<input type="checkbox" checked>
 
 				</div>
 
 			</div>
-			-->
+			
 
 		</div>
-		
+		-->
 
 	</div>
 
@@ -260,6 +260,7 @@
 							//Create a new layer group
 							let newLayerGroup = document.createElement("div");
 							newLayerGroup.classList.add('custom-layer-group');
+							newLayerGroup.id = `CB_${group}Parent`;
 
 
 								//In the layer group create a group container
@@ -343,7 +344,7 @@
 								let newCheckbox = document.createElement("input");
 								newCheckbox.type = "checkbox";
 								newCheckbox.checked = true;
-								newCheckbox.onchange =  function() {markerGroupVisibility(event)}; 
+								newCheckbox.onchange =  function() {markerGroupVisibility(event, `CB_${group}`)}; 
 								newCheckbox.id = `CB_${group}Layer`;
 								newMarkerGroup.appendChild(newCheckbox);
 						
@@ -366,12 +367,12 @@
         }
 
 		function layerGroupVisibility(event) {
-			console.log(event.target.id);
-			if (document.getElementById(event.target.id).checked == true) {
-				document.getElementById(`${event.target.id}Layer`).checked = true;
+			console.log(`${event.target.id}Parent`);
+			if (event.target.checked == true) {
+				document.getElementById(`${event.target.id}Parent`).querySelector('.layer-grid input[type=checkbox]').checked = true;
 			}
 			else {
-				document.getElementById(`${event.target.id}Layer`).checked = false;
+				document.getElementById(`${event.target.id}Parent`).querySelector('.layer-grid input[type=checkbox]').checked = false;
 			}
 		}
 
