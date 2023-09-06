@@ -297,6 +297,7 @@
 										let newVBCheckbox = document.createElement("input");
 										newVBCheckbox.type = "checkbox";
 										newVBCheckbox.checked = true;
+										newVBCheckbox.onchange = "layerGroupVisibility()"; 
 										newVisibilityBox.appendChild(newVBCheckbox);
 
 
@@ -341,6 +342,7 @@
 								let newCheckbox = document.createElement("input");
 								newCheckbox.type = "checkbox";
 								newCheckbox.checked = true;
+								newCheckbox.onchange = "markerGroupVisibility()"; 
 								newMarkerGroup.appendChild(newCheckbox);
 						
 							//Append the whole thing to the proper layer group
@@ -361,6 +363,9 @@
                 });
         }
 
+		function layerGroupVisibility() {
+			console.log("click");
+		}
 
 	</script>
 
