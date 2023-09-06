@@ -156,7 +156,7 @@
 	<!-- Layers -->
 	<div class="tabs" id="Layers">
 
-		
+		<!--
 		<div class="custom-layer-group" id="groupCheckboxParent">
 
 			<div class="group-container">
@@ -185,9 +185,8 @@
 
 			</div>
 			
-
 		</div>
-		
+		-->
 
 	</div>
 
@@ -227,19 +226,6 @@
 				tooltipAnchor: [19.5, -25]
 			}
 		});
-
-		//layer control
-		var baseMaps = {
-			"World": tiles
-		};
-
-		//create the layer config object first
-		var overlayMaps = {
-
-		};
-		
-		var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
-
 		
 		
 		myMarker = L
