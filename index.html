@@ -332,7 +332,7 @@
 								newBox.classList.add('visibility-box');
 								newMarkerGroup.appendChild(newBox);
 								
-									//In the marker group create a label
+									//In the visibility box create a label
 									let newLabel = document.createElement("label");
 									newLabel.innerText = `${layer}`;
 									newBox.appendChild(newLabel);
@@ -343,14 +343,18 @@
 									newCheckbox.checked = true;
 									newBox.appendChild(newCheckbox);
 								
-								//In the marker group create a visibility box
-								let newNumber = document.createElement("p");
-								newNumber.innerText = `${y}`;
+								//In the marker group create a number input
+								let newNumber = document.createElement("input");
+								newNumber.value = 1;
+								newNumber.id = `NB_${layer}-${group}`;
 								newMarkerGroup.appendChild(newNumber);
 						
 							//Append the whole thing to the proper layer group
 							document.getElementById(`LG_${group}`).appendChild(newMarkerGroup);
+						}
 
+						else {
+							document.getElementById(`NB_${layer}-${group}`).value++;
 						}
 
                         marker = L
