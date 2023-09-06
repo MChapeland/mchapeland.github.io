@@ -156,7 +156,7 @@
 	<!-- Layers -->
 	<div class="tabs" id="Layers">
 
-		<!--
+		
 		<div class="custom-layer-group">
 
 			<div class="group-container">
@@ -168,7 +168,7 @@
 
 				<div class="visibility-box">
 					<label>NPCs</label>
-					<input type="checkbox" checked>
+					<input type="checkbox" onchange="layerGroupVisibility(event)" checked id="groupCheckbox">
 				</div>
 
             </div>
@@ -179,7 +179,7 @@
 					<img src="src/images/markers/blue/ring.svg" />
 					<label>NPCs</label>
 					<input type="number" value="1" readonly>
-					<input type="checkbox" checked>
+					<input type="checkbox" id="groupCheckboxLayer" checked>
 
 				</div>
 
@@ -187,7 +187,7 @@
 			
 
 		</div>
-		-->
+		
 
 	</div>
 
@@ -297,7 +297,8 @@
 										let newVBCheckbox = document.createElement("input");
 										newVBCheckbox.type = "checkbox";
 										newVBCheckbox.checked = true;
-										newVBCheckbox.onchange = "layerGroupVisibility()"; 
+										newVBCheckbox.onchange = "layerGroupVisibility(event)"; 
+										newVBCheckbox.id = `CB_${group}`;
 										newVisibilityBox.appendChild(newVBCheckbox);
 
 
@@ -342,7 +343,8 @@
 								let newCheckbox = document.createElement("input");
 								newCheckbox.type = "checkbox";
 								newCheckbox.checked = true;
-								newCheckbox.onchange = "markerGroupVisibility()"; 
+								newCheckbox.onchange = "markerGroupVisibility(event)"; 
+								newCheckbox.id = `CB_${group}Layer`;
 								newMarkerGroup.appendChild(newCheckbox);
 						
 							//Append the whole thing to the proper layer group
@@ -363,8 +365,14 @@
                 });
         }
 
-		function layerGroupVisibility() {
-			console.log("click");
+		function layerGroupVisibility(event) {
+			console.log(event.target.id);
+			if (document.getElementById(event.target.id).checked == true) {
+				document.getElementById(`${event.target.id}Layer`).checked = true;
+			}
+			else {
+				document.getElementById(`${event.target.id}Layer`).checked = false;
+			}
 		}
 
 	</script>
