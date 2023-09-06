@@ -345,6 +345,8 @@
 								
 								//In the marker group create a number input
 								let newNumber = document.createElement("input");
+								newNumber.type = Number;
+								newNumber.contentEditable = false;
 								newNumber.value = 1;
 								newNumber.id = `NB_${layer}-${group}`;
 								newMarkerGroup.appendChild(newNumber);
