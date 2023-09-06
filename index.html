@@ -212,7 +212,7 @@
 		//Map Setup
 		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
 
-		var baseMap = L.tileLayer('map/{z}/{x}/{y}.png', {
+		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
 			noWrap: true,
 			minZoom: 2,
@@ -228,6 +228,17 @@
 			}
 		});
 
+		//layer control
+		var baseMaps = {
+			"World": tiles
+		};
+
+		//create the layer config object first
+		var overlayMaps = {
+
+		};
+		
+		var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 		
 		
@@ -238,6 +249,9 @@
 			.bindTooltip("Name")
 		;
 
+		var myLayer = L.layerGroup([myMarker]);
+
+		this.map.addLayer(myLayer);
 
 
 
@@ -379,7 +393,6 @@
 							document.getElementById(`NB_${layer}-${group}`).value++;
 						}
 
-						
 
                         marker = L
 							.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${color.toLowerCase()}/${icon.toLowerCase()}.svg`}) })
@@ -409,7 +422,7 @@
 				var index = 0, length = elems.length;
 				for ( ; index < length; index++) {
 					elems[index].checked = true;
-					//this.map.addLayer(myLayer);
+					this.map.addLayer(myLayer);
     			}
 			}
 			else {
@@ -418,7 +431,7 @@
 				var index = 0, length = elems.length;
 				for ( ; index < length; index++) {
 					elems[index].checked = false;
-					//this.map.removeLayer(myLayer);
+					this.map.removeLayer(myLayer);
     			}
 			}
 		}
@@ -427,11 +440,14 @@
 		function markerGroupVisibility(event, groupID) {
 			if (event.target.checked == true) {
 
+				this.map.addLayer(myLayer);
+
 				if (event.target.checked != document.getElementById(`${groupID}`).checked) {
 					document.getElementById(`${groupID}`).checked = event.target.checked;
 				}
 			}
 			else {
+				this.map.removeLayer(myLayer);
 			}
 
 
