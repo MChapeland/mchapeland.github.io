@@ -154,6 +154,7 @@
         font-size: 20px;
         cursor: pointer;
         margin-top: 4px;
+        text-transform: uppercase;
       }
     }
 
@@ -201,7 +202,6 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    padding: 2.5%;
     margin-top: -10px;
 
 
