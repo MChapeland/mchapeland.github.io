@@ -102,6 +102,7 @@
   background: none;
   overflow: hidden;
   display: block;
+  margin-bottom: 10%;
 
   &:has(.arrow-container input[type="checkbox"]:checked){
     max-height: 2000px;
