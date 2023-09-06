@@ -366,14 +366,19 @@
                 });
         }
 
-		function layerGroupVisibility(event) {
-			console.log(`${event.target.id}Parent`);
+		function layerGroupVisibility(event) {;
 			if (event.target.checked == true) {
-				document.getElementById(`${event.target.id}Parent`).querySelector('.layer-grid input[type=checkbox]').checked = true;
+				document.getElementById(`${event.target.id}Parent`).querySelectorAll('.layer-grid input[type=checkbox]').checked = true;
 			}
 			else {
-				document.getElementById(`${event.target.id}Parent`).querySelector('.layer-grid input[type=checkbox]').checked = false;
+				document.getElementById(`${event.target.id}Parent`).querySelectorAll('.layer-grid input[type=checkbox]').checked = false;
 			}
+		}
+
+		
+		function markerGroupVisibility(event, group) {
+
+			
 		}
 
 	</script>
