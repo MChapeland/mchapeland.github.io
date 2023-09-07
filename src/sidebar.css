@@ -18,6 +18,7 @@ input::-webkit-inner-spin-button {
   position: absolute;
   width: 2.5%;
   min-width: 30px;
+  max-width: 50px;
   height: 100%;
   box-shadow: rgba(18, 18, 18, 0.8) 0px 0px 10px 0px;
   overflow-y: scroll;
@@ -83,9 +84,9 @@ input::-webkit-inner-spin-button {
   position: absolute;
   width: 15%;
   min-width: 180px;
-  max-width: 15%;
+  max-width: 300px;
   height: 100%;
-  margin-left: max(2.5%, 30px);
+  margin-left: clamp(30px, 2.5%, 50px);
   transform: translateX(-100%);
   transition: 0.25s ease-in-out;
   display: none;
