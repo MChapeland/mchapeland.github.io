@@ -14,7 +14,7 @@ function layerGroupVisibility(event) {
         var index = 0, length = elems.length;
         for ( ; index < length; index++) {
             elems[index].checked = false;
-            elems[index].onchange();
+            elems[index].onchange(markerGroupVisibility);
         }
     }
 }
