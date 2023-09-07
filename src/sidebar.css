@@ -94,7 +94,7 @@ input::-webkit-inner-spin-button {
   overflow-y: scroll;
   overflow-x: visible;
   scroll-snap-type: y mandatory;
-  display: flex;
+  display: block;
   flex-direction: column;
   gap: 5%;
 }
@@ -371,6 +371,7 @@ input::-webkit-inner-spin-button {
   transition: max-height 0.25s ease-out;
   overflow-y: visible;
   display: block;
+  margin-bottom: 7.5%;
         
   & input {
     position: absolute;
@@ -432,6 +433,7 @@ input::-webkit-inner-spin-button {
   display: grid;
   grid-template-rows: 30px auto;
   grid-template-columns: 20px auto;
+  margin-bottom: 7.5%;
 
   &:hover {
     filter: brightness(125%);

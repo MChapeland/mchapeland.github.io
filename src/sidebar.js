@@ -13,7 +13,7 @@ function toggleDrop(evt, tab) {
                 closingTab = currentTab;
                 closeTab();
                 currentTab = tab;
-                setTimeout(openTab, 250);
+                setTimeout(function() {openTab();}, 250);
                 evt.currentTarget.className += " active";
             }
             else {
@@ -21,23 +21,23 @@ function toggleDrop(evt, tab) {
                 closeTab();
                 evt.currentTarget.className = "sidebar-button";
             }
-            break;
+        break;
 
         case false:
+            tabOpened = true;
             currentTab = tab;
             closingTab = currentTab;
             openTab();
-            tabOpened = true;
             evt.currentTarget.className += " active";
-            break;
+        break;
 
     }
 }
 
 function closeTab() {
-    document.getElementById(`${closingTab}Button`).className = "sidebar-button";
     document.getElementById(currentTab).style.transform = "translateX(-100%)";
-    setTimeout(hideTab, 250);
+    document.getElementById(`${closingTab}Button`).className = "sidebar-button";
+    setTimeout(function() {hideTab();}, 250);
 }
 
 function hideTab() {
@@ -60,8 +60,8 @@ function hideTab() {
 
 function openTab() {
     document.getElementById(currentTab).style.display = "block";
-    setTimeout(showTab, 15);
     document.getElementById("Main").style.boxShadow = "none";
+    setTimeout(function() {showTab();}, 50);
 }
 
 function showTab() {
