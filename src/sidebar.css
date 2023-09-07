@@ -276,7 +276,7 @@ input::-webkit-inner-spin-button {
 
     .layer-container {
       position: relative;
-      width: 110px;
+      width: 115px;
       height: 20px;
       filter: brightness(50%);
       margin: 2.5%;
@@ -328,19 +328,10 @@ input::-webkit-inner-spin-button {
         white-space: nowrap;
         margin-left: 25px;
         margin-top: 2.5px;
-        max-width: 65%;
+        max-width: 60%;
       }
   
-      
-      & p {
-        float: right;
-        margin-top: 2.5px;
-        text-align: center;
-      }    
-
       & input {
-        float: right;
-        margin-top: -9%;
         max-width: 75%;
         height: 0;
         padding-top: 10%;
@@ -348,13 +339,13 @@ input::-webkit-inner-spin-button {
         text-align: right;
         color: #d1d3d4;
         font-size: 15px;
-        margin-left: 5%;
+        margin-left: 60px;
         margin-bottom: 10%;
         border:none;
         background: none;
         outline:none;
         cursor: pointer;
-        margin-top: 1px;
+        text-align: center;
         font-family: "Share Tech", sans-serif;
       }
     }
