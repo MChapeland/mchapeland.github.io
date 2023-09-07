@@ -284,11 +284,11 @@
 			.bindTooltip("Name")
 		;
 
-		var myLayer = L.layerGroup([myMarker]);
+		var myLayer = L.layerGroup();
 
 		this.map.addLayer(myLayer);
 
-
+		var layerGroups = {};
 
 
 
@@ -434,12 +434,12 @@
 							document.getElementById(`NB_${layer}-${group}`).value++;
 						}
 
+						layerGroups[layer.toLowerCase()] = L.layerGroup().addTo(map);
 
-                        marker = L
+                        layerGroups[layer.toLowerCase()].addLayer( L
 							.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${color.toLowerCase()}/${icon.toLowerCase()}.svg`}) })
-							.addTo(map)
 							.bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false})
-							.bindTooltip(name);
+							.bindTooltip(name));
                         
                     });
                 });
