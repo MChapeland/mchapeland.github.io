@@ -340,6 +340,7 @@
 										let newACCheckbox = document.createElement("input");
 										newACCheckbox.type = "checkbox";
 										newACCheckbox.checked = true;
+										newACCheckbox.onchange = function() {toggleArrow(event)}; 
 										newArrowContainer.appendChild(newACCheckbox);
 
 									//In the group container create a visibility box
