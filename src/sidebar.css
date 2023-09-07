@@ -168,7 +168,7 @@ input::-webkit-inner-spin-button {
   background: none;
   overflow: hidden;
   display: block;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 
   &:has(.arrow-container input[type="checkbox"]:checked){
     max-height: 2000px;
@@ -188,7 +188,6 @@ input::-webkit-inner-spin-button {
       height: 100%;
       background: none;
       overflow: hidden;
-      border-radius: 10px;
       float: right;
       filter: brightness(50%);
       
@@ -271,6 +270,7 @@ input::-webkit-inner-spin-button {
     width: 100%;
     flex-wrap: wrap;
     margin-top: -10px;
+    padding-bottom: 20px;
 
 
     .layer-container {
