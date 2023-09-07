@@ -33,7 +33,6 @@ function markerGroupVisibility(event, groupID, layerID) {
         }
     }
     else {
-        console.log(layerID);
         layerID.removeFrom(map);
     }
 
