@@ -79,7 +79,7 @@ input::-webkit-inner-spin-button {
 
 .tabs {
   z-index: 1;
-  background-color: rgba(35, 35, 35, 0.95);
+  background-color: rgba(36, 36, 36, 0.95);
   position: absolute;
   width: 15%;
   min-width: 180px;
@@ -125,7 +125,7 @@ input::-webkit-inner-spin-button {
     align-items: center;
     cursor: pointer;
     overflow: hidden;
-    filter: brightness(75%);
+    filter: brightness(70%);
       
     &:has(input[type="checkbox"]:checked){
       filter: brightness(100%);
@@ -151,9 +151,9 @@ input::-webkit-inner-spin-button {
 
     & label {
       color: #d1d3d4;
-      font-size: 19px;
+      font-size: 20px;
       cursor: pointer;
-      margin-top: 7px;
+      margin-top: 7%;
       text-transform: uppercase;
     }
   }
