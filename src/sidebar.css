@@ -124,14 +124,29 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    overflow: visible;
+    overflow: hidden;
+    filter: brightness(75%);
+      
+    &:has(input[type="checkbox"]:checked){
+      filter: brightness(100%);
 
-    &:hover {
-      filter: brightness(110%);
+      &:has(input[type="checkbox"]:hover){
+        filter: brightness(125%);
+      }
+      
     }
 
-    &:active {
-      filter: brightness(90%);
+    & input[type="checkbox"]{
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: none;
+      border: none;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      margin-left: 0;
     }
 
     & label {
