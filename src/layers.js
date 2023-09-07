@@ -51,7 +51,7 @@ function toggleViewLayers(event) {
         else {
             groups[indexGroups].checked = false;
         }
-        groups[index].onchange();
+        groups[indexGroups].onchange();
     }
 }
 
