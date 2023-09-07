@@ -168,7 +168,7 @@ input::-webkit-inner-spin-button {
   background: none;
   overflow: hidden;
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 
   &:has(.arrow-container input[type="checkbox"]:checked){
     max-height: 2000px;
