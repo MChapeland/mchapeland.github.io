@@ -176,7 +176,7 @@
 		</div>
 
 
-		<!--
+		
 		<div class="custom-layer-group" id="groupCheckboxParent">
 
 			<div class="group-container">
@@ -195,21 +195,21 @@
 
 			<div class="layer-grid">
 
-				<div class="layer-container">
+				<div class="layer-container" id="myLayer">
 					<img src="src/images/markers/white/target.svg" />
 					<label>NPCs</label>
 					<input type="number" value="1" readonly>
 					<div class="checkbox-container">
-						<input type="checkbox" checked onchange="markerGroupVisibility(event, 'groupCheckbox')">
+						<input type="checkbox" checked onchange="markerGroupVisibility(event, 'groupCheckbox', myLayer)">
 					</div>
 
 				</div>
-				<div class="layer-container">
+				<div class="layer-container" id="myLayer">
 					<img src="src/images/markers/white/target.svg" />
 					<label>dfgdgfdfgdfgdfgdfgdfgdfg</label>
 					<input type="number" value="100" readonly>
 					<div class="checkbox-container">
-						<input type="checkbox" checked onchange="markerGroupVisibility(event, 'groupCheckbox')">
+						<input type="checkbox" checked onchange="markerGroupVisibility(event, 'groupCheckbox', myLayer)">
 					</div>
 
 				</div>
@@ -217,7 +217,7 @@
 			</div>
 			
 		</div>
-		-->
+		
 		
 
 	</div>
@@ -276,21 +276,15 @@
 			}
 		});
 		
-		
-		myMarker = L
+		var myLayer = L.layerGroup().addTo(map);
+
+
+		var myMarker = L
 			.marker([0, 0], {	icon: new BaseIcon({ iconUrl: `src/images/markers/white/target.svg`}) })
-			.addTo(map)
+			.addTo(myLayer)
 			.bindPopup(`<label><b>Name</b></label>`, {closeButton: false})
 			.bindTooltip("Name")
 		;
-
-		var myLayer = L.layerGroup();
-
-		this.map.addLayer(myLayer);
-
-		var layerGroups = {};
-
-
 
 
 
@@ -393,7 +387,7 @@
 							//Create a new marker group
 							let newMarkerGroup = document.createElement("div");
 							newMarkerGroup.classList.add('layer-container');
-							newMarkerGroup.id = `${layer.toLowerCase()}`;
+							newMarkerGroup.id = `MG_${layer}-LG_${group}`;
 							
 								//In the marker group create an icon
 								let newIcon = document.createElement("img");
@@ -422,8 +416,8 @@
 									let newCheckbox = document.createElement("input");
 									newCheckbox.type = "checkbox";
 									newCheckbox.checked = true;
-									newCheckbox.onchange =  function() {markerGroupVisibility(event, `CB_${group}`)}; 
-									newCheckbox.id = `CB_${group}Layer`;
+									newCheckbox.onchange =  function() {markerGroupVisibility(event, `CB_${group}`, window[`L_${layer}-${group}`])}; 
+									newCheckbox.id = `CB_${group}_${layer}`;
 									newCBContainer.appendChild(newCheckbox);
 						
 							//Append the whole thing to the proper layer group
@@ -434,16 +428,23 @@
 							document.getElementById(`NB_${layer}-${group}`).value++;
 						}
 
-						layerGroups[layer.toLowerCase()] = L.layerGroup().addTo(map);
 
-                        layerGroups[layer.toLowerCase()].addLayer( L
+						if (window[`L_${layer}-${group}`] == null) {
+							window[`L_${layer}-${group}`] = L.layerGroup().addTo(map);
+						}
+
+
+                        window[`M_${name}-${layer}-${group}`] = L
 							.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${color.toLowerCase()}/${icon.toLowerCase()}.svg`}) })
+							.addTo(window[`L_${layer}-${group}`])
 							.bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false})
-							.bindTooltip(name));
+							.bindTooltip(name)
+						;
                         
                     });
                 });
         }
+
 
 	</script>
 
