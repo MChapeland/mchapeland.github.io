@@ -5,6 +5,7 @@ function layerGroupVisibility(event) {
         var index = 0, length = elems.length;
         for ( ; index < length; index++) {
             elems[index].checked = true;
+            elems[index].onchange();
         }
     }
     else {
@@ -13,6 +14,7 @@ function layerGroupVisibility(event) {
         var index = 0, length = elems.length;
         for ( ; index < length; index++) {
             elems[index].checked = false;
+            elems[index].onchange();
         }
     }
 }
@@ -40,7 +42,6 @@ function markerGroupVisibility(event, groupID, layerID) {
 
 function toggleViewLayers(event) {
     var groups = document.getElementById("Layers").querySelectorAll(".layer-grid input[type=checkbox]");
-    var individual = document.getElementById("Layers").querySelectorAll(".visibility-box input[type=checkbox]");
 
     var indexGroups = 0, length = groups.length;
     for ( ; indexGroups < length; indexGroups++) {
@@ -50,16 +51,7 @@ function toggleViewLayers(event) {
         else {
             groups[indexGroups].checked = false;
         }
-    }
-
-    var indexIndividual = 0, length = individual.length;
-    for ( ; indexIndividual < length; indexIndividual++) {
-        if (event.target.checked == true) {
-            individual[indexIndividual].checked = true;
-        }
-        else {
-            individual[indexIndividual].checked = false;
-        }
+        groups[index].onchange();
     }
 }
 
