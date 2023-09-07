@@ -5,7 +5,6 @@ function layerGroupVisibility(event) {
         var index = 0, length = elems.length;
         for ( ; index < length; index++) {
             elems[index].checked = true;
-            this.map.addLayer(myLayer);
         }
     }
     else {
@@ -14,7 +13,6 @@ function layerGroupVisibility(event) {
         var index = 0, length = elems.length;
         for ( ; index < length; index++) {
             elems[index].checked = false;
-            this.map.removeLayer(myLayer);
         }
     }
 }
@@ -22,7 +20,7 @@ function layerGroupVisibility(event) {
 function markerGroupVisibility(event, groupID) {
     if (event.target.checked == true) {
 
-        this.map.addLayer(myLayer);
+        this.map.addLayer(document.getElementById("Layers").querySelectorAll("layer-container").id);
 
         if (event.target.checked != document.getElementById(`${groupID}`).checked) {
             document.getElementById(`${groupID}`).checked = event.target.checked;
@@ -33,7 +31,7 @@ function markerGroupVisibility(event, groupID) {
         }
     }
     else {
-        this.map.removeLayer(myLayer);
+        this.map.removeLayer(document.getElementById("Layers").querySelectorAll("layer-container").id);
     }
 
 
