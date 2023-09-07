@@ -40,7 +40,7 @@ function markerGroupVisibility(event, groupID, layerID) {
 }
 
 function toggleViewLayers(event) {
-    var groups = document.getElementById("Layers").querySelectorAll(".layer-grid input[type=checkbox]");
+    var groups = document.getElementById("Layers").querySelectorAll(".visibility-box input[type=checkbox]");
 
     var indexGroups = 0, length = groups.length;
     for ( ; indexGroups < length; indexGroups++) {
