@@ -161,10 +161,10 @@
 	<div class="tabs" id="Layers">
 
 		<div class="visibility-header">
-			<div class="visibility-button">
+			<div class="visibility-button" onclick="showAllLayers(event)">
 				<label>Hide All</label>
 			</div>
-			<div class="visibility-button">
+			<div class="visibility-button" onclick="hideAllLayers(event)">
 				<label>Show All</label>
 			</div>
 		</div>
@@ -468,6 +468,38 @@
 			}
 
 
+		}
+
+		function showAllLayers(event) {;
+			var groups = document.getElementById("Layers").querySelectorAll(".layer-grid input[type=checkbox]");
+			var indexGroups = 0, length = groups.length;
+			for ( ; indexGroups < length; indexGroups++) {
+				groups[indexGroups].checked = true;
+				this.map.addLayer(myLayer);
+			}
+
+			var individual = document.getElementById("Layers").querySelectorAll(".visibility-box input[type=checkbox]");
+			var indexIndividual = 0, length = individual.length;
+			for ( ; indexIndividual < length; indexIndividual++) {
+				individual[indexIndividual].checked = true;
+				this.map.addLayer(myLayer);
+			}
+		}
+
+		function hideAllLayers(event) {;
+			var groups = document.getElementById("Layers").querySelectorAll(".layer-grid input[type=checkbox]");
+			var indexGroups = 0, length = groups.length;
+			for ( ; indexGroups < length; indexGroups++) {
+				groups[indexGroups].checked = false;
+				this.map.removeLayer(myLayer);
+			}
+
+			var individual = document.getElementById("Layers").querySelectorAll(".visibility-box input[type=checkbox]");
+			var indexIndividual = 0, length = individual.length;
+			for ( ; indexIndividual < length; indexIndividual++) {
+				individual[indexIndividual].checked = false;
+				this.map.removeLayer(myLayer);
+			}
 		}
 
 	</script>
