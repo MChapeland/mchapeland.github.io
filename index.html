@@ -163,11 +163,11 @@
 		<div class="visibility-header">
 			<div class="visibility-button">
 				<label>View</label>
-				<input type="checkbox" onchange="toggleViewLayers(event)" checked id="groupCheckbox">
+				<input type="checkbox" onchange="toggleViewLayers(event)" checked id="viewCheckbox">
 			</div>
 			<div class="visibility-button">
 				<label>List</label>
-				<input type="checkbox" onchange="toggleListLayers(event)" checked id="groupCheckbox">
+				<input type="checkbox" onchange="toggleListLayers(event)" checked id="listCheckbox">
 			</div>
 		</div>
 
@@ -214,10 +214,12 @@
 
 		<div class="visibility-header">
 			<div class="visibility-button">
-				<label>Hide All</label>
+				<label>View</label>
+				<input type="checkbox" onchange="toggleViewLayers(event)" checked id="groupCheckbox">
 			</div>
 			<div class="visibility-button">
-				<label>Show All</label>
+				<label>List</label>
+				<input type="checkbox" onchange="toggleListLayers(event)" checked id="groupCheckbox">
 			</div>
 		</div>
 
@@ -462,6 +464,10 @@
 
 				if (event.target.checked != document.getElementById(`${groupID}`).checked) {
 					document.getElementById(`${groupID}`).checked = event.target.checked;
+				}
+
+				if (event.target.checked != document.getElementById(`viewCheckbox`).checked) {
+					document.getElementById(`viewCheckbox`).checked = event.target.checked;
 				}
 			}
 			else {
