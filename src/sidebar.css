@@ -280,29 +280,19 @@ input::-webkit-inner-spin-button {
       height: 20px;
       filter: brightness(50%);
       margin: 2.5%;
-      overflow: hidden;
+      overflow: visible;
   
       &:has(input[type="checkbox"]:checked){
         filter: brightness(100%);
 
         &:has(input[type="checkbox"]:hover){
           filter: brightness(150%);
+          & img {
+            filter: brightness(60%);
+          }
         }
       }
   
-      & input[type="checkbox"]{
-        z-index: 11;
-        cursor: pointer;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        outline: none;
-        border: none;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        transform: scale(1.5);
-      }
   
       & img {
         float: left;
@@ -330,7 +320,7 @@ input::-webkit-inner-spin-button {
         margin-top: 2.5px;
         max-width: 60%;
       }
-  
+
       & input {
         max-width: 75%;
         height: 0;
@@ -347,6 +337,27 @@ input::-webkit-inner-spin-button {
         cursor: pointer;
         text-align: center;
         font-family: "Share Tech", sans-serif;
+      }
+
+      .checkbox-container {
+        height: 100%;
+        width: 95px;
+        transform: translate(25px, -35px);
+        overflow: hidden;
+
+        & input[type="checkbox"]{
+          z-index: 11;
+          cursor: pointer;
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          outline: none;
+          border: none;
+          height: 100%;
+          width: 95px;
+          transform: translate(-30px, -2.5px);
+          scale: 1.5;
+        }
       }
     }
   }
