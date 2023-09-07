@@ -163,23 +163,23 @@
 		<div class="visibility-header">
 			<div class="visibility-button">
 				<label>View</label>
-				<input type="checkbox" onchange="toggleViewLayers(event)" checked id="viewCheckbox">
+				<input type="checkbox" onchange="toggleViewLayers(event)" checked id="viewLayersCheckbox">
 			</div>
 			<div class="visibility-button">
 				<label>List</label>
-				<input type="checkbox" onchange="toggleListLayers(event)" checked id="listCheckbox">
+				<input type="checkbox" onchange="toggleListLayers(event)" checked id="listLayersCheckbox">
 			</div>
 		</div>
 
 
-		<!-- 
+		
 		<div class="custom-layer-group" id="groupCheckboxParent">
 
 			<div class="group-container">
 
 				<div class="arrow-container">
 					<div class="arrow"></div>
-					<input type="checkbox" >
+					<input type="checkbox" onchange="toggleArrow(event)">
 				</div>
 
 				<div class="visibility-box">
@@ -202,7 +202,7 @@
 			</div>
 			
 		</div>
-		-->
+		
 		
 		
 
@@ -215,11 +215,11 @@
 		<div class="visibility-header">
 			<div class="visibility-button">
 				<label>View</label>
-				<input type="checkbox" onchange="toggleViewLayers(event)" checked id="groupCheckbox">
+				<input type="checkbox" onchange="toggleViewAreas(event)" checked id="viewAreasCheckbox">
 			</div>
 			<div class="visibility-button">
 				<label>List</label>
-				<input type="checkbox" onchange="toggleListLayers(event)" checked id="groupCheckbox">
+				<input type="checkbox" onchange="toggleListAreas(event)" checked id="listAreasCheckbox">
 			</div>
 		</div>
 
@@ -464,10 +464,10 @@
 
 				if (event.target.checked != document.getElementById(`${groupID}`).checked) {
 					document.getElementById(`${groupID}`).checked = event.target.checked;
-				}
 
-				if (event.target.checked != document.getElementById(`viewCheckbox`).checked) {
-					document.getElementById(`viewCheckbox`).checked = event.target.checked;
+					if (event.target.checked != document.getElementById(`viewLayersCheckbox`).checked) {
+						document.getElementById(`viewLayersCheckbox`).checked = event.target.checked;
+					}
 				}
 			}
 			else {
@@ -516,6 +516,15 @@
 				}
 				else {
 					groups[indexGroups].checked = false;
+				}
+			}
+		}
+
+		
+		function toggleArrow(event) {
+			if (event.target.checked == true) {
+				if (event.target.checked != document.getElementById(`listLayersCheckbox`).checked) {
+					document.getElementById(`viewLayersCheckbox`).checked = event.target.checked;
 				}
 			}
 		}
