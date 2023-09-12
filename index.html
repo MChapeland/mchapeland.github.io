@@ -250,7 +250,33 @@
 	<script>
 
 		//Map Setup
-		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2) ;
+		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2) ,
+			points = new L.geoJson(null, {
+				pointToLayer: function(feature, latlng) {
+					var marker = L.marker(latlng, {});
+
+					// Add a class to the marker element
+					marker.on('add', function(marker) {
+						var markerElem = marker.target.getElement();
+						markerElem.classList.add('hide-layer');
+					});
+				}
+			});
+  		;
+		
+
+		map.on('zoomend', function zoomendEvent(ev) {
+			var currentZoomLevel = ev.target.getZoom(),
+				mapDiv = map.getContainer(),
+				minZoomToShowPtLayer = 6; // or whatever
+
+			if (currentZoomLevel >= minZoomToShowPtLayer) {
+				mapDiv.classList.add('hide-point-layer');
+			} else {
+				mapDiv.classList.remove('hide-point-layer');
+			}
+		});
+
 
 		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
