@@ -10,12 +10,15 @@
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-webkit-user-drag: none;
-	pointer-events: none;
 	display: block;
 
 	.leaflet-interactive {
 		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
 		pointer-events: auto;
+	}
+
+	&:hover {
+		filter: brightness(200%);
 	}
 
 }
