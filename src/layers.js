@@ -1,6 +1,6 @@
-function layerGroupVisibility(event) {
+function layerGroupVisibility(event, groupID) {
     if (event.target.checked == true) {
-        var elems = document.getElementById(`${event.target.id}Parent`).querySelectorAll(".layer-grid input[type=checkbox]");
+        var elems = document.getElementById(`${groupID}Parent`).querySelectorAll(".layer-grid input[type=checkbox]");
         
         var index = 0, length = elems.length;
         for ( ; index < length; index++) {
@@ -9,7 +9,7 @@ function layerGroupVisibility(event) {
         }
     }
     else {
-        var elems = document.getElementById(`${event.target.id}Parent`).querySelectorAll(".layer-grid input[type=checkbox]");
+        var elems = document.getElementById(`${groupID}Parent`).querySelectorAll(".layer-grid input[type=checkbox]");
         
         var index = 0, length = elems.length;
         for ( ; index < length; index++) {
