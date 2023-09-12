@@ -451,7 +451,7 @@
 
 						if (window[`L_${layer}-${group}`] == null) {
 							
-							window[`L_${layer}-${group}`] = L.layerGroup().conditional().addTo(map);
+							window[`L_${layer}-${group}`] = L.layerGroup().addTo(map);
 
 							// Set up a zoom handler to update conditional layers when the user zooms.
 							var zoomHandler = function(event) {
