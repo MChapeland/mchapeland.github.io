@@ -250,7 +250,7 @@
 	<script>
 
 		//Map Setup
-		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
+		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2) ;
 
 		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
@@ -268,7 +268,38 @@
 			}
 		});
 
-		
+
+		map.on('zoomend', function() {
+
+			switch (map.getZoom()) {
+
+				case 2:
+					map.removeLayer(shelterMarkers);
+					map.addLayer(shelterMarkers);
+				break;
+
+				case 3:
+					map.removeLayer(shelterMarkers);
+					map.addLayer(shelterMarkers);
+				break;
+
+				case 4:
+					map.removeLayer(shelterMarkers);
+					map.addLayer(shelterMarkers);
+				break;
+				
+				case 5:
+					map.removeLayer(shelterMarkers);
+					map.addLayer(shelterMarkers);
+				break;
+				
+				case 6:
+					map.removeLayer(shelterMarkers);
+					map.addLayer(shelterMarkers);
+				break;
+			}
+		});
+
 		/*
 		var myLayer = L.layerGroup().addTo(map);
 

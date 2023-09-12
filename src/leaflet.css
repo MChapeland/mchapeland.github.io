@@ -1,9 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Share+Tech&display=swap');
 
+
+
+.leaflet-marker-icon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+	display: block;
+	pointer-events: none;
+
+	.leaflet-interactive {
+		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+		pointer-events: auto;
+	}
+}
+
+
+
 /* required styles */
 .leaflet-pane,
 .leaflet-tile,
-.leaflet-marker-icon,
 .leaflet-marker-shadow,
 .leaflet-tile-container,
 .leaflet-pane > svg,
@@ -19,7 +39,6 @@
 	overflow: hidden;
 	}
 .leaflet-tile,
-.leaflet-marker-icon,
 .leaflet-marker-shadow {
 	-webkit-user-select: none;
 	   -moz-user-select: none;
@@ -40,7 +59,6 @@
 	height: 1600px;
 	-webkit-transform-origin: 0 0;
 	}
-.leaflet-marker-icon,
 .leaflet-marker-shadow {
 	display: block;
 	}
@@ -240,7 +258,6 @@ svg.leaflet-zoom-animated {
 	}
 
 /* marker & overlays interactivity */
-.leaflet-marker-icon,
 .leaflet-marker-shadow,
 .leaflet-image-layer,
 .leaflet-pane > svg path,
@@ -248,7 +265,6 @@ svg.leaflet-zoom-animated {
 	pointer-events: none;
 	}
 
-.leaflet-marker-icon.leaflet-interactive,
 .leaflet-image-layer.leaflet-interactive,
 .leaflet-pane > svg path.leaflet-interactive,
 svg.leaflet-image-layer.leaflet-interactive path {
