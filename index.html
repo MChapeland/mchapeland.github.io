@@ -267,8 +267,9 @@
 
 		map.on('zoomend', function zoomendEvent(ev) {
 			var currentZoomLevel = ev.target.getZoom(),
-				mapDiv = map.getContainer(),
-				minZoomToShowPtLayer = 6; // or whatever
+			mapDiv = map.getContainer(),
+			minZoomToShowPtLayer = 6; // or whatever
+			console.log(currentZoomLevel);
 
 			if (currentZoomLevel >= minZoomToShowPtLayer) {
 				mapDiv.classList.add('hide-point-layer');
