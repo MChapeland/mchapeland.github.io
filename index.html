@@ -450,7 +450,18 @@
 
 
 						if (window[`L_${layer}-${group}`] == null) {
-							window[`L_${layer}-${group}`] = L.layerGroup().addTo(map);
+							
+							window[`L_${layer}-${group}`] = L.layerGroup().conditional().addTo(map);
+
+							// Set up a zoom handler to update conditional layers when the user zooms.
+							var zoomHandler = function(event) {
+								var zoomLevel = map.getZoom();
+								window[`L_${layer}-${group}`].updateConditionalLayers(zoomLevel);
+							}
+
+							map.on('zoomend', zoomHandler);
+
+    						window[`L_${layer}-${group}`].updateConditionalLayers(map.getZoom());
 						}
 
 
@@ -460,6 +471,9 @@
 							.bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false})
 							.bindTooltip(name)
 						;
+
+						
+						window[`L_${layer}-${group}`] = L.layerGroup().conditional().addConditionalLayer((level) => level < 4, window[`M_${name}-${layer}-${group}`]).addTo(map);
                         
                     });
                 });
