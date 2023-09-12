@@ -22,18 +22,18 @@ function layerGroupVisibility(event, groupID) {
 function markerGroupVisibility(event, groupID, layerID) {
     if (document.getElementById(`CB_${layerID}`).checked == true) {
 
-        layerID.addTo(map);
+        window[`${layerID}`].addTo(map);
 
-        if (mentById(`L_${layerID}-${groupID}`).checked != document.getElementById(`${groupID}`).checked) {
-            document.getElementById(`${groupID}`).checked = mentById(`L_${layerID}-${groupID}`).checked;
+        if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`${groupID}`).checked) {
+            document.getElementById(`${groupID}`).checked = document.getElementById(`CB_${layerID}`).checked;
 
-            if (mentById(`L_${layerID}-${groupID}`).checked != document.getElementById(`viewLayersCheckbox`).checked) {
-                document.getElementById(`viewLayersCheckbox`).checked = mentById(`L_${layerID}-${groupID}`).checked;
+            if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`viewLayersCheckbox`).checked) {
+                document.getElementById(`viewLayersCheckbox`).checked = document.getElementById(`CB_${layerID}`).checked;
             }
         }
     }
     else {
-        layerID.removeFrom(map);
+        window[`${layerID}`].removeFrom(map);
     }
 
 
