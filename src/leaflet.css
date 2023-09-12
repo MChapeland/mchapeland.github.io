@@ -11,7 +11,7 @@
 		-moz-user-select: none;
 		-webkit-user-drag: none;
 	display: block;
-	transition: 0.15s ease-in-out;
+	transition: 0.1s ease-in-out;
 
 	.leaflet-interactive {
 		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
@@ -20,10 +20,10 @@
 
 	&:hover {
 		filter: brightness(125%);
-		width: 30px !important;
-		height: 30px !important;
-		left: -2.25px !important;
-		top: -2.25px !important;
+		width: 35px !important;
+		height: 35px !important;
+		left: -5px !important;
+		top: -5px !important;
 	}
 
 }
