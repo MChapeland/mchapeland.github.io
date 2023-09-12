@@ -188,7 +188,7 @@
 
 				<div class="visibility-box">
 					<label>NPCs</label>
-					<input type="checkbox" onchange="layerGroupVisibility(event)" checked id="groupCheckbox">
+					<input type="checkbox" onchange="layerGroupVisibility(event, 'groupCheckbox')" checked id="groupCheckbox">
 				</div>
 
             </div>
@@ -200,21 +200,13 @@
 					<label>NPCs</label>
 					<input type="number" value="1" readonly>
 					<div class="checkbox-container">
-						<input type="checkbox" checked onchange="markerGroupVisibility(event, 'groupCheckbox', myLayer)">
-					</div>
-
-				</div>
-				<div class="layer-container" id="myLayer">
-					<img src="src/images/markers/white/target.svg" />
-					<label>dfgdgfdfgdfgdfgdfgdfgdfg</label>
-					<input type="number" value="100" readonly>
-					<div class="checkbox-container">
-						<input type="checkbox" checked onchange="markerGroupVisibility(event, 'groupCheckbox', myLayer)">
+						<input type="checkbox" onchange="markerGroupVisibility(event, 'groupCheckbox', myLayer)" id="L_myLayer-groupCheckbox"  checked>
 					</div>
 
 				</div>
 
 			</div>
+			
 			
 		</div>
 		-->
@@ -367,7 +359,7 @@
 										let newVBCheckbox = document.createElement("input");
 										newVBCheckbox.type = "checkbox";
 										newVBCheckbox.checked = true;
-										newVBCheckbox.onchange = function() {layerGroupVisibility(event)}; 
+										newVBCheckbox.onchange = function() {layerGroupVisibility(event, `CB_${group}`)}; 
 										newVBCheckbox.id = `CB_${group}`;
 										newVisibilityBox.appendChild(newVBCheckbox);
 

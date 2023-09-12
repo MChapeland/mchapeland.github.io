@@ -1,5 +1,5 @@
 function layerGroupVisibility(event, groupID) {
-    if (event.target.checked == true) {
+    if (document.getElementById(`${groupID}`).checked == true) {
         var elems = document.getElementById(`${groupID}Parent`).querySelectorAll(".layer-grid input[type=checkbox]");
         
         var index = 0, length = elems.length;
@@ -20,15 +20,15 @@ function layerGroupVisibility(event, groupID) {
 }
 
 function markerGroupVisibility(event, groupID, layerID) {
-    if (event.target.checked == true) {
+    if (document.getElementById(`L_${layerID}-${groupID}`).checked == true) {
 
         layerID.addTo(map);
 
-        if (event.target.checked != document.getElementById(`${groupID}`).checked) {
-            document.getElementById(`${groupID}`).checked = event.target.checked;
+        if (mentById(`L_${layerID}-${groupID}`).checked != document.getElementById(`${groupID}`).checked) {
+            document.getElementById(`${groupID}`).checked = mentById(`L_${layerID}-${groupID}`).checked;
 
-            if (event.target.checked != document.getElementById(`viewLayersCheckbox`).checked) {
-                document.getElementById(`viewLayersCheckbox`).checked = event.target.checked;
+            if (mentById(`L_${layerID}-${groupID}`).checked != document.getElementById(`viewLayersCheckbox`).checked) {
+                document.getElementById(`viewLayersCheckbox`).checked = mentById(`L_${layerID}-${groupID}`).checked;
             }
         }
     }
