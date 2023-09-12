@@ -20,7 +20,7 @@ function layerGroupVisibility(event, groupID) {
 }
 
 function markerGroupVisibility(event, groupID, layerID) {
-    if (document.getElementById(`L_${layerID}-${groupID}`).checked == true) {
+    if (document.getElementById(`CB_${layerID}`).checked == true) {
 
         layerID.addTo(map);
 

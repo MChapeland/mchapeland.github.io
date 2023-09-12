@@ -411,7 +411,7 @@
 									newCheckbox.type = "checkbox";
 									newCheckbox.checked = true;
 									newCheckbox.onchange =  function() {markerGroupVisibility(event, `CB_${group}`, window[`L_${layer}-${group}`])}; 
-									newCheckbox.id = `CB_${group}_${layer}`;
+									newCheckbox.id = `CB_L_${layer}-${group}`;
 									newCBContainer.appendChild(newCheckbox);
 						
 							//Append the whole thing to the proper layer group
