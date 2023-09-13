@@ -242,29 +242,12 @@
 
 
 
-
-
-
-
-
 	<script>
 
 		//Map Setup
-		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2) ,
-			points = new L.geoJson(null, {
-				pointToLayer: function(feature, latlng) {
-					var marker = L.marker(latlng, {});
-
-					// Add a class to the marker element
-					marker.on('add', function(marker) {
-						var markerElem = marker.target.getElement();
-						markerElem.classList.add('point-layer');
-					});
-				}
-			});
-  		;
+		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
 		
-
+		/*
 		map.on('zoomend', function zoomendEvent(ev) {
 			var currentZoomLevel = ev.target.getZoom(),
 			mapDiv = map.getContainer(),
@@ -277,7 +260,7 @@
 				mapDiv.classList.remove('hide-point-layer');
 			}
 		});
-
+		*/
 
 		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
@@ -312,156 +295,37 @@
 
 
         // Data fetched from Google Sheets
-        const sheetID = '1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0';
-        const base = 'https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?';
-
         const sheetName = 'data';
-
         const query = encodeURIComponent('Select *');
+        const url = `https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?&sheet=${sheetName}&tq=${query}`;
 
-        const url = `${base}&sheet=${sheetName}&tq=${query}`;
-
+		var sheetData = [];
         document.addEventListener('DOMContentLoaded', sheetExtract);
 
         function sheetExtract() {
             fetch(url)
 			.then(res => res.text())
 			.then(rep => {
-				console.log(rep)
+
 				const refinedData = JSON.parse(rep.substr(47).slice(0, -2));
-				console.log(refinedData)
-
+				
 				refinedData.table.rows.forEach((main) => {
-
-					const name = main.c[0].v;
-					const y = main.c[1].v;
-					const x = main.c[2].v;
-					const group = main.c[3].v;
-					const layer = main.c[4].v;
-					const color = main.c[5].v;
-					const icon = main.c[6].v;
-					const desc = main.c[7].v;
-					const id = main.c[8].v;
-
-					if (document.getElementById(`LG_${group}`) == null){
-						//Create a new layer group
-						let newLayerGroup = document.createElement("div");
-						newLayerGroup.classList.add('custom-layer-group');
-						newLayerGroup.id = `CB_${group}Parent`;
-
-
-							//In the layer group create a group container
-							let newGroupContainer = document.createElement("div");
-							newGroupContainer.classList.add('group-container');
-							newLayerGroup.appendChild(newGroupContainer);
-							
-								//In the group container create an arrow container
-								let newArrowContainer = document.createElement("div");
-								newArrowContainer.classList.add('arrow-container');
-								newGroupContainer.appendChild(newArrowContainer);
-								
-									//In the arrow container create an arrow
-									let newArrow = document.createElement("div");
-									newArrow.classList.add('arrow');
-									newArrowContainer.appendChild(newArrow);
-
-									//In the arrow container create a checkbox
-									let newACCheckbox = document.createElement("input");
-									newACCheckbox.type = "checkbox";
-									newACCheckbox.checked = true;
-									newACCheckbox.onchange = function() {toggleArrowLayers(event)}; 
-									newArrowContainer.appendChild(newACCheckbox);
-
-								//In the group container create a visibility box
-								let newVisibilityBox = document.createElement("div");
-								newVisibilityBox.classList.add('visibility-box');
-								newGroupContainer.appendChild(newVisibilityBox);
-
-									//In the group container create a label
-									let newLabel = document.createElement("label");
-									newLabel.innerText = `${group}`;
-									newVisibilityBox.appendChild(newLabel);
-
-									//In the visibility box create a checkbox
-									let newVBCheckbox = document.createElement("input");
-									newVBCheckbox.type = "checkbox";
-									newVBCheckbox.checked = true;
-									newVBCheckbox.onchange = function() {layerGroupVisibility(event, `CB_${group}`)}; 
-									newVBCheckbox.id = `CB_${group}`;
-									newVisibilityBox.appendChild(newVBCheckbox);
-
-
-							//In the layer group create a group container
-							let newGridContainer = document.createElement("div");
-							newGridContainer.classList.add('layer-grid');
-							newGridContainer.id = `LG_${group}`;
-							newLayerGroup.appendChild(newGridContainer);
-							
-
-						//Append the whole thing to the Layers tab
-						document.getElementById("Layers").appendChild(newLayerGroup);
-
-					}
-
-					if (document.getElementById(`MG_${layer}-LG_${group}`) == null){
-						
-						//Create a new marker group
-						let newMarkerGroup = document.createElement("div");
-						newMarkerGroup.classList.add('layer-container');
-						newMarkerGroup.id = `MG_${layer}-LG_${group}`;
-						
-							//In the marker group create an icon
-							let newIcon = document.createElement("img");
-							newIcon.src = `src/images/markers/white/${icon.toLowerCase()}.svg`;
-							newMarkerGroup.appendChild(newIcon);
-						
-							//In the marker group create a label
-							let newLabel = document.createElement("label");
-							newLabel.innerText = `${layer}`;
-							newMarkerGroup.appendChild(newLabel);
-							
-							//In the marker group create a number input
-							let newNumber = document.createElement("input");
-							newNumber.type = Number;
-							newNumber.readOnly = true;
-							newNumber.value = 1;
-							newNumber.id = `NB_${layer}-${group}`;
-							newMarkerGroup.appendChild(newNumber);
-						
-							//In the group container create a visibility box
-							let newCBContainer = document.createElement("div");
-							newCBContainer.classList.add('checkbox-container');
-							newMarkerGroup.appendChild(newCBContainer);
-
-								//In the visibility box create a checkbox
-								let newCheckbox = document.createElement("input");
-								newCheckbox.type = "checkbox";
-								newCheckbox.checked = true;
-								newCheckbox.onchange =  function() {markerGroupVisibility(event, `CB_${group}`, `L_${layer}-${group}`)}; 
-								newCheckbox.id = `CB_L_${layer}-${group}`;
-								newCBContainer.appendChild(newCheckbox);
 					
-						//Append the whole thing to the proper layer group
-						document.getElementById(`LG_${group}`).appendChild(newMarkerGroup);
-					}
+					var storedMarker = {};
 
-					else {
-						document.getElementById(`NB_${layer}-${group}`).value++;
-					}
-
-
-					if (window[`L_${layer}-${group}-Lv${group}`] == null) {
-						window[`L_${layer}-${group}`] = L.layerGroup().addTo(map);
-					}
-
-
-					window[`M_${name}-${layer}-${group}`] = L
-						.marker([Number(y), Number(x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${color.toLowerCase()}/${icon.toLowerCase()}.svg`}) })
-						.addTo(window[`L_${layer}-${group}`])
-						.bindPopup(`<label><b>${name}</b></label><br /><p>${desc}</p><br /><p>${id}</p>`, {closeButton: false})
-						.bindTooltip(name)
-					;
-					
+					storedMarker.name = main.c[0].v;
+					storedMarker.x = main.c[1].v;
+					storedMarker.y = main.c[2].v;
+					storedMarker.lod = main.c[3].v;
+					storedMarker.group = main.c[4].v;
+					storedMarker.layer = main.c[5].v;
+					storedMarker.color = main.c[6].v;
+					storedMarker.icon = main.c[7].v;
+					storedMarker.description = main.c[8].v;
+					storedMarker.id = main.c[9].v;
+					storedMarker.sheet = sheetName;
+						
+					sheetData.push(storedMarker);
 				});
 			});
         }
