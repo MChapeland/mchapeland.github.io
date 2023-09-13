@@ -245,7 +245,7 @@
 	<script>
 
 		//Map Setup
-		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2).on('zoomend', refreshLOD());
+		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
 		
 		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
@@ -264,7 +264,7 @@
 		});
 
 		map.on('zoomend', function zoomendEvent(ev) {
-			refreshLOD();
+			refreshLOD(ev.target.getZoom())
 		});
 		
 		/*
@@ -438,12 +438,11 @@
 
 
 
-		function refreshLOD() {
-			var currentZoomLevel = map.getZoom();
-
+		function refreshLOD(zoomLevel) {
+			
 			markersData.forEach((obj) => {
 
-				if (obj.lod <= currentZoomLevel) {
+				if (obj.lod <= zoomLevel) {
 					window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L
 						.marker([Number(obj.y), Number(obj.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${obj.color.toLowerCase()}/${obj.icon.toLowerCase()}.svg`}) })
 						.addTo(window[`L_${obj.layer}-${obj.group}`])
