@@ -308,7 +308,7 @@
 			.then(rep => {
 
 				const refinedData = JSON.parse(rep.substr(47).slice(0, -2));
-				
+
 				refinedData.table.rows.forEach((main) => {
 					
 					var storedMarker = {};
@@ -326,6 +326,7 @@
 					storedMarker.sheet = sheetName;
 						
 					sheetData.push(storedMarker);
+					console.log(sheetData);
 				});
 			});
         }
