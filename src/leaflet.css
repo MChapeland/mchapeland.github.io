@@ -14,8 +14,7 @@
 	transition: 0.1s ease-in-out;
 	animation-duration: 0.5s;
 	animation-name: animate-grow;
-	animation-delay: 0.5s;
-	animation-fill-mode: backwards;
+	animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
 
 	.leaflet-interactive {
 		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
@@ -34,13 +33,11 @@
 
 @keyframes animate-grow {
 	0% { 
-		width: 0px !important;
-		height: 0px !important; 
+		transform: scale(0, 0);
 	}
 
 	100% { 
-		width: 25px !important; 
-		height: 25px !important; 
+		transform: scale(1, 1);
 	}
 }
 
