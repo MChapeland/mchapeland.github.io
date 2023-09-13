@@ -33,8 +33,15 @@
 }
 
 @keyframes animate-grow {
-	0% { width: 0px !important; }
-	100% { width: 25px !important; }
+	0% { 
+		width: 0px !important;
+		height: 0px !important; 
+	}
+
+	100% { 
+		width: 25px !important; 
+		height: 25px !important; 
+	}
 }
 
 
