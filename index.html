@@ -263,10 +263,14 @@
 			}
 		});
 
+		/*
 		map.on('zoomend', function zoomendEvent(ev) {
 			refreshLOD(ev.target.getZoom())
-			console.log(map.getBounds());
 		});
+		*/
+
+		map.on('moveend', placeMarkersInBounds(map.getBounds(), map.getZoom()));
+		map.on('zoomend', placeMarkersInBounds(map.getBounds(), map.getZoom()));
 		
 		/*
 		var myLayer = L.layerGroup().addTo(map);
@@ -436,7 +440,7 @@
 
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
-						refreshLOD(map.getZoom());
+						placeMarkersInBounds(map.getBounds(), map.getZoom());
 					}
 					
 				});
@@ -444,7 +448,7 @@
         }
 
 
-
+		/*
 		function refreshLOD(zoomLevel) {
 			
 			markersData.forEach((obj) => {
@@ -465,8 +469,30 @@
 				
 			});
 		}
+		*/
 
 
+		function placeMarkersInBounds(mapBounds, zoomLevel) {
+
+			markersData.forEach((obj) => {
+
+				var visible = mapBounds.contains(window[`M_${obj.name}-${obj.layer}-${obj.group}`].getLatLng()) && obj.lod <= zoomLevel;
+
+				if (visible && !window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`])) {
+
+					window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
+					console.log(`Add ${obj.name}`);
+				}
+
+				else if (window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) && !visible) {
+
+					window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
+					console.log(`Remove ${obj.name}`);
+				}
+
+
+			});
+		}
 	</script>
 
 </html>
