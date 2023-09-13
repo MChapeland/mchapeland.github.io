@@ -465,7 +465,7 @@
 			});
 
 			result.forEach((obj) => {
-				window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L.addTo(window[`L_${obj.layer}-${obj.group}`]);
+				window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L.marker().addTo(window[`L_${obj.layer}-${obj.group}`]);
 			});
 
 		}
