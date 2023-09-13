@@ -450,7 +450,7 @@
 
 				if (window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`])) {
 
-					if (obj.lod > zoomLevel & ) {
+					if (obj.lod > zoomLevel) {
 						window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 						console.log(`Remove ${obj.name}`);
 					}
@@ -458,7 +458,7 @@
 
 				else {
 
-					if (obj.lod <= zoomLevel & ) {
+					if (obj.lod <= zoomLevel) {
 						window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 						console.log(`Add ${obj.name}`);
 					}
