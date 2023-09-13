@@ -245,7 +245,7 @@
 	<script>
 
 		//Map Setup
-		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
+		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2).on('zoomend', refreshLOD());
 		
 		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
@@ -263,23 +263,10 @@
 			}
 		});
 
-
-
-		/*
 		map.on('zoomend', function zoomendEvent(ev) {
-			var currentZoomLevel = ev.target.getZoom(),
-			mapDiv = map.getContainer(),
-			minZoomToShowPtLayer = 6; // or whatever
-			console.log(currentZoomLevel);
-
-			if (currentZoomLevel >= minZoomToShowPtLayer) {
-				mapDiv.classList.add('hide-point-layer');
-			} else {
-				mapDiv.classList.remove('hide-point-layer');
-			}
+			refreshLOD();
 		});
-		*/
-
+		
 		/*
 		var myLayer = L.layerGroup().addTo(map);
 
@@ -441,33 +428,33 @@
 					}
 
 
-					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
-						.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`}) })
-						.bindPopup(`<label><b>${storedMarker.name}</b></label><br /><p>${storedMarker.desc}</p><br /><p>${storedMarker.id}</p>`, {closeButton: false})
-						.bindTooltip(storedMarker.name)
-					;
-
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
-						baseView();
+						refreshLOD();
 					}
-
+					
 				});
 			});
         }
 
 
 
-		function baseView() {
+		function refreshLOD() {
 			var currentZoomLevel = map.getZoom();
 
-			var result = markersData.filter(obj => {
-				return obj.lod === currentZoomLevel
-			});
+			markersData.forEach((obj) => {
 
-			result.forEach((obj) => {
-				window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L.marker().addTo(window[`L_${obj.layer}-${obj.group}`]);
-			});
+				if (obj.lod <= currentZoomLevel) {
+					window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L
+						.marker([Number(obj.y), Number(obj.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${obj.color.toLowerCase()}/${obj.icon.toLowerCase()}.svg`}) })
+						.addTo(window[`L_${obj.layer}-${obj.group}`])
+						.bindTooltip(obj.name)
+					;
+				}
+				else {
+					window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L.marker().removeFrom(window[`L_${obj.layer}-${obj.group}`]);
+				}
 
+			});
 		}
 
 
