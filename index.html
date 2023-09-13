@@ -247,21 +247,6 @@
 		//Map Setup
 		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
 		
-		/*
-		map.on('zoomend', function zoomendEvent(ev) {
-			var currentZoomLevel = ev.target.getZoom(),
-			mapDiv = map.getContainer(),
-			minZoomToShowPtLayer = 6; // or whatever
-			console.log(currentZoomLevel);
-
-			if (currentZoomLevel >= minZoomToShowPtLayer) {
-				mapDiv.classList.add('hide-point-layer');
-			} else {
-				mapDiv.classList.remove('hide-point-layer');
-			}
-		});
-		*/
-
 		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
 			noWrap: true,
@@ -277,6 +262,23 @@
 				tooltipAnchor: [19.5, -25]
 			}
 		});
+
+
+
+		/*
+		map.on('zoomend', function zoomendEvent(ev) {
+			var currentZoomLevel = ev.target.getZoom(),
+			mapDiv = map.getContainer(),
+			minZoomToShowPtLayer = 6; // or whatever
+			console.log(currentZoomLevel);
+
+			if (currentZoomLevel >= minZoomToShowPtLayer) {
+				mapDiv.classList.add('hide-point-layer');
+			} else {
+				mapDiv.classList.remove('hide-point-layer');
+			}
+		});
+		*/
 
 		/*
 		var myLayer = L.layerGroup().addTo(map);
@@ -326,14 +328,26 @@
 					storedMarker.sheet = sheetName;
 						
 					markersData.push(storedMarker);
-					console.log(markersData);
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
-						console.log("Last Element")
+						baseView();
 					}
 				});
 			});
         }
+
+
+
+		function baseView() {
+			var currentZoomLevel = map.getZoom();
+
+			var result = markersData.filter(obj => {
+				return obj.lod === currentZoomLevel
+			});
+
+			console.log(result);
+
+		}
 
 
 	</script>
