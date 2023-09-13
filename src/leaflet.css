@@ -19,6 +19,9 @@
 	.leaflet-interactive {
 		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
 		pointer-events: auto;
+		animation-duration: 0.5s;
+		animation-name: animate-grow;
+		animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
 	}
 
 	&:hover {
