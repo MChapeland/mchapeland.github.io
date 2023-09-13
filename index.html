@@ -269,8 +269,8 @@
 		});
 		*/
 
-		map.on('moveend', placeMarkersInBounds(map.getBounds(), map.getZoom()));
-		map.on('zoomend', placeMarkersInBounds(map.getBounds(), map.getZoom()));
+		map.on('moveend', placeMarkers);
+		map.on('zoomend', placeMarkers);
 		
 		/*
 		var myLayer = L.layerGroup().addTo(map);
@@ -440,7 +440,7 @@
 
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
-						placeMarkersInBounds(map.getBounds(), map.getZoom());
+						placeMarkers();
 					}
 					
 				});
@@ -472,11 +472,11 @@
 		*/
 
 
-		function placeMarkersInBounds(mapBounds, zoomLevel) {
+		function placeMarkers() {
 
 			markersData.forEach((obj) => {
 
-				var visible = mapBounds.contains(window[`M_${obj.name}-${obj.layer}-${obj.group}`].getLatLng()) && obj.lod <= zoomLevel;
+				var visible = map.getBounds().contains(window[`M_${obj.name}-${obj.layer}-${obj.group}`].getLatLng()) && obj.lod <= map.getZoom();
 
 				if (visible && !window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`])) {
 
@@ -493,6 +493,8 @@
 
 			});
 		}
+
+
 	</script>
 
 </html>
