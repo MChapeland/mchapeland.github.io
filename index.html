@@ -452,7 +452,6 @@
 
 					if (obj.lod > zoomLevel) {
 						window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
-						console.log(`Remove ${obj.name}`);
 					}
 				}
 
@@ -460,7 +459,6 @@
 
 					if (obj.lod <= zoomLevel) {
 						window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
-						console.log(`Add ${obj.name}`);
 					}
 				}
 				
