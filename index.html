@@ -262,13 +262,7 @@
 				tooltipAnchor: [19.5, -25]
 			}
 		});
-
-		/*
-		map.on('zoomend', function zoomendEvent(ev) {
-			refreshLOD(ev.target.getZoom())
-		});
-		*/
-
+		
 		map.on('moveend', placeMarkers);
 		map.on('zoomend', placeMarkers);
 		
@@ -448,29 +442,6 @@
         }
 
 
-		/*
-		function refreshLOD(zoomLevel) {
-			
-			markersData.forEach((obj) => {
-
-				if (window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`])) {
-
-					if (obj.lod > zoomLevel) {
-						window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
-					}
-				}
-
-				else {
-
-					if (obj.lod <= zoomLevel) {
-						window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
-					}
-				}
-				
-			});
-		}
-		*/
-
 
 		function placeMarkers() {
 
@@ -481,13 +452,11 @@
 				if (visible && !window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`])) {
 
 					window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
-					console.log(`Add ${obj.name}`);
 				}
 
 				else if (window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) && !visible) {
 
 					window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
-					console.log(`Remove ${obj.name}`);
 				}
 
 
