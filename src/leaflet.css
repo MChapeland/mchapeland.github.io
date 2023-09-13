@@ -257,9 +257,11 @@ svg.leaflet-zoom-animated {
 }
 
 .leaflet-grab {
+	/* 
 	cursor: -webkit-grab;
 	cursor:    -moz-grab;
-	cursor:         grab;
+	cursor:         grab; 
+	*/
 }
 
 .leaflet-crosshair,
