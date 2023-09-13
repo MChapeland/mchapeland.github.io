@@ -441,10 +441,16 @@
 					}
 
 
+					window[`M_${storedMarker.edMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
+						.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`}) })
+						.bindPopup(`<label><b>${storedMarker.name}</b></label><br /><p>${storedMarker.desc}</p><br /><p>${storedMarker.id}</p>`, {closeButton: false})
+						.bindTooltip(storedMarker.name)
+					;
+
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
 						baseView();
 					}
-					
+
 				});
 			});
         }
@@ -459,14 +465,7 @@
 			});
 
 			result.forEach((obj) => {
-
-				window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L
-					.marker([Number(obj.y), Number(obj.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${obj.color.toLowerCase()}/${obj.icon.toLowerCase()}.svg`}) })
-					.addTo(window[`L_${obj.layer}-${obj.group}`])
-					.bindPopup(`<label><b>${obj.name}</b></label><br /><p>${obj.desc}</p><br /><p>${obj.id}</p>`, {closeButton: false})
-					.bindTooltip(obj.name)
-				;
-
+				window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L.addTo(window[`L_${obj.layer}-${obj.group}`]);
 			});
 
 		}
