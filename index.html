@@ -295,11 +295,11 @@
 
 
         // Data fetched from Google Sheets
-        const sheetName = 'data';
+        const sheetName = 'markers';
         const query = encodeURIComponent('Select *');
         const url = `https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?&sheet=${sheetName}&tq=${query}`;
 
-		var sheetData = [];
+		var markersData = [];
         document.addEventListener('DOMContentLoaded', sheetExtract);
 
         function sheetExtract() {
@@ -325,8 +325,12 @@
 					storedMarker.id = main.c[9].v;
 					storedMarker.sheet = sheetName;
 						
-					sheetData.push(storedMarker);
+					markersData.push(storedMarker);
 					console.log(sheetData);
+
+					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
+						console.log("Last Element")
+					}
 				});
 			});
         }
