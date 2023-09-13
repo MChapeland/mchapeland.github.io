@@ -265,6 +265,7 @@
 
 		map.on('zoomend', function zoomendEvent(ev) {
 			refreshLOD(ev.target.getZoom())
+			console.log(map.getBounds());
 		});
 		
 		/*
