@@ -13,7 +13,7 @@
 	display: block;
 	transition: 0.1s ease-in-out;
 	animation-duration: 0.5s;
-	animation-name: animate-fade;
+	animation-name: animate-grow;
 
 	.leaflet-interactive {
 		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
