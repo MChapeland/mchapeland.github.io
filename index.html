@@ -450,8 +450,10 @@
 					;
 				}
 				else {
-					console.log(`Remove ${obj.name}`)
-					window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L.marker().removeFrom(window[`L_${obj.layer}-${obj.group}`]);
+					window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L
+						.marker([Number(obj.y), Number(obj.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${obj.color.toLowerCase()}/${obj.icon.toLowerCase()}.svg`}) })
+						.removeFrom(window[`L_${obj.layer}-${obj.group}`])
+					;
 				}
 
 			});
