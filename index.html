@@ -441,7 +441,7 @@
 					}
 
 
-					window[`M_${storedMarker.edMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
+					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
 						.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`}) })
 						.bindPopup(`<label><b>${storedMarker.name}</b></label><br /><p>${storedMarker.desc}</p><br /><p>${storedMarker.id}</p>`, {closeButton: false})
 						.bindTooltip(storedMarker.name)
