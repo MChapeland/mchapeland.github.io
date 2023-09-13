@@ -428,6 +428,12 @@
 					}
 
 
+					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
+						.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`}) })
+						.bindTooltip(storedMarker.name)
+					;
+
+
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
 						refreshLOD(map.getZoom());
 					}
@@ -443,12 +449,9 @@
 			markersData.forEach((obj) => {
 
 				if (obj.lod <= zoomLevel) {
-					window[`M_${obj.name}-${obj.layer}-${obj.group}`] = L
-						.marker([Number(obj.y), Number(obj.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${obj.color.toLowerCase()}/${obj.icon.toLowerCase()}.svg`}) })
-						.addTo(window[`L_${obj.layer}-${obj.group}`])
-						.bindTooltip(obj.name)
-					;
+					window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 				}
+
 				else {
 					window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 				}
