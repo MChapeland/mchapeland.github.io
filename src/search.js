@@ -15,7 +15,7 @@ function searchMarkers() {
             
                 //In the search result create an icon
                 let newIcon = document.createElement("img");
-                newIcon.src = `src/images/markers/white/${obj.icon.toLowerCase()}.svg`;
+                newIcon.src = `src/images/markers/${obj.color.toLowerCase()}/${obj.icon.toLowerCase()}.svg`;
                 newSearchResult.appendChild(newIcon);
 
                 //In the search result create a label
