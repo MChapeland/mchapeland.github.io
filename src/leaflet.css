@@ -14,7 +14,7 @@
 		-webkit-user-drag: none;
 	display: block;
 	transition: 0.1s ease-in-out;
-	animation: fade 0.25s;
+	animation: grow 0.25s;
 
 	&:hover {
 		filter: brightness(125%);
@@ -36,7 +36,7 @@
 
 }
 
-@keyframes fade { 
+@keyframes grow { 
 	from { 
 		width: 0px;
 		height: 0px;
@@ -453,6 +453,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 
 
+
+@keyframes fade { 
+	from { 
+		opacity: 0%;
+	} 
+}
+
 /* Tooltip */
 /* Base styles for the element that has a tooltip */
 .leaflet-tooltip {
@@ -469,6 +476,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	pointer-events: none;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 	font-size: 15px;
+	animation: fade 0.25s;
 }
 
 .leaflet-tooltip.leaflet-interactive {
