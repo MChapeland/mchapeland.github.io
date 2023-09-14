@@ -4,8 +4,6 @@
 
 .leaflet-marker-icon {
 	position: absolute;
-	left: 50% !important;
-	top: 50% !important;
 	user-select: none;
 		-webkit-user-select: none;
 		-moz-user-select: none;
@@ -19,6 +17,11 @@
 	.leaflet-interactive {
 		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
 		pointer-events: auto;
+	}
+
+	& img {
+		left: 50% !important;
+		top: 50% !important;
 	}
 
 	&:hover {
@@ -35,8 +38,6 @@
 	from { 
 		width: 0px;
 		height: 0px;
-		left: -50% !important;
-		top: -50% !important;
 	} 
 }
 
