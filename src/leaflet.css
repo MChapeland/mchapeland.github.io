@@ -14,7 +14,7 @@
 	width: 30px;
 	height: 30px;
 	transition: 0.1s ease-in-out;
-	animation: fade 0.25s !important;
+	animation: fade 0.25s;
 	animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
 
 	.leaflet-interactive {
@@ -34,9 +34,8 @@
 
 @keyframes fade { 
 	from { 
-		opacity: 0; 
-		width: 0px !important;
-		height: 0px !important;
+		width: 0px;
+		height: 0px;
 	} 
 }
 
