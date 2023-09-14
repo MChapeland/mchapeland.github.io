@@ -458,7 +458,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	user-select: none;
 	pointer-events: none;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-	font-size: 18px;
+	font-size: 12px;
 }
 
 .leaflet-tooltip.leaflet-interactive {
