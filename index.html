@@ -262,8 +262,8 @@
 
 		svgElement.innerHTML = '<img src="src/images/map.svg" />';
 
-		var svgElementBounds = [ [ 32, -130 ], [ 13, -100 ] ];
-		L.svgOverlay(svgElement, svgElementBounds, { zIndex: 10 }).addTo(map);
+		var svgElementBounds = [ [ 100, -100 ], [ 100, -100 ] ];
+		L.svgOverlay(svgElement, svgElementBounds, { opacity: 1, interactive: true }).addTo(map);
 
 
 		var BaseIcon = L.Icon.extend({
