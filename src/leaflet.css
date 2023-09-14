@@ -3,7 +3,9 @@
 
 
 .leaflet-marker-icon {
-	position: absolute;
+	position: absolute; 
+	left: 0; 
+	top: 0;
 	user-select: none;
 		-webkit-user-select: none;
 		-moz-user-select: none;
@@ -14,22 +16,12 @@
 	transition: 0.1s ease-in-out;
 	animation: fade 0.25s;
 
-	.leaflet-interactive {
-		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
-		pointer-events: auto;
-	}
-
-	& img {
-		left: 50% !important;
-		top: 50% !important;
-	}
-
 	&:hover {
 		filter: brightness(125%);
 		width: 35px;
 		height: 35px;
-		left: -2.5px !important;
-		top: -2.5px !important;
+		left: -2.5px;
+		top: -2.5px;
 	}
 
 }
@@ -38,9 +30,19 @@
 	from { 
 		width: 0px;
 		height: 0px;
+		left: 10px; 
+		top: 10px; 
 	} 
 }
 
+
+
+/* cursors */
+.leaflet-interactive {
+	cursor: pointer;
+	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	pointer-events: auto;
+}
 
 
 
@@ -257,11 +259,6 @@ svg.leaflet-zoom-animated {
 	visibility: hidden;
 }
 
-
-/* cursors */
-.leaflet-interactive {
-	cursor: pointer;
-}
 
 .leaflet-grab {
 	/* 
