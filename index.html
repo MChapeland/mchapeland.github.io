@@ -262,8 +262,7 @@
 				iconSize: [30, 30],
 				iconAnchor: [15, 15],
 				tooltipAnchor: [0, -20]
-			},
-			className: 'growing'
+			}
 		});
 		
 		map.on('moveend', placeMarkers);
@@ -431,7 +430,7 @@
 
 
 					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
-						.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`}) })
+						.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`, className: 'growing'}) })
 						.bindTooltip(storedMarker.name, { direction: 'top' })
 					;
 
