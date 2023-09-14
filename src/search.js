@@ -45,5 +45,5 @@ function moveToMarker(markerToShow, zoomLevel) {
     });
 
     map.setView(markerToShow.getLatLng(), zoomLevel+1);
-    setTimeout(() => { markerToShow.fire('click'); }, 500);
+    setTimeout(() => { markerToShow.fire('mouseover'); }, 500);
 }
