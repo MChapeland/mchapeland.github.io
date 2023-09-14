@@ -255,6 +255,19 @@
 			keepBuffer: 10
 		}).addTo(map);
 
+		var svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		svgElement.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+		svgElement.setAttribute('viewBox', '0 0 200 200');
+		svgElement.innerHTML = '<img src="src/images/map.svg" />';
+
+		var latLngBounds = L.latLngBounds([[32, -130], [13, -100]]);
+		map.fitBounds(latLngBounds);
+
+		var svgOverlay = L.svgOverlay(svgElement, latLngBounds, {
+			opacity: 0.7,
+			interactive: true
+		}).addTo(map); 
+
 		var BaseIcon = L.Icon.extend({
 			options: {
 				iconSize: [25, 25],
