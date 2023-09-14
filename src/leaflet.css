@@ -476,7 +476,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	pointer-events: none;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 	font-size: 15px;
-	animation: fade 0.25s;
+	animation: fade 0.5s;
 }
 
 .leaflet-tooltip.leaflet-interactive {
