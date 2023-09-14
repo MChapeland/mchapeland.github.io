@@ -39,8 +39,11 @@ function searchMarkers() {
 
 
 function moveToMarker(markerToShow, zoomLevel) {
+
+    map._layers.forEach(function (layer) {
+        layer.fire('mouseout');
+    });
+
     map.setView(markerToShow.getLatLng(), zoomLevel+1);
-    
-    setTimeout(() => { markerToShow.fire('click'); }, 1000);
-    
+    setTimeout(() => { markerToShow.fire('click'); }, 500);
 }
