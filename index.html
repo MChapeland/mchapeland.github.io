@@ -256,14 +256,13 @@
 		}).addTo(map);
 
 
-		var svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-		svgElement.setAttribute('xmlns', "http://www.w3.org/2000/svg");
-		svgElement.setAttribute('viewBox', "0 0 200 200");
+		var imageUrl = 'src/images/map.svg',
+		imageBounds = [
+			[40.712216, -74.22655],
+			[40.773941, -74.12544]
+		];
 
-		svgElement.innerHTML = '<img src="src/images/map.svg" />';
-
-		var svgElementBounds = [ [ 100, -100 ], [ 100, -100 ] ];
-		L.svgOverlay(svgElement, svgElementBounds, { opacity: 1, interactive: true }).addTo(map);
+		L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 
 		var BaseIcon = L.Icon.extend({
