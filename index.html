@@ -434,6 +434,7 @@
 						.bindTooltip(storedMarker.name, { direction: 'top' })
 					;
 
+					L.DomUtil.addClass(window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`]._icon, "growing");
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
 						placeMarkers();
