@@ -4,10 +4,9 @@ function searchMarkers() {
         document.getElementById('Search').removeChild(node);
     });
 
-
     markersData.forEach((obj) => {
 
-        if ( obj.name.toLowerCase().includes( document.getElementById('searchInput').value.toLowerCase() )) {
+        if ( obj.name.toLowerCase().includes( document.getElementById('searchInput').value.toLowerCase() ) && document.getElementById('searchInput').value.toLowerCase() != "" ) {
             
             let newSearchResult = document.createElement("div");
             newSearchResult.classList.add('search-result');
@@ -32,8 +31,5 @@ function searchMarkers() {
             document.getElementById("Search").appendChild(newSearchResult);
 
         }
-
     });
-
-
 }
