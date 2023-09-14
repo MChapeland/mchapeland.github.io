@@ -352,6 +352,7 @@
 					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
 						.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`}) })
 						.bindTooltip(storedMarker.name, { direction: 'top' })
+						.off('click', this.openTooltip)
 					;
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
