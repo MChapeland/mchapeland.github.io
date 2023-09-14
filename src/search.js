@@ -37,8 +37,11 @@ function searchMarkers() {
     });
 }
 
+
 function moveToMarker(markerToShow) {
 
-    console.log(markerToShow);
+    var latLngs = [ markerToShow.getLatLng() ];
+    var markerBounds = L.latLngBounds(latLngs);
+    map.fitBounds(markerBounds);
 
 }
