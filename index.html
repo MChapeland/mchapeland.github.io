@@ -66,7 +66,7 @@
 
 		<div class="search-box" id="searchBox">
 
-			<input id="searchInput" type="text" placeholder="Search Markers..." onchange="searchMarkers()"/>
+			<input id="searchInput" type="text" placeholder="Search Markers..." onkeyup="searchMarkers()" onkeydown="searchMarkers()"/>
 
 			<button class="search-button" href="#" onclick="searchMarkers()">
 				<img src="src/images/icons/search.svg" />
