@@ -15,16 +15,19 @@ function searchMarkers() {
                 //In the search result create an icon
                 let newIcon = document.createElement("img");
                 newIcon.src = `src/images/markers/${obj.color.toLowerCase()}/${obj.icon.toLowerCase()}.svg`;
+                newIcon.onclick = function () { moveToMarker(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) }
                 newSearchResult.appendChild(newIcon);
 
                 //In the search result create a label
                 let newLabel = document.createElement("label");
                 newLabel.innerText = `${obj.name}`;
+                newLabel.onclick = function () { moveToMarker(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) }
                 newSearchResult.appendChild(newLabel);
                 
                 //In the search result create a label
                 let newP = document.createElement("p");
                 newP.innerText = `${obj.description}`;
+                newP.onclick = function () { moveToMarker(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) }
                 newSearchResult.appendChild(newP);
 
             //Append the whole thing to the Search tab
@@ -32,4 +35,10 @@ function searchMarkers() {
 
         }
     });
+}
+
+function moveToMarker(markerToShow) {
+
+    console.log(markerToShow);
+
 }
