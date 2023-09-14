@@ -26,10 +26,10 @@ function markerGroupVisibility(event, groupID, layerID) {
 
         if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`${groupID}`).checked) {
             document.getElementById(`${groupID}`).checked = document.getElementById(`CB_${layerID}`).checked;
+        }
 
-            if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`viewLayersCheckbox`).checked) {
-                document.getElementById(`viewLayersCheckbox`).checked = document.getElementById(`CB_${layerID}`).checked;
-            }
+        if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`viewLayersCheckbox`).checked ) {
+            document.getElementById(`viewLayersCheckbox`).checked = document.getElementById(`CB_${layerID}`).checked;
         }
     }
     else {
