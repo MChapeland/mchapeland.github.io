@@ -30,14 +30,11 @@
 }
 
 .growing {
-	animation: fade 1s infinite alternate;
-	background: yellow;
+	/* animation: fade 1s infinite alternate; */
 }
 
 @keyframes fade { 
-	from { 
-		transform: scale(0, 0) !important;
-	 } 
+	from { opacity: 0.5; } 
 }
 
 
