@@ -30,6 +30,7 @@
 
 .growing {
 	animation: fade 1s infinite alternate;
+	background: yellow;
 }
 
 @keyframes fade { 
