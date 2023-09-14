@@ -24,6 +24,15 @@
 		top: -2.5px;
 	}
 
+	
+	&:activr {
+		filter: brightness(75%);
+		width: 25px;
+		height: 25px;
+		left: 0.5px;
+		top: 0.5px;
+	}
+
 }
 
 @keyframes fade { 

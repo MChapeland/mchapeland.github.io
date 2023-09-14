@@ -28,7 +28,7 @@ function markerGroupVisibility(event, groupID, layerID) {
             document.getElementById(`${groupID}`).checked = document.getElementById(`CB_${layerID}`).checked;
         }
 
-        if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`viewLayersCheckbox`).checked ) {
+        if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`viewLayersCheckbox`).checked && document.getElementById(`CB_${layerID}`).checked) {
             document.getElementById(`viewLayersCheckbox`).checked = document.getElementById(`CB_${layerID}`).checked;
         }
     }
