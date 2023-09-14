@@ -40,5 +40,5 @@ function searchMarkers() {
 
 function moveToMarker(markerToShow, zoomLevel) {
     map.setView(markerToShow.getLatLng(), zoomLevel+1);
-    markerToShow.fireEvent( 'onmouseover' );
+    markerToShow.fire('click');
 }
