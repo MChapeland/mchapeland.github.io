@@ -40,6 +40,7 @@ function searchMarkers() {
 
 function moveToMarker(markerToShow, zoomLevel) {
     map.setView(markerToShow.getLatLng(), zoomLevel+1);
-    sleep(2000).then(() => { markerToShow.fire('click'); });
+    
+    setTimeout(() => { markerToShow.fire('click'); }, 1000);
     
 }
