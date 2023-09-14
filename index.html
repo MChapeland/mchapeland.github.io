@@ -354,7 +354,7 @@
 						.bindTooltip(storedMarker.name, { direction: 'top' })
 					;
 
-					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('click', this.openTooltip);
+					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].removeEventListener('click', this.openTooltip);
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
 						placeMarkers();
