@@ -264,11 +264,11 @@
 			}
 		});
 		
-		map.on('moveend', placeMarkers);
-		map.on('zoomend', placeMarkers);
+		map.on('move', placeMarkers);
+		map.on('zoom', placeMarkers);
 		
 
-		
+
 		/*
 		var myLayer = L.layerGroup().addTo(map);
 
