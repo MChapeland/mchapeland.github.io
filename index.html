@@ -247,10 +247,7 @@
 		//Map Setup
 		var map = L.map('map', { 'attributionControl': false, zoomControl: false }).setView([-15, 15], 2);
 		
-		
-		var imageUrl = 'src/images/map.svg', imageBounds = [ [40.712216, -74.22655], [40.773941, -74.12544] ];
-		
-		L.imageOverlay(imageUrl, imageBounds, {
+		var tiles = L.tileLayer('map/{z}/{x}/{y}.png', {
 			continuousWorld: false,
 			noWrap: true,
 			minZoom: 2,
