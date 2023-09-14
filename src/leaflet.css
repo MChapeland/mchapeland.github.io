@@ -12,24 +12,16 @@
 		-webkit-user-drag: none;
 	display: block;
 	transition: 0.1s ease-in-out;
-	animation-duration: 0.5s;
-	animation-name: animate-grow;
-	animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
 
 	.leaflet-interactive {
 		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
 		pointer-events: auto;
-		animation-duration: 0.5s;
-		animation-name: animate-grow;
-		animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
 	}
 
 	&:hover {
 		filter: brightness(125%);
 		width: 35px !important;
 		height: 35px !important;
-		left: -5px !important;
-		top: -5px !important;
 	}
 
 }
