@@ -355,6 +355,8 @@
 					;
 
 					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('click', window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`]._openTooltip);
+					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('mousedown', window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`]._openTooltip);
+					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('mouseup', window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`]._openTooltip);
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
 						placeMarkers();
