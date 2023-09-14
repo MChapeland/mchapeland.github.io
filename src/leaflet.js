@@ -3734,7 +3734,10 @@
               i.iconAnchor ||
               (n && n.divideBy(2, !0))
           );
-        (t.className = "leaflet-marker-" + e + " " + (i.className || ""))
+        (t.className = "leaflet-marker-" + e + " " + (i.className || "")),
+          o &&
+            ((t.style.marginLeft = -o.x + "px"),
+            (t.style.marginTop = -o.y + "px"));
       },
       _createImg: function (t, e) {
         return ((e = e || document.createElement("img")).src = t), e;
@@ -3750,11 +3753,11 @@
         iconUrl: "marker-icon.png",
         iconRetinaUrl: "marker-icon-2x.png",
         shadowUrl: "marker-shadow.png",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        tooltipAnchor: [16, -28],
-        shadowSize: [41, 41],
+        iconSize: [30, 30],
+        iconAnchor: [15, 15],
+        popupAnchor: [0, -20],
+        tooltipAnchor: [0, -20],
+        shadowSize: [0,0],
       },
       _getIconUrl: function (t) {
         return (
