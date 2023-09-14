@@ -29,16 +29,11 @@
 }
 
 .growing {
-	animation-duration: 0.25s;
-	animation-name: animate-grow;
-	animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
+	animation: fade 1s infinite alternate;
 }
 
-@keyframes animate-grow {
-	from { 
-		width: 0px !important;
-		height: 0px !important;
-	}
+@keyframes fade { 
+	from { opacity: 0.5; } 
 }
 
 
