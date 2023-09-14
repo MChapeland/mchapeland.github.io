@@ -3737,8 +3737,7 @@
         (t.className = "leaflet-marker-" + e + " " + (i.className || "")),
           o &&
             ((t.style.marginLeft = -o.x + "px"),
-            (t.style.marginTop = -o.y + "px")),
-          n && ((t.style.width = n.x + "px"), (t.style.height = n.y + "px"));
+            (t.style.marginTop = -o.y + "px"));
       },
       _createImg: function (t, e) {
         return ((e = e || document.createElement("img")).src = t), e;
