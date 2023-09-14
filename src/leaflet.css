@@ -12,6 +12,7 @@
 		-webkit-user-drag: none;
 	display: block;
 	transition: 0.1s ease-in-out;
+	animation: fade 1s infinite alternate;
 
 	.leaflet-interactive {
 		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
