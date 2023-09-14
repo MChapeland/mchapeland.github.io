@@ -263,8 +263,8 @@
 		svgElement.innerHTML = '<img src="src/images/map.svg" />';
 
 		var svgElementBounds = [ [ 32, -130 ], [ 13, -100 ] ];
-		L.svgOverlay(svgElement, svgElementBounds).addTo(map);
-		
+		L.svgOverlay(svgElement, svgElementBounds, { zIndex: 100, zoomControl: false }.addTo(map);
+
 
 		var BaseIcon = L.Icon.extend({
 			options: {
