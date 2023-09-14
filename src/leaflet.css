@@ -11,6 +11,8 @@
 		-moz-user-select: none;
 		-webkit-user-drag: none;
 	display: block;
+	width: 30px;
+	height: 30px;
 	transition: 0.1s ease-in-out;
 	animation: fade 0.25s !important;
 	animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
@@ -22,8 +24,8 @@
 
 	&:hover {
 		filter: brightness(125%);
-		width: 35px !important;
-		height: 35px !important;
+		width: 35px;
+		height: 35px;
 		left: -2.5px !important;
 		top: -2.5px !important;
 	}
