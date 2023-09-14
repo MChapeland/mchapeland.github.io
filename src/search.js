@@ -29,7 +29,7 @@ function searchMarkers() {
                 newSearchResult.appendChild(newP);
 
             //Append the whole thing to the Search tab
-            document.getElementById("Search").appendChild(newLayerGroup);
+            document.getElementById("Search").appendChild(newSearchResult);
 
         }
 
