@@ -40,7 +40,7 @@ function searchMarkers() {
 
 function moveToMarker(markerToShow, zoomLevel) {
 
-    map._layers.forEach(function (layer) {
+    map.eachLayer(function (layer) {
         layer.fire('mouseout');
     });
 
