@@ -7,7 +7,7 @@ function searchMarkers() {
 
     markersData.forEach((obj) => {
 
-        if (obj.name.toUpperCase().indexOf(document.getElementById('searchInput').value.toUpperCase()) > -1 ) {
+        if ( obj.name.toLowerCase().includes( document.getElementById('searchInput').value.toLowerCase() )) {
             
             let newSearchResult = document.createElement("div");
             newSearchResult.classList.add('search-result');
