@@ -39,5 +39,5 @@ function searchMarkers() {
 
 
 function moveToMarker(markerToShow, zoomLevel) {
-    map.setView(markerToShow.getLatLng(), zoomLevel);
+    map.setView(markerToShow.getLatLng(), zoomLevel+1);
 }
