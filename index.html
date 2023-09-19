@@ -360,14 +360,14 @@
 					;
 
 					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('click');
+					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('mouseover');
+					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('mouseout');
 
-					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].on('click', function() {return;});
-
-					/*
+					
 					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].on('click', function(e) {
 						console.log(storedMarker.name);
 					});
-					*/
+					
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
 						placeMarkers();
