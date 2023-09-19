@@ -2,6 +2,7 @@
  * Leaflet 1.9.4, a JS library for interactive maps. https://leafletjs.com
  * (c) 2010-2023 Vladimir Agafonkin, (c) 2010-2011 CloudMade
  */
+
 !(function (t, e) {
   "object" == typeof exports && "undefined" != typeof module
     ? e(exports)
@@ -12,19 +13,26 @@
           "undefined" != typeof globalThis ? globalThis : t || self).leaflet =
           {})
       );
-})(this, function (t) {
+})
+
+(this, function (t) {
+
   "use strict";
+
   function l(t) {
     for (var e, i, n = 1, o = arguments.length; n < o; n++)
       for (e in (i = arguments[n])) t[e] = i[e];
     return t;
   }
-  var R =
-    Object.create ||
-    function (t) {
-      return (N.prototype = t), new N();
-    };
+
+  var R = Object.create ||
+
+  function (t) {
+    return (N.prototype = t), new N();
+  };
+
   function N() {}
+
   function a(t, e) {
     var i,
       n = Array.prototype.slice;
@@ -35,10 +43,13 @@
           return t.apply(e, i.length ? i.concat(n.call(arguments)) : arguments);
         });
   }
+
   var D = 0;
+
   function h(t) {
     return "_leaflet_id" in t || (t._leaflet_id = ++D), t._leaflet_id;
   }
+
   function j(t, e, i) {
     var n,
       o,
@@ -52,26 +63,32 @@
       };
     return r;
   }
+
   function H(t, e, i) {
     var n = e[1],
       e = e[0],
       o = n - e;
     return t === n && i ? t : ((((t - e) % o) + o) % o) + e;
   }
+
   function u() {
     return !1;
   }
+
   function i(t, e) {
     return !1 === e
       ? t
       : ((e = Math.pow(10, void 0 === e ? 6 : e)), Math.round(t * e) / e);
   }
+
   function W(t) {
     return t.trim ? t.trim() : t.replace(/^\s+|\s+$/g, "");
   }
+
   function F(t) {
     return W(t).split(/\s+/);
   }
+
   function c(t, e) {
     for (var i in (Object.prototype.hasOwnProperty.call(t, "options") ||
       (t.options = t.options ? R(t.options) : {}),
@@ -79,6 +96,7 @@
       t.options[i] = e[i];
     return t.options;
   }
+
   function U(t, e, i) {
     var n,
       o = [];
@@ -90,7 +108,9 @@
       );
     return (e && -1 !== e.indexOf("?") ? "&" : "?") + o.join("&");
   }
+
   var V = /\{ *([\w_ -]+) *\}/g;
+
   function q(t, i) {
     return t.replace(V, function (t, e) {
       e = i[e];
@@ -98,8 +118,8 @@
       return (e = "function" == typeof e ? e(i) : e);
     });
   }
-  var d =
-    Array.isArray ||
+
+  var d = Array.isArray ||
     function (t) {
       return "[object Array]" === Object.prototype.toString.call(t);
     };
