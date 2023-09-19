@@ -24,7 +24,7 @@
 		top: -2.5px;
 	}
 
-	
+	/*
 	&:active {
 		filter: brightness(75%);
 		width: 30px;
@@ -33,7 +33,7 @@
 		top: 0;
 		transition: 0.05s ease-in-out;
 	}
-
+	*/
 }
 
 @keyframes grow { 
