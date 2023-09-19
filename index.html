@@ -18,6 +18,8 @@
 	<script src="src/layers.js" defer></script>
 	<link rel="stylesheet" href="src/search.css" />
 	<script src="src/search.js" defer></script>
+	<link rel="stylesheet" href="src/description.css" />
+	<script src="src/description.js" defer></script>
 
 	<!-- Leaflet Scripts -->
 	<link rel="stylesheet" href="src/leaflet.css" />
@@ -161,7 +163,10 @@
 
 
 
+	<!-- DESCRIPTION -->
+	<div class="content-box" id="Description">
 
+	</div>	
 
 
 
@@ -355,6 +360,10 @@
 					;
 
 					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('click', window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`]._openTooltip);
+
+					marker.on('click', function(e) {
+						console.log(storedMarker.name);
+					});
 
 					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
 						placeMarkers();
