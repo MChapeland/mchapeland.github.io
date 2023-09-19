@@ -359,7 +359,7 @@
 						.bindTooltip(storedMarker.name, { direction: 'top' })
 					;
 
-					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('click', window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`]._openTooltip);
+					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('click');
 
 					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].on('click', function(e) {
 						console.log(storedMarker.name);
