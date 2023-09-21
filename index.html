@@ -256,7 +256,7 @@
 														&& x.layer==`${storedMarker.layer}`
 					); 
 
-					index === -1 ? markersData.push(storedMarker) : console.log("Marker already exists.");
+					index === -1 ? console.log("Marker doesn't exist.") : console.log("Marker already exists.");
 
 					
 					if (document.getElementById(`LG_${storedMarker.group}`) == null){
