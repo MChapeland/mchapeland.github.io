@@ -146,7 +146,7 @@
 	<div class="tabs" id="Areas">
 
 		<div class="refresh-header">
-			<div class="refresh-button" onclick="changeMap('LandB', -200, 200, -137.5, 137.5)">
+			<div class="refresh-button" onclick="changeMap('LandA', -200, 200, -137.5, 137.5)">
 				<label>Reset To Default Map</label>
 			</div>
 		</div>
@@ -196,7 +196,7 @@
 		var map = L.map('map', { 'attributionControl': false, zoomControl: false, minZoom: 2, maxZoom: 6,}).setView([0, 0], 3);
 		
 
-		var mapImage =  L.imageOverlay(imageUrl = 'src/images/maps/mapLandB.svg', imageBounds= [[-200, -137.5],[200, 137.5]]);
+		var mapImage =  L.imageOverlay(imageUrl = 'src/images/maps/mapLandA.svg', imageBounds= [[-200, -137.5],[200, 137.5]]);
 		
 
 		var BaseIcon = L.Icon.extend({
