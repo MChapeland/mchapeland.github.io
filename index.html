@@ -167,10 +167,10 @@
 			</div>
 		</div>
 
-		
+
 		<div class="option-input">
-			<label>Sheet Url</label>
-			<input id="sheetUrlInput" type="text" value="https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/" />
+			<label>Sheet ID</label>
+			<input id="sheetIDInput" type="text" value="1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0" />
 		</div>
 	
 		
@@ -235,7 +235,7 @@
 
         function sheetExtract() {
 			sheetPage = document.getElementById('sheetPageInput').value.toLowerCase();
-			sheetUrl = `${document.getElementById('sheetUrlInput').value}gviz/tq?&sheet=${sheetPage}&tq=${query}`
+			sheetUrl = `https://docs.google.com/spreadsheets/d/${document.getElementById('sheetIDInput').value}/gviz/tq?&sheet=${sheetPage}&tq=${query}`
 
 			//Reset everything
 			map.eachLayer(function(layer){
