@@ -230,7 +230,7 @@
 
         function sheetExtract() {
 			sheetPage = document.getElementById('sheetPageInput').value.toLowerCase();
-			sheetUrl = `${document.getElementById('sheetUrlInput').value.toLowerCase()}gviz/tq?&sheet=${sheetPage}&tq=${query}`
+			sheetUrl = `${document.getElementById('sheetUrlInput').value}gviz/tq?&sheet=${sheetPage}&tq=${query}`
 
 			//Reset everything
 			map.eachLayer(function(layer){
