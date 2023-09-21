@@ -260,15 +260,14 @@
 					storedMarker.color = main.c[6].v;
 					storedMarker.icon = main.c[7].v;
 					storedMarker.description = main.c[8].v;
-					storedMarker.id = main.c[9].v;
 					storedMarker.sheet = sheetPage;
 
 					
 					var index = markersData.findIndex(x => x.name==`${storedMarker.name}` 
-														&& x.x==`${storedMarker.x}`
-														&& x.y==`${storedMarker.y}`
-														&& x.group==`${storedMarker.group}`
-														&& x.layer==`${storedMarker.layer}`
+														 & x.x==`${storedMarker.x}`
+														 & x.y==`${storedMarker.y}`
+														 & x.group==`${storedMarker.group}`
+														 & x.layer==`${storedMarker.layer}`
 					); 
 
 					if (index === -1){
