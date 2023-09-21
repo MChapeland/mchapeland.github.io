@@ -159,6 +159,12 @@
 	<!-- Options -->
 	<div class="tabs" id="Options">
 
+		<div class="refresh-header">
+			<div class="refresh-button" onclick="refreshData()">
+				<label>Refresh Map Data</label>
+			</div>
+		</div>
+
 	</div>
 
 
@@ -239,8 +245,16 @@
 					storedMarker.description = main.c[8].v;
 					storedMarker.id = main.c[9].v;
 					storedMarker.sheet = sheetName;
-						
-					markersData.push(storedMarker);
+
+					
+					var index = markersData.findIndex(x => x.name==`${storedMarker.name}` 
+														&& x.x==`${storedMarker.x}`
+														&& x.y==`${storedMarker.y}`
+														&& x.group==`${storedMarker.group}`
+														&& x.layer==`${storedMarker.layer}`
+					); 
+
+					index === -1 ? markersData.push(storedMarker) : console.log("Marker already exists.");
 
 					
 					if (document.getElementById(`LG_${storedMarker.group}`) == null){
