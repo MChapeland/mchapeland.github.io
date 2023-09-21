@@ -232,6 +232,8 @@
 			map.eachLayer(function(layer){
 				layer.remove();
 			});
+			
+			L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 			document.getElementById("Layers").querySelectorAll(".custom-layer-group").forEach((node) => {
 				document.getElementById("Layers").removeChild(node);
