@@ -256,137 +256,146 @@
 														&& x.layer==`${storedMarker.layer}`
 					); 
 
-					index === -1 ? console.log("Marker doesn't exist.") : console.log("Marker already exists.");
+					if(index === -1){
 
-					
-					if (document.getElementById(`LG_${storedMarker.group}`) == null){
-						//Create a new layer group
-						let newLayerGroup = document.createElement("div");
-						newLayerGroup.classList.add('custom-layer-group');
-						newLayerGroup.id = `CB_${storedMarker.group}Parent`;
+						markersData.push(storedMarker);
+
+						if (document.getElementById(`LG_${storedMarker.group}`) == null){
+							//Create a new layer group
+							let newLayerGroup = document.createElement("div");
+							newLayerGroup.classList.add('custom-layer-group');
+							newLayerGroup.id = `CB_${storedMarker.group}Parent`;
 
 
-							//In the layer group create a group container
-							let newGroupContainer = document.createElement("div");
-							newGroupContainer.classList.add('group-container');
-							newLayerGroup.appendChild(newGroupContainer);
-							
-								//In the group container create an arrow container
-								let newArrowContainer = document.createElement("div");
-								newArrowContainer.classList.add('arrow-container');
-								newGroupContainer.appendChild(newArrowContainer);
+								//In the layer group create a group container
+								let newGroupContainer = document.createElement("div");
+								newGroupContainer.classList.add('group-container');
+								newLayerGroup.appendChild(newGroupContainer);
 								
-									//In the arrow container create an arrow
-									let newArrow = document.createElement("div");
-									newArrow.classList.add('arrow');
-									newArrowContainer.appendChild(newArrow);
+									//In the group container create an arrow container
+									let newArrowContainer = document.createElement("div");
+									newArrowContainer.classList.add('arrow-container');
+									newGroupContainer.appendChild(newArrowContainer);
+									
+										//In the arrow container create an arrow
+										let newArrow = document.createElement("div");
+										newArrow.classList.add('arrow');
+										newArrowContainer.appendChild(newArrow);
 
-									//In the arrow container create a checkbox
-									let newACCheckbox = document.createElement("input");
-									newACCheckbox.type = "checkbox";
-									newACCheckbox.checked = true;
-									newACCheckbox.onchange = function() {toggleArrowLayers(event)}; 
-									newArrowContainer.appendChild(newACCheckbox);
+										//In the arrow container create a checkbox
+										let newACCheckbox = document.createElement("input");
+										newACCheckbox.type = "checkbox";
+										newACCheckbox.checked = true;
+										newACCheckbox.onchange = function() {toggleArrowLayers(event)}; 
+										newArrowContainer.appendChild(newACCheckbox);
 
+									//In the group container create a visibility box
+									let newVisibilityBox = document.createElement("div");
+									newVisibilityBox.classList.add('visibility-box');
+									newGroupContainer.appendChild(newVisibilityBox);
+
+										//In the group container create a label
+										let newLabel = document.createElement("label");
+										newLabel.innerText = `${storedMarker.group}`;
+										newVisibilityBox.appendChild(newLabel);
+
+										//In the visibility box create a checkbox
+										let newVBCheckbox = document.createElement("input");
+										newVBCheckbox.type = "checkbox";
+										newVBCheckbox.checked = true;
+										newVBCheckbox.onchange = function() {layerGroupVisibility(event, `CB_${storedMarker.group}`)}; 
+										newVBCheckbox.id = `CB_${storedMarker.group}`;
+										newVisibilityBox.appendChild(newVBCheckbox);
+
+
+								//In the layer group create a group container
+								let newGridContainer = document.createElement("div");
+								newGridContainer.classList.add('layer-grid');
+								newGridContainer.id = `LG_${storedMarker.group}`;
+								newLayerGroup.appendChild(newGridContainer);
+								
+
+							//Append the whole thing to the Layers tab
+							document.getElementById("Layers").appendChild(newLayerGroup);
+
+						}
+
+						if (document.getElementById(`MG_${storedMarker.layer}-LG_${storedMarker.group}`) == null){
+							
+							//Create a new marker group
+							let newMarkerGroup = document.createElement("div");
+							newMarkerGroup.classList.add('layer-container');
+							newMarkerGroup.id = `MG_${storedMarker.layer}-LG_${storedMarker.group}`;
+							
+								//In the marker group create an icon
+								let newIcon = document.createElement("img");
+								newIcon.src = `src/images/markers/white/${storedMarker.icon.toLowerCase()}.svg`;
+								newMarkerGroup.appendChild(newIcon);
+							
+								//In the marker group create a label
+								let newLabel = document.createElement("label");
+								newLabel.innerText = `${storedMarker.layer}`;
+								newMarkerGroup.appendChild(newLabel);
+								
+								//In the marker group create a number input
+								let newNumber = document.createElement("input");
+								newNumber.type = Number;
+								newNumber.readOnly = true;
+								newNumber.value = 1;
+								newNumber.id = `NB_${storedMarker.layer}-${storedMarker.group}`;
+								newMarkerGroup.appendChild(newNumber);
+							
 								//In the group container create a visibility box
-								let newVisibilityBox = document.createElement("div");
-								newVisibilityBox.classList.add('visibility-box');
-								newGroupContainer.appendChild(newVisibilityBox);
-
-									//In the group container create a label
-									let newLabel = document.createElement("label");
-									newLabel.innerText = `${storedMarker.group}`;
-									newVisibilityBox.appendChild(newLabel);
+								let newCBContainer = document.createElement("div");
+								newCBContainer.classList.add('checkbox-container');
+								newMarkerGroup.appendChild(newCBContainer);
 
 									//In the visibility box create a checkbox
-									let newVBCheckbox = document.createElement("input");
-									newVBCheckbox.type = "checkbox";
-									newVBCheckbox.checked = true;
-									newVBCheckbox.onchange = function() {layerGroupVisibility(event, `CB_${storedMarker.group}`)}; 
-									newVBCheckbox.id = `CB_${storedMarker.group}`;
-									newVisibilityBox.appendChild(newVBCheckbox);
+									let newCheckbox = document.createElement("input");
+									newCheckbox.type = "checkbox";
+									newCheckbox.checked = true;
+									newCheckbox.onchange =  function() {markerGroupVisibility(event, `CB_${storedMarker.group}`, `L_${storedMarker.layer}-${storedMarker.group}`)}; 
+									newCheckbox.id = `CB_L_${storedMarker.layer}-${storedMarker.group}`;
+									newCBContainer.appendChild(newCheckbox);
+
+							//Append the whole thing to the proper layer group
+							document.getElementById(`LG_${storedMarker.group}`).appendChild(newMarkerGroup);
+						}
+
+						else {
+							document.getElementById(`NB_${storedMarker.layer}-${storedMarker.group}`).value++;
+						}
+
+						if (window[`L_${storedMarker.layer}-${storedMarker.group}-Lv${storedMarker.group}`] == null) {
+							window[`L_${storedMarker.layer}-${storedMarker.group}`] = L.layerGroup().addTo(map);
+						}
 
 
-							//In the layer group create a group container
-							let newGridContainer = document.createElement("div");
-							newGridContainer.classList.add('layer-grid');
-							newGridContainer.id = `LG_${storedMarker.group}`;
-							newLayerGroup.appendChild(newGridContainer);
-							
+						window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
+							.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`}) })
+							.bindTooltip(storedMarker.name, { direction: 'top' })
+						;
 
-						//Append the whole thing to the Layers tab
-						document.getElementById("Layers").appendChild(newLayerGroup);
+						window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('click');
 
+						
+						window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].on('click', function(e) {
+							console.log(storedMarker.name);
+						});
+
+
+						if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
+							placeMarkers();
+						}
+						
 					}
-
-					if (document.getElementById(`MG_${storedMarker.layer}-LG_${storedMarker.group}`) == null){
-						
-						//Create a new marker group
-						let newMarkerGroup = document.createElement("div");
-						newMarkerGroup.classList.add('layer-container');
-						newMarkerGroup.id = `MG_${storedMarker.layer}-LG_${storedMarker.group}`;
-						
-							//In the marker group create an icon
-							let newIcon = document.createElement("img");
-							newIcon.src = `src/images/markers/white/${storedMarker.icon.toLowerCase()}.svg`;
-							newMarkerGroup.appendChild(newIcon);
-						
-							//In the marker group create a label
-							let newLabel = document.createElement("label");
-							newLabel.innerText = `${storedMarker.layer}`;
-							newMarkerGroup.appendChild(newLabel);
-							
-							//In the marker group create a number input
-							let newNumber = document.createElement("input");
-							newNumber.type = Number;
-							newNumber.readOnly = true;
-							newNumber.value = 1;
-							newNumber.id = `NB_${storedMarker.layer}-${storedMarker.group}`;
-							newMarkerGroup.appendChild(newNumber);
-						
-							//In the group container create a visibility box
-							let newCBContainer = document.createElement("div");
-							newCBContainer.classList.add('checkbox-container');
-							newMarkerGroup.appendChild(newCBContainer);
-
-								//In the visibility box create a checkbox
-								let newCheckbox = document.createElement("input");
-								newCheckbox.type = "checkbox";
-								newCheckbox.checked = true;
-								newCheckbox.onchange =  function() {markerGroupVisibility(event, `CB_${storedMarker.group}`, `L_${storedMarker.layer}-${storedMarker.group}`)}; 
-								newCheckbox.id = `CB_L_${storedMarker.layer}-${storedMarker.group}`;
-								newCBContainer.appendChild(newCheckbox);
-
-						//Append the whole thing to the proper layer group
-						document.getElementById(`LG_${storedMarker.group}`).appendChild(newMarkerGroup);
-					}
-
 					else {
-						document.getElementById(`NB_${storedMarker.layer}-${storedMarker.group}`).value++;
+						console.log(`${storedMarker.name} already exists.`);
 					}
 
-					if (window[`L_${storedMarker.layer}-${storedMarker.group}-Lv${storedMarker.group}`] == null) {
-						window[`L_${storedMarker.layer}-${storedMarker.group}`] = L.layerGroup().addTo(map);
-					}
-
-
-					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`] = L
-						.marker([Number(storedMarker.y), Number(storedMarker.x)], {	icon: new BaseIcon({ iconUrl: `src/images/markers/${storedMarker.color.toLowerCase()}/${storedMarker.icon.toLowerCase()}.svg`}) })
-						.bindTooltip(storedMarker.name, { direction: 'top' })
-					;
-
-					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].off('click');
-
 					
-					window[`M_${storedMarker.name}-${storedMarker.layer}-${storedMarker.group}`].on('click', function(e) {
-						console.log(storedMarker.name);
-					});
 					
 
-					if(refinedData.table.rows[refinedData.table.rows.length-1] === main){
-						placeMarkers();
-					}
-					
 				});
 			});
         }
