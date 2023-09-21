@@ -227,10 +227,6 @@
 			sheetPage = document.getElementById('sheetPageInput').value.toLowerCase();
 			sheetUrl = `https://docs.google.com/spreadsheets/d/${document.getElementById('sheetIDInput').value}/gviz/tq?&sheet=${sheetPage}&tq=${query}`
 
-			//Reset everything
-			map.eachLayer(function(layer){
-				layer.remove();
-			});
 			
 			mapImage.addTo(map);
 
@@ -416,9 +412,16 @@
 		function changeMap(mapName, xA, xB, yA, yB){
 
 			document.querySelector('.leaflet-image-layer').style.opacity = 0;
+			
+			map.eachLayer(function(layer){
+
+				if (layer !== mapImage) {
+					layer.remove();
+				} 
+			});
 
 			setTimeout(() => { 
-				
+
 				mapImage.remove(); 
 				mapImage =  L.imageOverlay(imageUrl = `src/images/maps/map${mapName}.svg`, imageBounds= [[xA, yA],[xB, yB]]);
 				document.getElementById('sheetPageInput').value = mapName;
@@ -426,9 +429,6 @@
 
 			}, "250");
 
-			
-
-			
 		}
 
 		function placeMarkers() {
