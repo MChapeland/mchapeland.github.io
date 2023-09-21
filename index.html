@@ -170,8 +170,8 @@
 		<label>Sheet Url</label>
 		<input id="sheetUrlInput" type="text" placeholder="https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/" />
 
-		<label>Sheet Name</label>
-		<input id="sheetNameInput" type="text" placeholder="markers" />
+		<label>Sheet Page</label>
+		<input id="sheetPageInput" type="text" placeholder="markers" />
 
 
 
@@ -221,7 +221,7 @@
 		*/
 
 
-        var sheetName;
+        var sheetPage;
 		var sheetUrl;
 		var markersData = [];
 
@@ -229,8 +229,8 @@
         document.addEventListener('DOMContentLoaded', sheetExtract);
 
         function sheetExtract() {
-			sheetName = document.getElementById('sheetNameInput').value.toLowerCase();
-			sheetUrl = `${document.getElementById('sheetUrlInput').value.toLowerCase()}gviz/tq?&sheet=${sheetName}&tq=${query}`
+			sheetPage = document.getElementById('sheetPageInput').value.toLowerCase();
+			sheetUrl = `${document.getElementById('sheetUrlInput').value.toLowerCase()}gviz/tq?&sheet=${sheetPage}&tq=${query}`
 
 			//Reset everything
 			map.eachLayer(function(layer){
@@ -246,7 +246,7 @@
 			markersData = [];
 
 
-            fetch(url)
+            fetch(sheetUrl)
 			.then(res => res.text())
 			.then(rep => {
 
@@ -266,7 +266,7 @@
 					storedMarker.icon = main.c[7].v;
 					storedMarker.description = main.c[8].v;
 					storedMarker.id = main.c[9].v;
-					storedMarker.sheet = sheetName;
+					storedMarker.sheet = sheetPage;
 
 					
 					var index = markersData.findIndex(x => x.name==`${storedMarker.name}` 
