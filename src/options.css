@@ -42,3 +42,30 @@
         }
     }
 }
+
+
+.option-input { 
+    position: relative;
+    margin: 20px auto;
+    width: 90%;
+
+    &  label {
+        color: #d1d3d4;
+        font-size: 18px;
+        padding-top: 10px;
+        margin-right: auto;
+    }
+
+    & input {
+        font-size: 15px;
+        margin-top: 5px;
+        width: calc(100% - 14px);
+        background-color: #131313;
+        color: #d1d3d4;
+        border: none;
+        outline: none;
+        padding: 7px;
+        border-radius: 5px;
+    }
+
+}
