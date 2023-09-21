@@ -145,9 +145,9 @@
 	<!-- Areas -->
 	<div class="tabs" id="Areas">
 
-		<button onclick="changeMap('mapSky', -200, 200, -137.5, 137.5)">Sky</button>
-		<button onclick="changeMap('mapSurface', -200, 200, -137.5, 137.5)">Surface</button>
-		<button onclick="changeMap('mapUnderground', -200, 200, -137.5, 137.5)">Undergound</button>
+		<button onclick="changeMap('Sky', -200, 200, -137.5, 137.5)">Sky</button>
+		<button onclick="changeMap('Surface', -200, 200, -137.5, 137.5)">Surface</button>
+		<button onclick="changeMap('Underground', -200, 200, -137.5, 137.5)">Undergound</button>
 
 	</div>
 
@@ -169,7 +169,7 @@
 		
 		<div class="option-input">
 			<label>Sheet Page</label>
-			<input id="sheetPageInput" type="text" value="markers" />
+			<input id="sheetPageInput" type="text" value="surface" />
 		</div>
 
 
@@ -418,9 +418,11 @@
 
 			mapImage.remove();
 
-			mapImage =  L.imageOverlay(imageUrl = `src/images/maps/${mapName}.svg`, imageBounds= [[xA, yA],[xB, yB]]);
+			mapImage =  L.imageOverlay(imageUrl = `src/images/maps/map${mapName}.svg`, imageBounds= [[xA, yA],[xB, yB]]);
 
-			mapImage.addTo(map);
+			document.getElementById('sheetPageInput').value = mapName;
+
+			sheetExtract();
 		}
 
 		function placeMarkers() {
