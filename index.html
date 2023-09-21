@@ -413,7 +413,10 @@
 
 			document.querySelector('.leaflet-image-layer').style.opacity = 0;
 			
-			document.querySelectorAll('.leaflet-marker-icon').style.opacity = 0;
+			document.querySelectorAll('.leaflet-marker-icon').forEach((marker) => {
+       			marker.style.opacity = 0;
+    		});
+
 			
 
 			setTimeout(() => { 
