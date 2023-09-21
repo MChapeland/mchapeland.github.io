@@ -413,12 +413,8 @@
 
 			document.querySelector('.leaflet-image-layer').style.opacity = 0;
 			
-			map.eachLayer(function(layer){
-
-				if (layer !== mapImage) {
-					layer.remove();
-				} 
-			});
+			document.querySelectorAll('.leaflet-marker-icon').style.opacity = 0;
+			
 
 			setTimeout(() => { 
 
@@ -427,7 +423,7 @@
 				document.getElementById('sheetPageInput').value = mapName;
 				sheetExtract();
 
-			}, "250");
+			}, "150");
 
 		}
 
