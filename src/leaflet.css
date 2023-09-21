@@ -45,6 +45,21 @@
 	} 
 }
 
+.leaflet-image-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	transition: opacity 0.1s ease-in-out;
+	animation: fade 0.25s;
+}
+
+
+@keyframes fade { 
+	from { 
+		opacity: 0;
+	} 
+}
 
 
 /* cursors */
@@ -63,7 +78,6 @@
 .leaflet-pane > svg,
 .leaflet-pane > canvas,
 .leaflet-zoom-box,
-.leaflet-image-layer,
 .leaflet-layer {
 	position: absolute;
 	left: 0;
@@ -294,7 +308,6 @@ svg.leaflet-zoom-animated {
 }
 
 /* marker & overlays interactivity */
-.leaflet-image-layer,
 .leaflet-pane > svg path,
 .leaflet-tile-container {
 	pointer-events: none;

@@ -415,13 +415,20 @@
 
 		function changeMap(mapName, xA, xB, yA, yB){
 
-			mapImage.remove();
+			document.querySelector('.leaflet-image-layer').style.opacity = 0;
 
-			mapImage =  L.imageOverlay(imageUrl = `src/images/maps/map${mapName}.svg`, imageBounds= [[xA, yA],[xB, yB]]);
+			setTimeout(() => { 
+				
+				mapImage.remove(); 
+				mapImage =  L.imageOverlay(imageUrl = `src/images/maps/map${mapName}.svg`, imageBounds= [[xA, yA],[xB, yB]]);
+				document.getElementById('sheetPageInput').value = mapName;
+				sheetExtract();
 
-			document.getElementById('sheetPageInput').value = mapName;
+			}, "250");
 
-			sheetExtract();
+			
+
+			
 		}
 
 		function placeMarkers() {
