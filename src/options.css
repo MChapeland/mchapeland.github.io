@@ -11,8 +11,7 @@
 
     .refresh-button {
         background-color: #333333;
-        float: right;
-        width: 50%;
+        width: 100%;
         margin-top: -10%;
         height: 0;
         padding-top: 10%;
@@ -24,14 +23,21 @@
         align-items: center;
         cursor: pointer;
         overflow: hidden;
-        filter: brightness(70%);
+
+        &:hover {
+            filter: brightness(125%);
+        }
+        
+        &:active {
+            filter: brightness(70%);
+        }
         
 
         & label {
             color: #d1d3d4;
             font-size: 20px;
             cursor: pointer;
-            margin-top: 7%;
+            margin-top: 4%;
             text-transform: uppercase;
         }
     }
