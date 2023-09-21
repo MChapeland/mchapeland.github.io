@@ -167,6 +167,14 @@
 			</div>
 		</div>
 
+		<label>Sheet Url</label>
+		<input id="sheetUrlInput" type="text" placeholder="https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/" />
+
+		<label>Sheet Name</label>
+		<input id="sheetNameInput" type="text" placeholder="markers" />
+
+
+
 	</div>
 
 
@@ -189,9 +197,6 @@
 			[-200, -137.5],
 			[200, 137.5]
 		];
-
-		L.imageOverlay(imageUrl, imageBounds).addTo(map);
-
 
 		var BaseIcon = L.Icon.extend({
 			options: {
@@ -216,17 +221,16 @@
 		*/
 
 
-
-        // Data fetched from Google Sheets
-        const sheetName = 'markers';
-        const query = encodeURIComponent('Select *');
-        const url = `https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?&sheet=${sheetName}&tq=${query}`;
-		
+        var sheetName;
+		var sheetUrl;
 		var markersData = [];
 
+        const query = encodeURIComponent('Select *');
         document.addEventListener('DOMContentLoaded', sheetExtract);
 
         function sheetExtract() {
+			sheetName = document.getElementById('sheetNameInput').value.toLowerCase();
+			sheetUrl = `${document.getElementById('sheetUrlInput').value.toLowerCase()}gviz/tq?&sheet=${sheetName}&tq=${query}`
 
 			//Reset everything
 			map.eachLayer(function(layer){
