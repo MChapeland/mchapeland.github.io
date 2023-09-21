@@ -222,6 +222,8 @@
         const query = encodeURIComponent('Select *');
         const url = `https://docs.google.com/spreadsheets/d/1lB1RY3fwmw9k0t_M4vQt6z__ieHWX7frPUhjbey-9S0/gviz/tq?&sheet=${sheetName}&tq=${query}`;
 		
+		var markersData = [];
+
         document.addEventListener('DOMContentLoaded', sheetExtract);
 
         function sheetExtract() {
@@ -229,7 +231,7 @@
 			.then(res => res.text())
 			.then(rep => {
 				
-				var markersData = [];
+				markersData = [];
 
 				const refinedData = JSON.parse(rep.substr(47).slice(0, -2));
 
