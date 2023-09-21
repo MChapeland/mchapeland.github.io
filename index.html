@@ -145,9 +145,15 @@
 	<!-- Areas -->
 	<div class="tabs" id="Areas">
 
-		<button onclick="changeMap('Sky', -200, 200, -137.5, 137.5)">Sky</button>
-		<button onclick="changeMap('Surface', -200, 200, -137.5, 137.5)">Surface</button>
-		<button onclick="changeMap('Underground', -200, 200, -137.5, 137.5)">Undergound</button>
+		<div class="refresh-header">
+			<div class="refresh-button" onclick="changeMap('LandB', -200, 200, -137.5, 137.5)">
+				<label>Reset To Default Map</label>
+			</div>
+		</div>
+
+		<button onclick="changeMap('LandA', -200, 200, -137.5, 137.5)">Land A</button>
+		<button onclick="changeMap('LandB', -200, 200, -137.5, 137.5)">Land B</button>
+		<button onclick="changeMap('LandC', -200, 200, -137.5, 137.5)">Land C</button>
 
 	</div>
 
@@ -190,7 +196,7 @@
 		var map = L.map('map', { 'attributionControl': false, zoomControl: false, minZoom: 2, maxZoom: 6,}).setView([0, 0], 3);
 		
 
-		var mapImage =  L.imageOverlay(imageUrl = 'src/images/maps/mapSurface.svg', imageBounds= [[-200, -137.5],[200, 137.5]]);
+		var mapImage =  L.imageOverlay(imageUrl = 'src/images/maps/mapLandB.svg', imageBounds= [[-200, -137.5],[200, 137.5]]);
 		
 
 		var BaseIcon = L.Icon.extend({
