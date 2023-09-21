@@ -443,14 +443,7 @@
 
 				else if (window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) && !visible) {
 
-					window[`L_${obj.layer}-${obj.group}`].style.opacity = 0;
-					console.log("A");
-
-					setTimeout(() => { 
-						window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
-						console.log("B");
-					}, "150");
-
+					window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 				}
 
 			});
