@@ -28,14 +28,11 @@ function markerGroupVisibility(event, groupID, layerID) {
             layer.setOpacity(1);
         });
 
-        console.log(layerID);
-
         markersData.forEach((obj) => {
-            if (`MG_${obj.layer}-LG_${obj.group}` == layerID) {
+            if (`L_${obj.layer}-${obj.group}` == layerID) {
                 obj.hidden = false;
+                console.log(layerID);
             }
-
-            console.log(`MG_${obj.layer}-LG_${obj.group}`);
         });
 
         if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`${groupID}`).checked) {
@@ -52,17 +49,13 @@ function markerGroupVisibility(event, groupID, layerID) {
             layer.setOpacity(0);
         });
 
-        console.log(layerID);
-        
         markersData.forEach((obj) => {
-            if (`MG_${obj.layer}-LG_${obj.group}` == layerID) {
+            if (`L_${obj.layer}-${obj.group}` == layerID) {
                 obj.hidden = true;
+                console.log(layerID);
             }
-            console.log(`MG_${obj.layer}-LG_${obj.group}`);
         });
     }
-
-
 }
 
 function toggleViewLayers(event) {
