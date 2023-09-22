@@ -454,13 +454,13 @@
 					var max = 1;
 
 					setInterval(function(){
-						window[`L_${obj.layer}-${obj.group}`].opacity = max;
+						window[`M_${obj.name}-${obj.layer}-${obj.group}`].opacity = max;
 							max = max-0.5;
-					}, 1000);
+					}, 500);
 
 					setTimeout(() => { 
 						window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
-					}, 2000);
+					}, 1000);
 				}
 
 			});
