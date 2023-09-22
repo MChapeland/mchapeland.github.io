@@ -22,7 +22,9 @@ function layerGroupVisibility(event, groupID) {
 function markerGroupVisibility(event, groupID, layerID) {
     if (document.getElementById(`CB_${layerID}`).checked == true) {
 
-        window[`${layerID}`].addTo(map);
+        window[`${layerID}`].eachLayer(function (layer) {
+            layer.setOpacity(1);
+        });
 
         if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`${groupID}`).checked) {
             document.getElementById(`${groupID}`).checked = document.getElementById(`CB_${layerID}`).checked;
@@ -33,16 +35,10 @@ function markerGroupVisibility(event, groupID, layerID) {
         }
     }
     else {
-        var currentOpacity = 1;
-        
-        setInterval(() => {
-            currentOpacity = currentOpacity - 0.1;
-            window[`${layerID}`].setOpacity(currentOpacity);
-        }, 15);
 
-        setTimeout(() => {
-            window[`${layerID}`].removeFrom(map);
-        }, 150);
+        window[`${layerID}`].eachLayer(function (layer) {
+            layer.setOpacity(0);
+        });
     }
 
 
