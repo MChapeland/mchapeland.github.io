@@ -451,7 +451,7 @@
 
 				else if (window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) && !visible) {
 
-					window[`M_${obj.name}-${obj.layer}-${obj.group}`].opacity = 0;
+					window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(0);
 
 					setTimeout(() => { 
 						window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
