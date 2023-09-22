@@ -147,7 +147,7 @@
 
 		<div class="refresh-header">
 			<div class="refresh-button" onclick="changeMap('LandA', -200, 200, -137.5, 137.5)">
-				<label>Reset To Default Map</label>
+				<label>Reset</label>
 			</div>
 		</div>
 
@@ -452,7 +452,7 @@
 				else if (window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) && !visible) {
 
 					window[`L_${obj.layer}-${obj.group}`].opacity = 0;
-					
+
 					setTimeout(() => { 
 						window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 					}, "150");
