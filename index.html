@@ -238,11 +238,14 @@
 			
 			mapImage.addTo(map);
 
-			document.getElementById("Layers").querySelectorAll(".custom-layer-group").forEach((node) => {
-				document.getElementById("Layers").removeChild(node);
+			markersData.forEach((obj) => {
+				window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
+
+				if(markersData[markersData.length-1] === obj){
+					markersData = [];
+				}
 			});
 
-			markersData = [];
 
 
             fetch(sheetUrl)
