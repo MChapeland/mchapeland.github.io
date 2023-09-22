@@ -451,12 +451,7 @@
 
 				else if (window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]) && !visible) {
 
-					var max = 1;
-
-					setInterval(function(){
-						window[`M_${obj.name}-${obj.layer}-${obj.group}`].opacity = max;
-							max = max-0.5;
-					}, 500);
+					window[`M_${obj.name}-${obj.layer}-${obj.group}`].opacity = 0;
 
 					setTimeout(() => { 
 						window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
