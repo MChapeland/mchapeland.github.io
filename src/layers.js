@@ -31,7 +31,6 @@ function markerGroupVisibility(event, groupID, layerID) {
         markersData.forEach((obj) => {
             if (`L_${obj.layer}-${obj.group}` == layerID) {
                 obj.hidden = false;
-                console.log(layerID);
             }
         });
 
@@ -52,7 +51,6 @@ function markerGroupVisibility(event, groupID, layerID) {
         markersData.forEach((obj) => {
             if (`L_${obj.layer}-${obj.group}` == layerID) {
                 obj.hidden = true;
-                console.log(layerID);
             }
         });
     }
