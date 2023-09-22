@@ -239,14 +239,16 @@
 			mapImage.addTo(map);
 
 			markersData.forEach((obj) => {
-				window[`L_${obj.layer}-${obj.group}`].removeLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
+				window[`M_${obj.name}-${obj.layer}-${obj.group}`].remove();
 
 				if(markersData[markersData.length-1] === obj){
 					markersData = [];
 				}
 			});
 
-
+			document.getElementById("Layers").querySelectorAll(".custom-layer-group").forEach((node) => {
+				document.getElementById("Layers").removeChild(node);
+			});
 
             fetch(sheetUrl)
 			.then(res => res.text())
