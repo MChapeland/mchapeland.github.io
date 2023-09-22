@@ -70,3 +70,34 @@
     }
 
 }
+
+.button-holder{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+
+    & button {
+        font-family: "Share Tech", sans-serif;
+        background-color: #505050;
+        color: #d1d3d4;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 18px;
+        width: 45%;
+        padding: 5px;
+
+        &:hover {
+            filter: brightness(125%);
+        }
+        
+        &:active {
+            filter: brightness(70%);
+        }
+        
+    }
+}
