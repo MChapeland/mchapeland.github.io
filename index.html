@@ -213,17 +213,6 @@
 		
 
 
-		/*
-		var myLayer = L.layerGroup().addTo(map);
-
-		var myMarker = L
-			.marker([0, 0], { icon: new BaseIcon({ iconUrl: `src/images/markers/white/target.svg`}) })
-			.addTo(myLayer)
-			.bindTooltip("Name")
-		;
-		*/
-
-
         var sheetPage;
 		var sheetUrl;
 		var markersData = [];
@@ -270,6 +259,7 @@
 					storedMarker.icon = main.c[7].v;
 					storedMarker.description = main.c[8].v;
 					storedMarker.sheet = sheetPage;
+					storedMarker.hidden = false;
 
 					
 					var index = markersData.findIndex(x => x.name==`${storedMarker.name}` 
@@ -451,7 +441,7 @@
 
 				if (visible && !window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`])) {
 
-					window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(1);
+					obj.hidden = true ?  window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(0) : window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(1);
 
 					window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 				}

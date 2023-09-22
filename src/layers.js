@@ -20,10 +20,18 @@ function layerGroupVisibility(event, groupID) {
 }
 
 function markerGroupVisibility(event, groupID, layerID) {
+        
+
     if (document.getElementById(`CB_${layerID}`).checked == true) {
 
         window[`${layerID}`].eachLayer(function (layer) {
             layer.setOpacity(1);
+        });
+
+        markersData.forEach((obj) => {
+            if ( `MG_${obj.layer}-LG_${obj.group}` = layerID) {
+                obj.hidden = false;
+            }
         });
 
         if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`${groupID}`).checked) {
@@ -38,6 +46,12 @@ function markerGroupVisibility(event, groupID, layerID) {
 
         window[`${layerID}`].eachLayer(function (layer) {
             layer.setOpacity(0);
+        });
+
+        markersData.forEach((obj) => {
+            if ( `MG_${obj.layer}-LG_${obj.group}` = layerID) {
+                obj.hidden = true;
+            }
         });
     }
 
