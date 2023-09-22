@@ -441,7 +441,7 @@
 
 				if (visible && !window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`])) {
 
-					obj.hidden = true ?  window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(0) : window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(1);
+					obj.hidden == false ?  window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(1) : window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(0);
 
 					window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 				}
