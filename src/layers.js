@@ -33,7 +33,16 @@ function markerGroupVisibility(event, groupID, layerID) {
         }
     }
     else {
-        window[`${layerID}`].removeFrom(map);
+        var currentOpacity = 1;
+        
+        setInterval(() => {
+            currentOpacity = currentOpacity - 0.1;
+            window[`${layerID}`].setOpacity(currentOpacity);
+        }, 15);
+
+        setTimeout(() => {
+            window[`${layerID}`].removeFrom(map);
+        }, 150);
     }
 
 
