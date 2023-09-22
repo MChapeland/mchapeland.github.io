@@ -446,6 +446,8 @@
 
 				if (visible && !window[`L_${obj.layer}-${obj.group}`].hasLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`])) {
 
+					window[`M_${obj.name}-${obj.layer}-${obj.group}`].setOpacity(1);
+					
 					window[`L_${obj.layer}-${obj.group}`].addLayer(window[`M_${obj.name}-${obj.layer}-${obj.group}`]);
 				}
 
