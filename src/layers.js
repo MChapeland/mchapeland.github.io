@@ -29,9 +29,7 @@ function markerGroupVisibility(event, groupID, layerID) {
         });
 
         markersData.forEach((obj) => {
-            if ( `MG_${obj.layer}-LG_${obj.group}` = layerID) {
-                obj.hidden = false;
-            }
+            `MG_${obj.layer}-LG_${obj.group}` == layerID ? obj.hidden = false : obj.hidden = true ;
         });
 
         if (document.getElementById(`CB_${layerID}`).checked != document.getElementById(`${groupID}`).checked) {
@@ -49,9 +47,7 @@ function markerGroupVisibility(event, groupID, layerID) {
         });
 
         markersData.forEach((obj) => {
-            if ( `MG_${obj.layer}-LG_${obj.group}` = layerID) {
-                obj.hidden = true;
-            }
+            `MG_${obj.layer}-LG_${obj.group}` == layerID ? obj.hidden = true : obj.hidden = false ;
         });
     }
 
